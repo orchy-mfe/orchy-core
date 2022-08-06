@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "standard"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "settings": {},
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-console": 2,
+    "no-unused-vars": 2,
+    "object-curly-spacing": [
+      2,
+      "never"
+    ],
+    "operator-linebreak": [
+      2,
+      "after"
+    ]
+  }
+}
