@@ -1,2 +1,2 @@
 export * from './Configuration'
-export * from './microfrontend/Microfrontend'
+export * from './Microfrontend'
