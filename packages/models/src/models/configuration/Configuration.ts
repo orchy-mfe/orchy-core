@@ -1,5 +1,6 @@
 import { MicroFrontend } from './microfrontend/Microfrontend'
 
 export type Configuration = {
-  microFrontends: MicroFrontend[]
+  microFrontends: MicroFrontend[],
+  importMap?: Record<string, string>
 }
