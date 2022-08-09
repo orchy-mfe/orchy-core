@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "w:models": "pnpm --filter models"
+    "w:models": "pnpm --filter models",
+    "w:be": "pnpm --filter orchy-be"
   },
   "keywords": [],
   "author": "",
