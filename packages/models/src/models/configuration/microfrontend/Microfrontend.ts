@@ -1,6 +1,7 @@
 export type MicroFrontend = {
+  entryPoints: string[],
   id: string,
   route: string,
-  entryPoints: string[],
-  configuration?: string
+  pageConfiguration?: string,
+  properties?: Record<any, unknown>,
 }
