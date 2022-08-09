@@ -25,6 +25,7 @@
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.8",
     "@nestjs/platform-fastify": "^9.0.8",
+    "joi": "^17.6.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.6"
