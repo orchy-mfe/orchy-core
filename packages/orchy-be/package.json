@@ -1,74 +1,58 @@
 {
   "name": "orchy-be",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "description": "Backend repository for the Orchy project",
+  "type": "module",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check:types": "tsc --noEmit",
+    "build": "esbuild `find src \\( -name '*.ts' \\)` --platform=node --outdir=build --resolve-extensions=.js",
+    "start": "node build",
+    "dev": "nodemon | pino-pretty --colorize",
+    "pretest": "npm run build",
+    "test": "NODE_ENV=test tap",
+    "test:watch": "NODE_ENV=test tap -w"
   },
-  "dependencies": {
-    "@nestjs/common": "^9.0.8",
-    "@nestjs/config": "^2.2.0",
-    "@nestjs/core": "^9.0.8",
-    "@nestjs/platform-fastify": "^9.0.8",
-    "joi": "^17.6.0",
-    "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2",
-    "rxjs": "^7.5.6"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orchy-mfe/orchy-core.git"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "nodejs",
+    "fastify",
+    "typescript"
+  ],
+  "author": "Matteo Pietro Dazzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orchy-mfe/orchy-core/issues"
+  },
+  "homepage": "https://github.com/orchy-mfe/orchy-core#readme",
   "devDependencies": {
-    "@nestjs/cli": "^9.0.0",
-    "@nestjs/schematics": "^9.0.1",
-    "@nestjs/testing": "^9.0.8",
-    "@types/express": "^4.17.13",
-    "@types/jest": "28.1.6",
-    "@types/node": "^18.6.5",
-    "@types/supertest": "^2.0.12",
+    "@types/node": "^18.7.1",
+    "@types/tap": "^15.0.7",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
-    "eslint": "^8.0.1",
+    "esbuild": "^0.15.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "jest": "28.1.3",
+    "nodemon": "^2.0.19",
+    "pino-pretty": "^9.0.0",
     "prettier": "^2.7.1",
-    "source-map-support": "^0.5.21",
-    "supertest": "^6.2.4",
-    "ts-jest": "28.0.7",
-    "ts-loader": "^9.3.1",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "4.1.0",
-    "typescript": "^4.7.4",
-    "webpack": "^5.74.0"
+    "tap": "^16.3.0",
+    "typescript": "^4.7.4"
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+  "dependencies": {
+    "@sinclair/typebox": "^0.24.27",
+    "ajv": "^8.11.0",
+    "env-schema": "^5.0.0",
+    "fastify": "^4.4.0",
+    "fastify-now": "^3.0.0",
+    "fastify-plugin": "^4.1.0"
   }
 }
