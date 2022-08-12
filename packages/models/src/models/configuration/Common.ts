@@ -1,4 +1,4 @@
 export type Common = {
-    scripts?: string[],
     stylesheets?: string[],
+    importMap?: Record<string, string>
 }

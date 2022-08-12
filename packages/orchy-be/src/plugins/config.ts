@@ -12,6 +12,8 @@ const ConfigSchema = Type.Strict(
   })
 )
 
+export type Config = Static<typeof ConfigSchema>;
+
 const ajv = new Ajv({
   allErrors: true,
   removeAdditional: true,
@@ -19,8 +21,6 @@ const ajv = new Ajv({
   coerceTypes: true,
   allowUnionTypes: true,
 })
-
-export type Config = Static<typeof ConfigSchema>;
 
 const assertValidEnv = (valid: boolean, validate: ValidateFunction) => {
   if (!valid) {

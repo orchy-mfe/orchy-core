@@ -8,7 +8,7 @@ tap.only('Server', (t) => {
     t.rejects(buildServer)
   })
 
-  t.test('Reject for missing CONFIG_PATH env variable', async (t) => {
+  t.test('Resolve server creation', async (t) => {
     process.env.CONFIG_PATH = './'
     const server = await buildServer()
 
