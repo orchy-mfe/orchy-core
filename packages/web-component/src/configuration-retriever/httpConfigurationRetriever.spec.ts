@@ -1,10 +1,7 @@
-import chai, { expect, assert } from '@esm-bundle/chai'
-import chaiAsPromised from '@esm-bundle/chai-as-promised'
+import {describe, it, beforeAll, afterAll, expect} from 'vitest'
 import { Configuration } from '@orchy/models';
 
 import httpConfigurationRetriever from './httpConfigurationRetriever';
-
-chai.use(chaiAsPromised)
 
 const mockConfig: Configuration = {
   "microFrontends": [
@@ -34,23 +31,23 @@ describe('httpConfigurationRetriever', () => {
 
   let initialFetch = globalThis.fetch
   
-  before(() => {
+  beforeAll(() => {
     // @ts-ignore
     globalThis.fetch = (endpoint: string) => endpoint === '/api/v1/configuration/test-configuration.json'
-      ? Promise.resolve({ json: () => mockConfig }) : Promise.reject()
+      ? Promise.resolve({ json: () => mockConfig }) : Promise.reject(new Error('file not found'))
   })
 
-  after(() => {
+  afterAll(() => {
     globalThis.fetch = initialFetch
   })
 
   it('correctly return wanted configuration', async () => {
     const response = await httpConfigurationRetriever('test-configuration')
 
-    expect(response).to.deep.equal(mockConfig)
+    expect(response).toMatchObject(mockConfig)
   });
 
-  it('correctly reject for missing configuration', () => {
-    assert.isRejected(httpConfigurationRetriever('missing-configuration'))
+  it('correctly reject for missing configuration', async () => {
+    await expect(httpConfigurationRetriever('missing-configuration')).rejects.toThrow('file not found')
   });
 });
