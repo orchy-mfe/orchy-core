@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import httpConfigurationRetriever from './configuration-retriever/httpConfigurationRetriever';
+import httpConfigurationRetriever from './configuration-retriever/httpConfigurationRetriever'
 import configurationRegister from './configurationRegister'
 
 @customElement('orchy-wc')

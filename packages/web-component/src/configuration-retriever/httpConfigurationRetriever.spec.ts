@@ -1,7 +1,7 @@
 import {describe, it, beforeAll, afterAll, expect} from 'vitest'
-import { Configuration } from '@orchy/models';
+import { Configuration } from '@orchy/models'
 
-import httpConfigurationRetriever from './httpConfigurationRetriever';
+import httpConfigurationRetriever from './httpConfigurationRetriever'
 
 const mockConfig: Configuration = {
   "microFrontends": [
@@ -29,9 +29,10 @@ const mockConfig: Configuration = {
 
 describe('httpConfigurationRetriever', () => {
 
-  let initialFetch = globalThis.fetch
+  const initialFetch = globalThis.fetch
   
   beforeAll(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     globalThis.fetch = (endpoint: string) => endpoint === '/api/v1/configuration/test-configuration.json'
       ? Promise.resolve({ json: () => mockConfig }) : Promise.reject(new Error('file not found'))
@@ -45,9 +46,9 @@ describe('httpConfigurationRetriever', () => {
     const response = await httpConfigurationRetriever('test-configuration')
 
     expect(response).toMatchObject(mockConfig)
-  });
+  })
 
   it('correctly reject for missing configuration', async () => {
     await expect(httpConfigurationRetriever('missing-configuration')).rejects.toThrow('file not found')
-  });
-});
+  })
+})

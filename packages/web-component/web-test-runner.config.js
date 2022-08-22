@@ -1,5 +1,5 @@
-import { legacyPlugin } from '@web/dev-server-legacy';
-import { esbuildPlugin } from '@web/dev-server-esbuild';
+import { legacyPlugin } from '@web/dev-server-legacy'
+import { esbuildPlugin } from '@web/dev-server-esbuild'
 
 export default {
   plugins: [
@@ -18,4 +18,4 @@ export default {
       },
     }),
   ],
-};
+}
