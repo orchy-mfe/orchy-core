@@ -4,19 +4,18 @@ import { Configuration } from '@orchy/models'
 import httpConfigurationRetriever from './httpConfigurationRetriever'
 
 const mockConfig: Configuration = {
-  "microFrontends": [
-    {
-      "entryPoints": [
-        "https://test.com"
-      ],
-      "id": "microfrontend-test-1",
-      "route": "/route/load",
+  "microFrontends": {
+    "/route/load": {
       "pageConfiguration": "page-config-initial",
-      "properties": {
-        "mfName": "Name test"
-      }
+      "applications": [{
+        "entryPoint": "https://test.com",
+        "id": "microfrontend-test-1",
+        "properties": {
+          "mfName": "Name test"
+        }
+      }]
     }
-  ],
+  },
   "common": {
     "stylesheets": [
       "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
