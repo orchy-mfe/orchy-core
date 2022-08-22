@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "w:models": "pnpm --filter models",
-    "w:be": "pnpm --filter orchy-be",
-    "w:wc": "pnpm --filter orchy-wc"
+    "w:be": "pnpm --filter be",
+    "w:wc": "pnpm --filter wc"
   },
   "keywords": [],
   "author": "",
