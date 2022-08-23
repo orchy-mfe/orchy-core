@@ -8,6 +8,8 @@
     "w:models": "pnpm --filter models",
     "w:be": "pnpm --filter be",
     "w:wc": "pnpm --filter wc",
+    "lint": "npm-run-all -p 'w:models lint' 'w:be lint' 'w:wc lint'",
+    "lint:fix": "npm-run-all -p 'w:models lint:fix' 'w:be lint:fix' 'w:wc lint:fix'",
     "dev": "npm-run-all -p 'w:wc dev' 'w:be dev'"
   },
   "keywords": [],

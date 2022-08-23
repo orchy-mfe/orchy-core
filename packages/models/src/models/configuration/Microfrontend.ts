@@ -1,4 +1,4 @@
-type Properties = Record<any, unknown>
+type Properties = Record<string, unknown>
 
 export type Application = {
   container?: string,
