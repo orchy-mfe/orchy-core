@@ -1,8 +1,6 @@
-import { Configuration } from "@orchy/models"
-
 interface ConfigurationManager {
-    retrieveConfiguration: (configurationName: string) => Promise<Configuration>
-    abortRetrieve: () => void
+    retrieveConfiguration<T>(configurationName: string): Promise<T>
+    abortRetrieve(): void
 }
 
 export default ConfigurationManager
