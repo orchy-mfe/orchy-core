@@ -7,9 +7,13 @@
     "postinstall": "pnpm w:models build",
     "w:models": "pnpm --filter models",
     "w:be": "pnpm --filter be",
-    "w:wc": "pnpm --filter wc"
+    "w:wc": "pnpm --filter wc",
+    "dev": "npm-run-all -p 'w:wc dev' 'w:be dev'"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }

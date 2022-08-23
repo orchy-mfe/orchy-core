@@ -11,6 +11,11 @@ export default defineConfig({
       external: /^lit/
     }
   },
+  server: {
+    proxy: {
+      '/api': {target: 'http://localhost:3000'}
+    },
+  },
   test: {
     globals: true,
     environment: 'happy-dom',
