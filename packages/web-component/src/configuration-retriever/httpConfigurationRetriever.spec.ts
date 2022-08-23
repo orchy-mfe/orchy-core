@@ -8,7 +8,7 @@ const mockConfig: Configuration = {
     "/route/load": {
       "pageConfiguration": "page-config-initial",
       "applications": [{
-        "entryPoint": "https://test.com",
+        "entryPoint": "//localhost:3001",
         "id": "microfrontend-test-1",
         "properties": {
           "mfName": "Name test"

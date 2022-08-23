@@ -7,7 +7,7 @@ import configurationRegister from './configurationRegister'
 @customElement('orchy-wc')
 export class OrchyWC extends LitElement {
   @property()
-  configurationName = 'orchy-configuration'
+  configurationName = 'orchy-config'
 
   override connectedCallback(): void {
     super.connectedCallback()
