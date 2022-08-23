@@ -21,6 +21,7 @@ importers:
       eslint: ^8.21.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-unused-imports: ^2.0.0
       fastify: ^4.4.0
       fastify-now: ^3.0.0
       fastify-plugin: ^4.1.0
@@ -46,6 +47,7 @@ importers:
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       eslint-plugin-prettier: 4.2.1_h62lvancfh4b7r6zn2dgodrh5e
+      eslint-plugin-unused-imports: 2.0.0_5zab2assvbqyh2ax4mn5ulhvd4
       nodemon: 2.0.19
       pino-pretty: 9.0.0
       prettier: 2.7.1
@@ -73,6 +75,7 @@ importers:
       eslint: ^8.21.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-unused-imports: ^2.0.0
       happy-dom: ^6.0.4
       lit: ^2.3.1
       navigo: ^8.11.1
@@ -92,6 +95,7 @@ importers:
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       eslint-plugin-prettier: 4.2.1_h62lvancfh4b7r6zn2dgodrh5e
+      eslint-plugin-unused-imports: 2.0.0_5zab2assvbqyh2ax4mn5ulhvd4
       happy-dom: 6.0.4
       prettier: 2.7.1
       typescript: 4.7.4
@@ -1661,6 +1665,26 @@ packages:
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-unused-imports/2.0.0_5zab2assvbqyh2ax4mn5ulhvd4:
+    resolution: {integrity: sha512-3APeS/tQlTrFa167ThtP0Zm0vctjr4M44HMpeg1P4bK6wItarumq0Ma82xorMKdFsWpphQBlRPzw/pxiVELX1A==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^5.0.0
+      eslint: ^8.0.0
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 5.33.0_njno5y7ry2l2lcmiu4tywxkwnq
+      eslint: 8.21.0
+      eslint-rule-composer: 0.3.0
+    dev: true
+
+  /eslint-rule-composer/0.3.0:
+    resolution: {integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==}
+    engines: {node: '>=4.0.0'}
     dev: true
 
   /eslint-scope/5.1.1:
