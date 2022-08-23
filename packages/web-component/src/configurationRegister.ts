@@ -14,8 +14,7 @@ const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectTy
         container: application.container || container || throwError(application),
         props: {
             ...microFrontend.properties,
-            ...application.properties,
-            pageConfiguration: microFrontend.pageConfiguration
+            ...application.properties
         }
     }))
 }
