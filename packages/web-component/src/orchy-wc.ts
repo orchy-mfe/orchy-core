@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit'
+import Navigo from 'navigo'
 import { customElement, property } from 'lit/decorators.js'
 
 import httpConfigurationRetriever from './configuration-retriever/httpConfigurationRetriever'
@@ -9,10 +10,14 @@ export class OrchyWC extends LitElement {
   @property()
   configurationName = 'orchy-config'
 
+  @property()
+  basePath = '/'
+
   override connectedCallback(): void {
     super.connectedCallback()
+    const router = new Navigo(this.basePath)
     httpConfigurationRetriever(this.configurationName)
-      .then(configurationRegister)
+      .then((configuration) => configurationRegister(configuration, router))
   }
 
   render() {

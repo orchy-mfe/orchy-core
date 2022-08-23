@@ -23,6 +23,7 @@
   "dependencies": {
     "@orchy/models": "workspace:*",
     "lit": "^2.3.1",
+    "navigo": "^8.11.1",
     "qiankun": "^2.7.4"
   },
   "devDependencies": {
