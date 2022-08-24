@@ -7,11 +7,13 @@ import ConfigurationClient from './configuration-client/configurationClient'
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
 
+const defaultContainer = "root"
+
 const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolve({
     type: "element",
     tag: "div",
     attributes: {
-        "id": "root"
+        "id": defaultContainer
     }
 })
 
@@ -20,7 +22,7 @@ const throwError = (applications: Application) => {
 }
 
 const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectType>[] => {
-    const container = microFrontend.applications.length == 1 ? '#defaultContainer' : undefined
+    const container = microFrontend.applications.length == 1 ? `#${defaultContainer}` : undefined
     return microFrontend.applications.map((application: Application) => ({
         name: application.id,
         entry: application.entryPoint,
