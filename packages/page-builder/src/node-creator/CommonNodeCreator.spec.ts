@@ -57,4 +57,25 @@ describe("CommonNodeCreator", () => {
         expect(createdNode.toString()).toEqual('<div></div>')
         expect(createdNode['foo']).toEqual('goofy')
     })
+
+    it("correctly apply both attributes and properties", () => {
+        const pageCreator = createPage({
+            attributes: {
+                id: 'root',
+                style: 'color:red'
+            },
+            properties: {
+                foo: 'goofy'
+            }
+        })
+
+        const createdNode = pageCreator.create()
+
+        expect(createdNode.toString()).toEqual('<div id="root" style="color:red"></div>')
+        expect(createdNode.style.toString()).toEqual({
+            0: 'color',
+        }.toString())
+        expect(createdNode.id).toEqual('root')
+        expect(createdNode.foo).toEqual('goofy')
+    })
 })
