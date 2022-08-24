@@ -1,16 +1,16 @@
 import { ElementPageConfiguration } from "@orchy/models"
 import { ReplaySubject } from "rxjs"
 
-import CommonPageCreator from "./CommonPageCreator"
+import CommonNodeCreator from "./CommonNodeCreator"
 
-class ElementPageCreator extends CommonPageCreator {
+class ElementNodeCreator extends CommonNodeCreator {
 
     currentNode: HTMLElement
 
     private static eventBus = new ReplaySubject<unknown>()
 
     constructor(private elementConfiguration: ElementPageConfiguration) {
-        super({ ...elementConfiguration, properties: { ...elementConfiguration.properties, eventBus: ElementPageCreator.eventBus } })
+        super({ ...elementConfiguration, properties: { ...elementConfiguration.properties, eventBus: ElementNodeCreator.eventBus } })
         this.currentNode = document.createElement(elementConfiguration.tag)
     }
 
@@ -25,7 +25,7 @@ class ElementPageCreator extends CommonPageCreator {
             if (isEsmUrl) {
                 import(this.elementConfiguration.url)
             } else {
-                const scriptCreator = new ElementPageCreator({ attributes: { src: this.elementConfiguration.url }, type: 'element', tag: 'script' })
+                const scriptCreator = new ElementNodeCreator({ attributes: { src: this.elementConfiguration.url }, type: 'element', tag: 'script' })
                 document.head.appendChild(scriptCreator.create())
             }
         }
@@ -33,4 +33,4 @@ class ElementPageCreator extends CommonPageCreator {
 
 }
 
-export default ElementPageCreator
+export default ElementNodeCreator

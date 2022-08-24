@@ -1,6 +1,6 @@
 import { CommonPageConfiguration } from "@orchy/models"
 
-abstract class CommonPageCreator {
+abstract class CommonNodeCreator {
     constructor(private configuration: CommonPageConfiguration) { }
 
     public create(): HTMLElement {
@@ -29,4 +29,4 @@ abstract class CommonPageCreator {
     abstract get currentNode(): HTMLElement
 }
 
-export default CommonPageCreator
+export default CommonNodeCreator

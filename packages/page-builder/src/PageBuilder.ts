@@ -1,15 +1,15 @@
 import { PageConfiguration } from '@orchy/models'
 
-import ElementPageCreator from './node-creator/ElementPageCreator'
-import ImpaginatorPageCreator from './node-creator/ImpaginatorPageCreator'
+import ElementNodeCreator from './node-creator/ElementNodeCreator'
+import ImpaginationNodeCreator from './node-creator/ImpaginationNodeCreator'
 
 const createNode = (configuration: PageConfiguration): HTMLElement => {
     switch (configuration.type) {
         case 'element':
-            return new ElementPageCreator(configuration).create()
+            return new ElementNodeCreator(configuration).create()
         case 'flex-column':
         case 'flex-row':
-            return new ImpaginatorPageCreator(configuration).create()
+            return new ImpaginationNodeCreator(configuration).create()
     }
 }
 

@@ -1,13 +1,14 @@
 import { CommonPageConfiguration } from '@orchy/models'
 import {describe, it, expect} from 'vitest'
-import CommonPageCreator from './CommonPageCreator'
 
-describe("CommonPageCreator", () => {
+import CommonNodeCreator from './CommonNodeCreator'
+
+describe("CommonNodeCreator", () => {
 
     const createPage = (configuration: CommonPageConfiguration) => {
         // eslint-disable-next-line
         // @ts-ignore
-        const commonPageCreator = new CommonPageCreator(configuration)
+        const commonPageCreator = new CommonNodeCreator(configuration)
         commonPageCreator.currentNode = document.createElement("div")
 
         return commonPageCreator

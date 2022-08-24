@@ -1,8 +1,8 @@
 import { ImpaginationPageConfiguration } from "@orchy/models"
 
-import CommonPageCreator from "./CommonPageCreator"
+import CommonNodeCreator from "./CommonNodeCreator"
 
-class ImpaginatorPageCreator extends CommonPageCreator {
+class ImpaginationNodeCreator extends CommonNodeCreator {
 
     currentNode: HTMLElement
 
@@ -14,9 +14,9 @@ class ImpaginatorPageCreator extends CommonPageCreator {
     constructor(configuration: ImpaginationPageConfiguration) {
         super(configuration)
         this.currentNode = document.createElement('div')
-        this.currentNode.setAttribute('style', ImpaginatorPageCreator.stylesByType[configuration.type])
+        this.currentNode.setAttribute('style', ImpaginationNodeCreator.stylesByType[configuration.type])
     }
     
 }
 
-export default ImpaginatorPageCreator
+export default ImpaginationNodeCreator
