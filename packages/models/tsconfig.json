@@ -22,7 +22,8 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "emitDeclarationOnly": true
   },
   "include": [
     "src"

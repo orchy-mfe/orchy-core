@@ -13,7 +13,7 @@ const createNode = (configuration: PageConfiguration): HTMLElement => {
     }
 }
 
-const pageBuilder = (
+export const pageBuilder = (
     configurations: PageConfiguration[],
     root: HTMLElement = document.createElement('div')
 ): HTMLElement => {
@@ -24,5 +24,3 @@ const pageBuilder = (
     })
     return root
 }
-
-export default pageBuilder
