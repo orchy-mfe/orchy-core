@@ -6,6 +6,7 @@
       "ESNext",
       "ES6"
     ],
+    "target": "ESNext",
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./src",
