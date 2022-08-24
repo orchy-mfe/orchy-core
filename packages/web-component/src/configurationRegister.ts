@@ -1,6 +1,19 @@
-import { Application, Configuration, MicroFrontend } from '@orchy/models'
+import { Application, Configuration, MicroFrontend, PageConfiguration } from '@orchy/models'
+import {pageBuilder} from '@orchy/page-builder'
 import Navigo from 'navigo'
 import { ObjectType, LoadableApp, loadMicroApp } from 'qiankun'
+import ConfigurationClient from './configuration-client/configurationClient'
+
+type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
+type setPageContent = (htmlElement: HTMLElement) => void
+
+const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolve({
+    type: "element",
+    tag: "div",
+    attributes: {
+        "id": "root"
+    }
+})
 
 const throwError = (applications: Application) => {
     throw new Error(`Invalid container configuration for application id ${applications.id}`)
@@ -19,15 +32,25 @@ const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectTy
     }))
 }
 
-const registerRoutes = (router: Navigo) => ([route, microFrontend]: [string, MicroFrontend]) => {
+const registerRoutes = (client: ConfigurationClient, setPageContent: setPageContent, router: Navigo) => ([route, microFrontend]: [string, MicroFrontend]) => {
     const mappedMicroFrontends = microfrontendMapper(microFrontend)
     router.on(route, () => {
-        mappedMicroFrontends.forEach(microFrontend => loadMicroApp(microFrontend))
+        client.abortRetrieve()
+
+        const configurationPromise = microFrontend.pageConfiguration ?
+            client.retrieveConfiguration<PageConfiguration>(microFrontend.pageConfiguration)
+            : singleMfeConfigurationPromise
+
+        configurationPromise
+            .then(pageConfiguration => pageBuilder([pageConfiguration]))
+            .then(setPageContent)
+            .then(() => mappedMicroFrontends.forEach(microFrontend => loadMicroApp(microFrontend)))
     })
 }
 
-const configurationRegister = (configuration: Configuration, router: Navigo) => {
-    Object.entries(configuration.microFrontends).forEach(registerRoutes(router))
+const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
+    const routesRegister = registerRoutes(configuration.client, setPageContent, router)
+    Object.entries(configuration.content.microFrontends).forEach(routesRegister)
 
     router.resolve()
 }

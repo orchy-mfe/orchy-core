@@ -2,12 +2,10 @@
   "name": "@orchy/models",
   "version": "0.0.1",
   "description": "Shared models of orchy",
-  "module": "dist/core.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=16"

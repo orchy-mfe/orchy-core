@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "pnpm w:models build",
+    "postinstall": "npm-run-all 'w:models build' 'w:pb build'",
     "w:models": "pnpm --filter models",
     "w:be": "pnpm --filter be",
     "w:wc": "pnpm --filter wc",

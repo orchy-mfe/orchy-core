@@ -103,6 +103,7 @@ importers:
   packages/web-component:
     specifiers:
       '@orchy/models': workspace:*
+      '@orchy/page-builder': workspace:*
       '@typescript-eslint/eslint-plugin': ^5.33.0
       '@typescript-eslint/parser': ^5.33.0
       eslint: ^8.21.0
@@ -119,6 +120,7 @@ importers:
       vitest: ^0.22.1
     dependencies:
       '@orchy/models': link:../models
+      '@orchy/page-builder': link:../page-builder
       lit: 2.3.1
       navigo: 8.11.1
       qiankun: 2.7.4
