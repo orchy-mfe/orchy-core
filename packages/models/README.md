@@ -11,3 +11,4 @@ The root directory for the business logic is `src`.
 Inside `src` there is the `models` folder, where the models are divided by purpose:
 
 - `configuration`: the models about `orchy` configuration;
+- `pageConfiguration`: the models about `page-builder` configuration;

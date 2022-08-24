@@ -1,8 +1,8 @@
 {
-  "name": "@orchy/models",
+  "name": "@orchy/page-builder",
   "version": "0.0.1",
-  "description": "Shared models of orchy",
-  "module": "dist/core.esm.js",
+  "description": "Build page nodes based on specific configuration",
+  "module": "dist/page-builder.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -17,6 +17,9 @@
     "lint": "eslint src --ext .ts",
     "lint:fix": "pnpm run lint --fix",
     "dev": "tsc -p tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@orchy/models": "workspace:*"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.0",
