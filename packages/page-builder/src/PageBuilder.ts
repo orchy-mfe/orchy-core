@@ -24,3 +24,5 @@ const pageBuilder = (
     })
     return root
 }
+
+export default pageBuilder
