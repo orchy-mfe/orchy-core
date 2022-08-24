@@ -1,8 +1,8 @@
-import ConfigurationManager from './configurationManager'
+import ConfigurationClient from './configurationClient'
 
 const CONFIGURATION_API = '/api/v1/configuration'
 
-class HttpConfigurationManager implements ConfigurationManager {
+class HttpConfigurationClient implements ConfigurationClient {
 
     private abortController = new AbortController()
 
@@ -17,4 +17,4 @@ class HttpConfigurationManager implements ConfigurationManager {
     }
 }
 
-export default HttpConfigurationManager
+export default HttpConfigurationClient

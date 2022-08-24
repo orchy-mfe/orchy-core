@@ -4,8 +4,8 @@ import { customElement, property } from 'lit/decorators.js'
 import { Configuration } from '@orchy/models'
 
 import configurationRegister from './configurationRegister'
-import ConfigurationManager from './configuration-manager/configurationManager'
-import HttpConfigurationManager from './configuration-manager/httpConfigurationManager'
+import ConfigurationClient from './configuration-client/configurationClient'
+import HttpConfigurationClient from './configuration-client/httpConfigurationClient'
 
 @customElement('orchy-wc')
 export class OrchyWC extends LitElement {
@@ -15,7 +15,7 @@ export class OrchyWC extends LitElement {
   @property()
   basePath = '/'
 
-  private configurationManager: ConfigurationManager = new HttpConfigurationManager()
+  private configurationManager: ConfigurationClient = new HttpConfigurationClient()
 
   override connectedCallback(): void {
     super.connectedCallback()

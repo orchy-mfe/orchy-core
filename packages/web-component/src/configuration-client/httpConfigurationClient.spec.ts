@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { Configuration } from '@orchy/models'
 
-import HttpConfigurationManager from './httpConfigurationManager'
+import HttpConfigurationClient from './httpConfigurationClient'
 
 const mockConfig: Configuration = {
   "microFrontends": {
@@ -28,7 +28,7 @@ const mockConfig: Configuration = {
 
 describe('httpConfigurationRetriever', () => {
 
-  const httpConfigurationManager = new HttpConfigurationManager()
+  const httpConfigurationManager = new HttpConfigurationClient()
   const fetchOptions = { signal: new AbortController().signal }
 
   afterEach(() => {
