@@ -6,7 +6,7 @@ import HttpConfigurationClient from './httpConfigurationClient'
 const mockConfig: Configuration = {
   "microFrontends": {
     "/route/load": {
-      "pageConfiguration": "page-config-initial",
+      "pageConfiguration": "page-config",
       "applications": [{
         "entryPoint": "//localhost:3001",
         "id": "microfrontend-test-1",
