@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src --ext .ts",
-    "lint:fix": "pnpm run lint --fix",
+    "lint:fix": "pnpm lint --fix",
     "dev": "tsc -p tsconfig.json --watch"
   },
   "devDependencies": {

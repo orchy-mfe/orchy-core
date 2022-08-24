@@ -16,9 +16,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest",
-    "coverage": "pnpm run test --coverage",
+    "coverage": "pnpm test --coverage",
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint --fix"
+    "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
     "@orchy/models": "workspace:*",
