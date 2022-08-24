@@ -8,4 +8,7 @@ export default defineConfig({
             name: 'PageBuilder'
         }
     },
+    test: {
+        environment: 'happy-dom',
+    },
 })

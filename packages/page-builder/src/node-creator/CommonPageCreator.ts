@@ -12,8 +12,8 @@ abstract class CommonPageCreator {
     private applyAttributes() {
         Object.entries(this.configuration.attributes || {})
             .forEach(([key, value]) => {
-                const currentAttribute = this.currentNode.getAttribute(key)
-                this.currentNode.setAttribute(key, `${currentAttribute}; ${value || ''}`)
+                const attributesToAppend = [this.currentNode.getAttribute(key), value].filter(Boolean).join(';') 
+                this.currentNode.setAttribute(key, attributesToAppend)
             })
     }
 
