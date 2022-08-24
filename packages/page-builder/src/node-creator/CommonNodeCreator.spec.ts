@@ -14,6 +14,15 @@ describe("CommonNodeCreator", () => {
         return commonPageCreator
     }
 
+    it("correctly doest nothing", () => {
+        const pageCreator = createPage({})
+
+        const createdNode = pageCreator.create()
+
+        expect(createdNode.toString()).toEqual('<div></div>')
+        expect(createdNode.getAttributeNames()).toMatchObject([])
+    })
+
     it("correctly apply not existing attribute", () => {
         const pageCreator = createPage({
             attributes: {
