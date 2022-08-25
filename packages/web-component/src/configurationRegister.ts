@@ -2,7 +2,10 @@ import { Application, Configuration, MicroFrontend, PageConfiguration } from '@o
 import {pageBuilder} from '@orchy/page-builder'
 import Navigo from 'navigo'
 import { ObjectType, LoadableApp, loadMicroApp } from 'qiankun'
+import { Subject } from 'rxjs'
+
 import ConfigurationClient from './configuration-client/configurationClient'
+import EventBusSubject from './event-bus/EventBusSubject'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
@@ -17,6 +20,8 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
     }
 })
 
+const eventBus: Subject<unknown> = new EventBusSubject()
+
 const throwError = (applications: Application) => {
     throw new Error(`Invalid container configuration for application id ${applications.id}`)
 }
@@ -29,7 +34,8 @@ const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectTy
         container: application.container || container || throwError(application),
         props: {
             ...microFrontend.properties,
-            ...application.properties
+            ...application.properties,
+            eventBus
         }
     }))
 }
