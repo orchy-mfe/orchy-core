@@ -1,22 +1,24 @@
 {
-    "microFrontends": {
-      "/route/load": {
-        "pageConfiguration": "page-config",
-        "applications": [{
+  "microFrontends": {
+    "/route/load": {
+      "pageConfiguration": "page-config",
+      "applications": [
+        {
           "entryPoint": "//localhost:3001",
           "id": "microfrontend-test-1",
           "properties": {
             "mfName": "Name test"
           }
-        }]
-      }
-    },
-    "common": {
-      "stylesheets": [
-        "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      ],
-      "importMap": {
-        "lodash": "https://unpkg.com/lodash@4.17.21/lodash.js"
-      }
+        }
+      ]
+    }
+  },
+  "common": {
+    "stylesheets": [
+      "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    ],
+    "importMap": {
+      "lodash": "https://unpkg.com/lodash@4.17.21/lodash.js"
     }
   }
+}

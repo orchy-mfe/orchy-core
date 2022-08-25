@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, afterEach } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { Configuration } from '@orchy/models'
 
 import HttpConfigurationClient from './httpConfigurationClient'
@@ -30,10 +30,6 @@ describe('httpConfigurationRetriever', () => {
 
   const httpConfigurationManager = new HttpConfigurationClient()
   const fetchOptions = { signal: new AbortController().signal }
-
-  afterEach(() => {
-    vi.resetAllMocks()
-  })
 
   it('correctly return wanted configuration', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
