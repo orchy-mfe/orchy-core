@@ -7,6 +7,9 @@ describe("PageBuilder", () => {
 
         const pageBuilt = pageBuilder([{
             type: 'flex-column',
+            attributes: {
+                id: 'column'
+            },
             content: [{
                 type: 'element',
                 tag: 'foo-wc',
@@ -16,7 +19,8 @@ describe("PageBuilder", () => {
             }]
         }])
 
-        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column"><foo-wc id="wc"></foo-wc></div></div>')
-
+        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc"></foo-wc></div></div>')
+        expect(pageBuilt.querySelector("foo-wc")?.eventBus).toBeDefined()
+        expect(pageBuilt.querySelector("#column")?.eventBus).not.toBeDefined()
     })
 })
