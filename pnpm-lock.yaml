@@ -22,7 +22,7 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-unused-imports: ^2.0.0
-      fastify: ^4.4.0
+      fastify: ^4.5.3
       fastify-now: ^3.0.0
       fastify-plugin: ^4.1.0
       nodemon: ^2.0.19
@@ -35,7 +35,7 @@ importers:
       '@sinclair/typebox': 0.24.28
       ajv: 8.11.0
       env-schema: 5.0.0
-      fastify: 4.4.0
+      fastify: 4.5.3
       fastify-now: 3.0.0
       fastify-plugin: 4.1.0
     devDependencies:
@@ -1921,7 +1921,7 @@ packages:
     resolution: {integrity: sha512-6fpyN0Jy9WdOFe9nPE/Lbq+V4/DjM4NFyDvR/Z5E/E+tnXYIBfEKypGXE64dDApqDNTBcBbb8+5VIigj8RK0lQ==}
     engines: {node: '>=12.x.x'}
     dependencies:
-      fastify: 4.4.0
+      fastify: 4.5.3
       fastify-plugin: 3.0.1
     transitivePeerDependencies:
       - supports-color
@@ -1935,8 +1935,8 @@ packages:
     resolution: {integrity: sha512-Mf6lkbxHtFgI4sVaC0P/7sqlBvdpoyEUaOCD0cyKpqxjsdN+3EdD/FfSHByb7uXqxYu/DilH9Lb6mTCumN9TQQ==}
     dev: false
 
-  /fastify/4.4.0:
-    resolution: {integrity: sha512-ePI4g9vPJXIBF4YlVcDSLxjvtdTrlM8QzdgYAPFGdCH+rot+4MXoFFAUb10fGrIcRRjaq6CvcbIzxiWQzMMHkw==}
+  /fastify/4.5.3:
+    resolution: {integrity: sha512-Q8Zvkmg7GnioMCDX1jT2Q7iRqjywlnDZ1735D2Ipf7ashCM/3/bqPKv2Jo1ZF2iDExct2eP1C/tdhcj0GG/OuQ==}
     dependencies:
       '@fastify/ajv-compiler': 3.1.2
       '@fastify/error': 3.0.0
@@ -1944,7 +1944,7 @@ packages:
       abstract-logging: 2.0.1
       avvio: 8.2.0
       find-my-way: 7.0.1
-      light-my-request: 5.3.0
+      light-my-request: 5.5.1
       pino: 8.4.0
       process-warning: 2.0.0
       proxy-addr: 2.0.7
@@ -2637,8 +2637,8 @@ packages:
       trivial-deferred: 1.0.1
     dev: true
 
-  /light-my-request/5.3.0:
-    resolution: {integrity: sha512-AdBNkWTD+CnFYGa6lCowLU0DMNBelq58vQXl1jWOvbMsMVzZzJyN5K94VOI2EhqLtskJNUi2ALgI8KNmXl+74A==}
+  /light-my-request/5.5.1:
+    resolution: {integrity: sha512-Zd4oZjF7axSyc5rYQsbB0qsgY4LFFviZSbEywxf7Vi5UE3y3c7tYF/GeheQjBNYY+pQ55BF8UGGJTjneoxOS1w==}
     dependencies:
       cookie: 0.5.0
       process-warning: 2.0.0
