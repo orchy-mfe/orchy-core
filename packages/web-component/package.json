@@ -25,7 +25,7 @@
     "@orchy/page-builder": "workspace:*",
     "lit": "^2.3.1",
     "navigo": "^8.11.1",
-    "qiankun": "^2.7.4",
+    "qiankun": "^2.7.5",
     "rxjs": "^7.5.6"
   },
   "devDependencies": {
