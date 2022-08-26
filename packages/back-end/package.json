@@ -55,7 +55,7 @@
     "@sinclair/typebox": "^0.24.27",
     "ajv": "^8.11.0",
     "env-schema": "^5.0.0",
-    "fastify": "^4.4.0",
+    "fastify": "^4.5.3",
     "fastify-now": "^3.0.0",
     "fastify-plugin": "^4.1.0"
   }
