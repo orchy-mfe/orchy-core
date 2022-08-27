@@ -5,6 +5,7 @@ import { ObjectType, LoadableApp, loadMicroApp } from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'
+import installImportMaps from './importMap'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
@@ -58,6 +59,7 @@ const registerRoutes = (client: ConfigurationClient, setPageContent: setPageCont
 }
 
 const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
+    installImportMaps(configuration.content)
     const routesRegister = registerRoutes(configuration.client, setPageContent, router)
     Object.entries(configuration.content.microFrontends).forEach(routesRegister)
 
