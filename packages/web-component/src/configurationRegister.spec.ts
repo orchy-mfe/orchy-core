@@ -377,6 +377,40 @@ describe("configurationRegister", () => {
         }
         const setPageContent = vi.fn()
 
+        const checkFirstRoute = async () => {
+            expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
+
+            await waitFor()
+
+            expect(setPageContent).toHaveBeenCalledTimes(1)
+            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+
+            expect(loadMicroApp).toHaveBeenCalledTimes(1)
+            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+                name: 'microfrontend-test-1',
+                entry: '//localhost:3001',
+                container: '#root'
+            }))
+            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+        }
+
+        const checkSecondRoute = async (calledTimes) => {
+            expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(calledTimes)
+
+            await waitFor()
+
+            expect(setPageContent).toHaveBeenCalledTimes(calledTimes)
+            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+
+            expect(loadMicroApp).toHaveBeenCalledTimes(calledTimes)
+            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+                name: 'microfrontend-test-2',
+                entry: '//localhost:3002',
+                container: '#root'
+            }))
+            expect(loadMicroApp.mock.calls[calledTimes - 1][0].props.eventBus).toBeDefined()
+        }
+
         it("correctly register configuration", () => {
             const setPageContent = vi.fn()
             expect(
@@ -391,21 +425,7 @@ describe("configurationRegister", () => {
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                        name: 'microfrontend-test-1',
-                        entry: '//localhost:3001',
-                        container: '#root'
-                    }))
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-
+                    await checkFirstRoute()
                     resolve()
                 }
             })
@@ -420,21 +440,7 @@ describe("configurationRegister", () => {
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                        name: 'microfrontend-test-2',
-                        entry: '//localhost:3002',
-                        container: '#root'
-                    }))
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-
+                    await checkSecondRoute(1)
                     resolve()
                 }
             })
@@ -450,38 +456,12 @@ describe("configurationRegister", () => {
             router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
-                        expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
+                        await checkFirstRoute()
 
-                        await waitFor()
-
-                        expect(setPageContent).toHaveBeenCalledTimes(1)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                        expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                        expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                            name: 'microfrontend-test-1',
-                            entry: '//localhost:3001',
-                            container: '#root'
-                        }))
-                        expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-                        window.location.href = '/route/alternative'
                         router.navigate('/route/alternative')
                     }
                     else if (match.url === 'route/alternative') {
-                        expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(2)
-
-                        await waitFor()
-
-                        expect(setPageContent).toHaveBeenCalledTimes(2)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                        expect(loadMicroApp).toHaveBeenCalledTimes(2)
-                        expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                            name: 'microfrontend-test-2',
-                            entry: '//localhost:3002',
-                            container: '#root'
-                        }))
-                        expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
+                        await checkSecondRoute(2)
 
                         resolve()
                     }
