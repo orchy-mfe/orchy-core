@@ -195,12 +195,37 @@ describe("configurationRegister", () => {
                 }
             })
 
+        const setPageContent = vi.fn()
+
+        const makeChecks = async (configuration) => {
+            expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
+
+            await waitFor()
+
+            expect(setPageContent).toHaveBeenCalledTimes(1)
+            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+
+            expect(loadMicroApp).toHaveBeenCalledTimes(2)
+            expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
+                name: 'microfrontend-test-1',
+                entry: '//localhost:3001',
+                container: 'container1'
+            }))
+            expect(loadMicroApp).toHaveBeenNthCalledWith(2, expect.objectContaining({
+                name: 'microfrontend-test-2',
+                entry: '//localhost:3001',
+                container: 'container2'
+            }))
+
+            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+            expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
+        }
+
         it("correctly reject for missing first container", () => {
             const configuration = {
                 content: testConfigurationBuilder(),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
             ).toThrow(new Error(`Invalid container configuration for application id microfrontend-test-1`))
@@ -211,7 +236,6 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('container1'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
             ).toThrow(new Error(`Invalid container configuration for application id microfrontend-test-2`))
@@ -222,34 +246,13 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('container1', 'container2'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(2)
-                    expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
-                        name: 'microfrontend-test-1',
-                        entry: '//localhost:3001',
-                        container: 'container1'
-                    }))
-                    expect(loadMicroApp).toHaveBeenNthCalledWith(2, expect.objectContaining({
-                        name: 'microfrontend-test-2',
-                        entry: '//localhost:3001',
-                        container: 'container2'
-                    }))
-
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-                    expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
+                    await makeChecks(configuration)
 
                     resolve()
                 }
@@ -263,34 +266,13 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('container1', 'container2'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
 
             const router = new Navigo('/')
 
             router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
-                        expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                        await waitFor()
-
-                        expect(setPageContent).toHaveBeenCalledTimes(1)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                        expect(loadMicroApp).toHaveBeenCalledTimes(2)
-                        expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
-                            name: 'microfrontend-test-1',
-                            entry: '//localhost:3001',
-                            container: 'container1'
-                        }))
-                        expect(loadMicroApp).toHaveBeenNthCalledWith(2, expect.objectContaining({
-                            name: 'microfrontend-test-2',
-                            entry: '//localhost:3001',
-                            container: 'container2'
-                        }))
-
-                        expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-                        expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
+                        await makeChecks(configuration)
 
                         resolve()
                     }
