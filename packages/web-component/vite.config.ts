@@ -7,9 +7,6 @@ export default defineConfig({
       entry: 'src/orchy-wc.ts',
       formats: ['es']
     },
-    rollupOptions: {
-      external: /^lit/
-    }
   },
   server: {
     proxy: {
