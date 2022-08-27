@@ -17,4 +17,7 @@ export default defineConfig({
     environment: 'happy-dom',
     mockReset: true
   },
+  define: {
+    'process.env': process.env
+  }
 })
