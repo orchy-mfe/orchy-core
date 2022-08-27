@@ -16,7 +16,8 @@
     "lint": "eslint src --ext .ts",
     "lint:fix": "pnpm lint --fix",
     "dev": "pnpm build --watch",
-    "test": "vitest"
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@orchy/models": "workspace:*",
