@@ -53,6 +53,26 @@ describe("configurationRegister", () => {
             }
         })
 
+        const setPageContent = vi.fn()
+
+        const makeChecks = async (configuration, container = 'testPageConfiguration') => {
+            expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
+
+            await waitFor()
+
+            expect(setPageContent).toHaveBeenCalledTimes(1)
+            expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><div id="${container}"></div></div>`)
+
+            expect(loadMicroApp).toHaveBeenCalledTimes(1)
+            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+                name: 'microfrontend-test-1',
+                entry: '//localhost:3001',
+                container: '#root'
+            }))
+            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+
+        }
+
         it("correctly register configuration", () => {
             const configuration = {
                 content: testConfigurationBuilder('page-configuration'),
@@ -69,28 +89,13 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                        name: 'microfrontend-test-1',
-                        entry: '//localhost:3001',
-                        container: '#root'
-                    }))
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-
+                    await makeChecks(configuration)
                     resolve()
                 }
             })
@@ -103,27 +108,12 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
-
             const router = new Navigo('/')
 
             router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
-                        expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                        await waitFor()
-
-                        expect(setPageContent).toHaveBeenCalledTimes(1)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                        expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                        expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                            name: 'microfrontend-test-1',
-                            entry: '//localhost:3001',
-                            container: '#root'
-                        }))
-                        expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+                        await makeChecks(configuration)
 
                         resolve()
                     }
@@ -140,27 +130,13 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('page-configuration', '#custom-container'),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                        name: 'microfrontend-test-1',
-                        entry: '//localhost:3001',
-                        container: '#root'
-                    }))
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+                    await makeChecks(configuration)
 
                     resolve()
                 }
@@ -174,27 +150,13 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder(),
                 client: new TestClient()
             }
-            const setPageContent = vi.fn()
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
 
             router.hooks({
                 async after() {
-                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
-
-                    await waitFor()
-
-                    expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="root"></div></div>')
-
-                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
-                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
-                        name: 'microfrontend-test-1',
-                        entry: '//localhost:3001',
-                        container: '#root'
-                    }))
-                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+                    await makeChecks(configuration, 'root')
 
                     resolve()
                 }
