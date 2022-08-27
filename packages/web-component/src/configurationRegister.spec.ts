@@ -10,7 +10,7 @@ const testPageConfiguration: PageConfiguration = {
     "type": "element",
     "tag": "div",
     "attributes": {
-        "id": "root"
+        "id": "testPageConfiguration"
     }
 }
 
@@ -35,10 +35,10 @@ describe("configurationRegister", () => {
     })
 
     describe("single application in single microfrontend", () => {
-        const testConfigurationBuilder: (applicationContainer?: string) => Configuration = (applicationContainer?: string) => ({
+        const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string, applicationContainer?: string) => ({
             "microFrontends": {
                 "/route/load": {
-                    "pageConfiguration": "page-config",
+                    "pageConfiguration": pageConfiguration,
                     "applications": [
                         {
                             "entryPoint": "//localhost:3001",
@@ -55,7 +55,7 @@ describe("configurationRegister", () => {
 
         it("correctly register configuration", () => {
             const configuration = {
-                content: testConfigurationBuilder(),
+                content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
             const setPageContent = vi.fn()
@@ -66,7 +66,7 @@ describe("configurationRegister", () => {
 
         it("correctly handle current route", () => new Promise<void>(resolve => {
             const configuration = {
-                content: testConfigurationBuilder(),
+                content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
             const setPageContent = vi.fn()
@@ -81,7 +81,7 @@ describe("configurationRegister", () => {
                     await waitFor()
 
                     expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="root"></div></div>')
+                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
                     expect(loadMicroApp).toHaveBeenCalledTimes(1)
                     expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
@@ -100,7 +100,7 @@ describe("configurationRegister", () => {
 
         it("correctly handle navigated route", () => new Promise<void>(resolve => {
             const configuration = {
-                content: testConfigurationBuilder(),
+                content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
             const setPageContent = vi.fn()
@@ -115,7 +115,7 @@ describe("configurationRegister", () => {
                         await waitFor()
 
                         expect(setPageContent).toHaveBeenCalledTimes(1)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="root"></div></div>')
+                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
                         expect(loadMicroApp).toHaveBeenCalledTimes(1)
                         expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
@@ -137,7 +137,41 @@ describe("configurationRegister", () => {
 
         it("correctly handle optional custom container", () => new Promise<void>(resolve => {
             const configuration = {
-                content: testConfigurationBuilder('#custom-container'),
+                content: testConfigurationBuilder('page-configuration', '#custom-container'),
+                client: new TestClient()
+            }
+            const setPageContent = vi.fn()
+            window.location.href = '/route/load'
+
+            const router = new Navigo('/')
+
+            router.hooks({
+                async after() {
+                    expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
+
+                    await waitFor()
+
+                    expect(setPageContent).toHaveBeenCalledTimes(1)
+                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+
+                    expect(loadMicroApp).toHaveBeenCalledTimes(1)
+                    expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+                        name: 'microfrontend-test-1',
+                        entry: '//localhost:3001',
+                        container: '#root'
+                    }))
+                    expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+
+                    resolve()
+                }
+            })
+
+            configurationRegister(configuration, router, setPageContent)
+        }))
+
+        it("correctly handle default page configuration", () => new Promise<void>(resolve => {
+            const configuration = {
+                content: testConfigurationBuilder(),
                 client: new TestClient()
             }
             const setPageContent = vi.fn()
@@ -238,7 +272,7 @@ describe("configurationRegister", () => {
                     await waitFor()
 
                     expect(setPageContent).toHaveBeenCalledTimes(1)
-                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="root"></div></div>')
+                    expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
                     expect(loadMicroApp).toHaveBeenCalledTimes(2)
                     expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
@@ -279,7 +313,7 @@ describe("configurationRegister", () => {
                         await waitFor()
     
                         expect(setPageContent).toHaveBeenCalledTimes(1)
-                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="root"></div></div>')
+                        expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
     
                         expect(loadMicroApp).toHaveBeenCalledTimes(2)
                         expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
