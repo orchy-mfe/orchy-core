@@ -50,6 +50,13 @@ describe("configurationRegister", () => {
                         }
                     ]
                 }
+            },
+            "common": {
+                "importMap": {
+                    "imports": {
+                        "test": "/test.js"
+                    }
+                }
             }
         })
 
@@ -78,6 +85,7 @@ describe("configurationRegister", () => {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
+
             const setPageContent = vi.fn()
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
@@ -100,7 +108,12 @@ describe("configurationRegister", () => {
                 }
             })
 
+            document.head.appendChild = vi.fn()
+
             configurationRegister(configuration, router, setPageContent)
+
+            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
+            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle navigated route", () => new Promise<void>(resolve => {
@@ -123,6 +136,8 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
 
             window.location.href = '/route/load'
+            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
+            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle optional custom container", () => new Promise<void>(resolve => {
@@ -143,6 +158,9 @@ describe("configurationRegister", () => {
             })
 
             configurationRegister(configuration, router, setPageContent)
+
+            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
+            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle default page configuration", () => new Promise<void>(resolve => {
@@ -163,6 +181,9 @@ describe("configurationRegister", () => {
             })
 
             configurationRegister(configuration, router, setPageContent)
+            
+            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
+            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
     })
