@@ -21,16 +21,17 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
 
 const eventBus = new EventBusSubject()
 
-const throwError = (applications: Application) => {
-    throw new Error(`Invalid container configuration for application id ${applications.id}`)
+const throwError = (application: Application) => {
+    throw new Error(`Invalid container configuration for application id ${application.id}`)
 }
 
 const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectType>[] => {
     const container = microFrontend.applications.length == 1 ? `#${defaultContainer}` : undefined
+
     return microFrontend.applications.map((application: Application) => ({
         name: application.id,
         entry: application.entryPoint,
-        container: application.container || container || throwError(application),
+        container: container || application.container || throwError(application),
         props: {
             ...microFrontend.properties,
             ...application.properties,
