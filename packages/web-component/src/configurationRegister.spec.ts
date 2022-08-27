@@ -371,11 +371,13 @@ describe("configurationRegister", () => {
             }
         }
 
+        const configuration = {
+            content: testConfiguration,
+            client: new TestClient()
+        }
+        const setPageContent = vi.fn()
+
         it("correctly register configuration", () => {
-            const configuration = {
-                content: testConfiguration,
-                client: new TestClient()
-            }
             const setPageContent = vi.fn()
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
@@ -383,11 +385,6 @@ describe("configurationRegister", () => {
         })
 
         it("correctly handle first route", () => new Promise<void>(resolve => {
-            const configuration = {
-                content: testConfiguration,
-                client: new TestClient()
-            }
-            const setPageContent = vi.fn()
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
@@ -417,11 +414,6 @@ describe("configurationRegister", () => {
         }))
 
         it("correctly handle second route", () => new Promise<void>(resolve => {
-            const configuration = {
-                content: testConfiguration,
-                client: new TestClient()
-            }
-            const setPageContent = vi.fn()
             window.location.href = '/route/alternative'
 
             const router = new Navigo('/')
@@ -451,12 +443,6 @@ describe("configurationRegister", () => {
         }))
 
         it("correctly handle navigation route", () => new Promise<void>(resolve => {
-            const configuration = {
-                content: testConfiguration,
-                client: new TestClient()
-            }
-            const setPageContent = vi.fn()
-
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
