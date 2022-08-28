@@ -1,7 +1,7 @@
 import { Configuration, PageConfiguration } from '@orchy/models'
 import Navigo, { Match } from 'navigo'
 import { afterAll, describe, expect, it, vi } from 'vitest'
-import { loadMicroApp } from 'qiankun'
+import { loadMicroApp, start } from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
@@ -27,7 +27,8 @@ const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve,
 describe("configurationRegister", () => {
     vi.mock('qiankun', () => ({
         ...vi.importActual('qiankun'),
-        loadMicroApp: vi.fn()
+        loadMicroApp: vi.fn(),
+        start: vi.fn()
     }))
 
     afterAll(() => {
@@ -70,6 +71,7 @@ describe("configurationRegister", () => {
             expect(setPageContent).toHaveBeenCalledTimes(1)
             expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><div id="${container}"></div></div>`)
 
+            expect(start).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
                 name: 'microfrontend-test-1',
@@ -350,6 +352,7 @@ describe("configurationRegister", () => {
             expect(setPageContent).toHaveBeenCalledTimes(1)
             expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
+            expect(start).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
                 name: 'microfrontend-test-1',

@@ -1,7 +1,7 @@
 import { Application, Configuration, MicroFrontend, PageConfiguration } from '@orchy/models'
 import {pageBuilder} from '@orchy/page-builder'
 import Navigo from 'navigo'
-import { ObjectType, LoadableApp, loadMicroApp } from 'qiankun'
+import { ObjectType, LoadableApp, loadMicroApp, start } from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'
@@ -63,6 +63,7 @@ const configurationRegister = (configuration: ConfigurationDependency, router: N
     const routesRegister = registerRoutes(configuration.client, setPageContent, router)
     Object.entries(configuration.content.microFrontends).forEach(routesRegister)
 
+    start()
     router.resolve()
 }
 
