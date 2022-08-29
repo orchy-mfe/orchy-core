@@ -59,11 +59,11 @@ const registerRoutes = (client: ConfigurationClient, setPageContent: setPageCont
 }
 
 const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
-    installImportMaps(configuration.content)
+    start(installImportMaps(configuration.content))
+        
     const routesRegister = registerRoutes(configuration.client, setPageContent, router)
     Object.entries(configuration.content.microFrontends).forEach(routesRegister)
 
-    start()
     router.resolve()
 }
 

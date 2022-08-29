@@ -5,6 +5,7 @@ import { loadMicroApp, start } from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
+import addImportMap from './importMap'
 
 const testPageConfiguration: PageConfiguration = {
     "type": "element",
@@ -29,6 +30,10 @@ describe("configurationRegister", () => {
         ...vi.importActual('qiankun'),
         loadMicroApp: vi.fn(),
         start: vi.fn()
+    }))
+
+    vi.mock('./importMap', () => ({
+        default: vi.fn()
     }))
 
     afterAll(() => {
@@ -72,6 +77,10 @@ describe("configurationRegister", () => {
             expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><div id="${container}"></div></div>`)
 
             expect(start).toHaveBeenCalledTimes(1)
+            
+            expect(addImportMap).toHaveBeenCalledTimes(1)
+            expect(addImportMap).toHaveBeenCalledWith(configuration.content)
+
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
                 name: 'microfrontend-test-1',
@@ -110,12 +119,7 @@ describe("configurationRegister", () => {
                 }
             })
 
-            document.head.appendChild = vi.fn()
-
             configurationRegister(configuration, router, setPageContent)
-
-            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
-            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle navigated route", () => new Promise<void>(resolve => {
@@ -138,8 +142,6 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
 
             window.location.href = '/route/load'
-            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
-            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle optional custom container", () => new Promise<void>(resolve => {
@@ -160,9 +162,6 @@ describe("configurationRegister", () => {
             })
 
             configurationRegister(configuration, router, setPageContent)
-
-            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
-            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
         it("correctly handle default page configuration", () => new Promise<void>(resolve => {
@@ -183,9 +182,6 @@ describe("configurationRegister", () => {
             })
 
             configurationRegister(configuration, router, setPageContent)
-            
-            expect(document.head.appendChild).toHaveBeenCalledTimes(1)
-            expect(document.head.appendChild.mock.calls[0][0].toString()).toBe('<script type="importmap">{"imports":{"test":"/test.js"}}</script>')
         }))
 
     })
@@ -352,7 +348,11 @@ describe("configurationRegister", () => {
             expect(setPageContent).toHaveBeenCalledTimes(1)
             expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
+            expect(addImportMap).toHaveBeenCalledTimes(1)
+            expect(addImportMap).toHaveBeenCalledWith(configuration.content)
+
             expect(start).toHaveBeenCalledTimes(1)
+
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
             expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
                 name: 'microfrontend-test-1',
@@ -369,6 +369,11 @@ describe("configurationRegister", () => {
 
             expect(setPageContent).toHaveBeenCalledTimes(calledTimes)
             expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+
+            expect(addImportMap).toHaveBeenCalledTimes(1)
+            expect(addImportMap).toHaveBeenCalledWith(configuration.content)
+
+            expect(start).toHaveBeenCalledTimes(1)
 
             expect(loadMicroApp).toHaveBeenCalledTimes(calledTimes)
             expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({

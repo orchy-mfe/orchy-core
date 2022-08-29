@@ -1,9 +1,11 @@
-import { Configuration } from '@orchy/models'
+import { Configuration, ImportMap } from '@orchy/models'
 import { describe, it, expect, vi } from 'vitest'
 
 import importMap from './importMap'
 
 describe("importMap", () => {
+    importShim.addImportMap = vi.fn()
+    
     const importMapContent = {
         "imports": {
             "react": "https://ga.jspm.io/npm:react@18.0.0-rc.0/index.js"
@@ -14,7 +16,8 @@ describe("importMap", () => {
             }
         }
     }
-    const configuration: Configuration = ({
+    
+    const configurationBuilder: (importMap?: ImportMap) => Configuration = (importMap?: ImportMap) => ({
         "microFrontends": {
             "/route/load": {
                 "pageConfiguration": "page-config",
@@ -31,15 +34,25 @@ describe("importMap", () => {
             }
         },
         "common": {
-            "importMap": importMapContent
+            "importMap": importMap
         }
     })
 
-    it("generate full configuration", () => {
-        document.head.appendChild = vi.fn()
-        importMap(configuration)
+    it("correctly import defined maps", () => {
+        const result = importMap(configurationBuilder(importMapContent))
 
-        const expectedTag = `<script type="importmap">${JSON.stringify(importMapContent)}</script>`
-        expect(document.head.appendChild.mock.calls[0][0].toString()).toBe(expectedTag)
+        expect(importShim.addImportMap).toHaveBeenCalledOnce()
+        expect(importShim.addImportMap).toHaveBeenCalledWith(importMapContent)
+
+        expect(Object.keys(result).length).toEqual(1)
+        expect(result.postProcessTemplate).toBeDefined()
+    })
+
+    it("correctly skip not defined maps", () => {
+        const result = importMap(configurationBuilder())
+
+        expect(importShim.addImportMap).not.toHaveBeenCalled()
+
+        expect(result).toMatchObject({})
     })
 })

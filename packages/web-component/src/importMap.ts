@@ -1,23 +1,26 @@
-import {Configuration, ElementPageConfiguration} from '@orchy/models'
-import { ImportMap } from '@orchy/models'
-import { pageBuilder } from '@orchy/page-builder'
+import {Configuration} from '@orchy/models'
+import { FrameworkConfiguration } from 'qiankun'
+import 'es-module-shims'
 
-const generateImportMapConfig = (importMap: ImportMap): ElementPageConfiguration => ({
-    type: "element",
-    tag: "script",
-    attributes: {
-        type: 'importmap'
-    },
-    properties: {
-        innerHTML: JSON.stringify(importMap)
-    }
-})
+const postProcessTemplate: FrameworkConfiguration["postProcessTemplate"] = (tplResult) => {
+    tplResult.scripts = tplResult.scripts.map(script => {
+        if(typeof script === 'string') {
+            script = script.replace('import(', 'importShim(')
+        }
+        return script
+    })
+    return tplResult
+}
 
-const installImportMaps = (configurationContent: Configuration) => {
+const installImportMaps = (configurationContent: Configuration): Partial<FrameworkConfiguration> => {
     if(configurationContent.common?.importMap) {
-        const pageConfig = generateImportMapConfig(configurationContent.common.importMap)
-        pageBuilder([pageConfig], document.head)
+        importShim.addImportMap(configurationContent.common.importMap)
+
+        return {
+            postProcessTemplate
+        }
     }
+    return {}
 }
 
 export default installImportMaps
