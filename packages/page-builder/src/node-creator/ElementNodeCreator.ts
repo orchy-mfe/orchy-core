@@ -25,16 +25,19 @@ class ElementNodeCreator extends CommonNodeCreator {
         return super.create()
     }
 
+    private manageEsmScript(scriptUrl: string) {
+        if(window.importShim) {
+            window.importShim(scriptUrl)
+        } else {
+            import(scriptUrl)
+        }
+    }
+
     private importScript() {
         if (this.elementConfiguration.url) {
-            const scriptUrl = this.elementConfiguration.url
-            const isEsmUrl = ESM_SUFFIXES.some(suffix => scriptUrl.endsWith(suffix))
+            const isEsmUrl = ESM_SUFFIXES.some(suffix => this.elementConfiguration.url?.endsWith(suffix))
             if (isEsmUrl) {
-                if(window.importShim) {
-                    window.importShim(scriptUrl)
-                } else {
-                    import(scriptUrl)
-                }
+                this.manageEsmScript(this.elementConfiguration.url)
             } else {
                 const scriptCreator = new ElementNodeCreator({ attributes: { src: this.elementConfiguration.url }, type: 'element', tag: 'script' }, this.eventBus)
                 document.head.appendChild(scriptCreator.create())
