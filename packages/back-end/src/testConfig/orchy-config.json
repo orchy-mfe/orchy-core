@@ -4,7 +4,7 @@
       "pageConfiguration": "page-config",
       "applications": [
         {
-          "entryPoint": "//localhost:3001",
+          "entryPoint": "//localhost:5174/route/load",
           "id": "microfrontend-test-1",
           "properties": {
             "mfName": "Name test"
@@ -19,10 +19,8 @@
     ],
     "importMap": {
       "imports": {
-        "imports": {
-          "react": "https://esm.sh/react@18.2.0",
-          "react-dom": "https://esm.sh/react-dom@18.2.0"
-        }
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0"
       }
     }
   }
