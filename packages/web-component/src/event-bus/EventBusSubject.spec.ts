@@ -3,14 +3,14 @@ import { describe, it, expect } from 'vitest'
 
 import EventBusSubject from './EventBusSubject'
 
-describe("EventBusSubjector", () => {
+describe('EventBusSubjector', () => {
 
     it('should extend Subject', () => {
         const subject = new EventBusSubject()
         expect(subject).to.be.instanceof(ReplaySubject)
     })
 
-    it("Store all values", () => new Promise<void>(complete => {
+    it('Store all values', () => new Promise<void>(complete => {
         const subject = new EventBusSubject<number>()
         const valuesToSend = [1, 2, 3]
 

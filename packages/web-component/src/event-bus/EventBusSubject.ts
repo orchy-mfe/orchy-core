@@ -1,4 +1,4 @@
-import { ReplaySubject } from "rxjs"
+import { ReplaySubject } from 'rxjs'
 
 export default class EventBusSubject<T> extends ReplaySubject<T> {
 

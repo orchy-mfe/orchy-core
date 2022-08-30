@@ -10,13 +10,13 @@ import installImportMaps from './importMap'
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
 
-const defaultContainer = "root"
+const defaultContainer = 'root'
 
 const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolve({
-    type: "element",
-    tag: "div",
+    type: 'element',
+    tag: 'div',
     attributes: {
-        "id": defaultContainer
+        'id': defaultContainer
     }
 })
 

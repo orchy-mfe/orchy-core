@@ -8,10 +8,10 @@ import configurationRegister from './configurationRegister'
 import addImportMap from './importMap'
 
 const testPageConfiguration: PageConfiguration = {
-    "type": "element",
-    "tag": "div",
-    "attributes": {
-        "id": "testPageConfiguration"
+    'type': 'element',
+    'tag': 'div',
+    'attributes': {
+        'id': 'testPageConfiguration'
     }
 }
 
@@ -25,7 +25,7 @@ class TestClient implements ConfigurationClient {
 const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve, milliseconds))
 
 
-describe("configurationRegister", () => {
+describe('configurationRegister', () => {
     vi.mock('qiankun', () => ({
         ...vi.importActual('qiankun'),
         loadMicroApp: vi.fn(),
@@ -40,27 +40,27 @@ describe("configurationRegister", () => {
         vi.restoreAllMocks()
     })
 
-    describe("single application in single microfrontend", () => {
+    describe('single application in single microfrontend', () => {
         const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string, applicationContainer?: string) => ({
-            "microFrontends": {
-                "/route/load": {
-                    "pageConfiguration": pageConfiguration,
-                    "applications": [
+            'microFrontends': {
+                '/route/load': {
+                    'pageConfiguration': pageConfiguration,
+                    'applications': [
                         {
-                            "entryPoint": "//localhost:3001",
-                            "id": "microfrontend-test-1",
-                            "properties": {
-                                "mfName": "Name test"
+                            'entryPoint': '//localhost:3001',
+                            'id': 'microfrontend-test-1',
+                            'properties': {
+                                'mfName': 'Name test'
                             },
-                            "container": applicationContainer
+                            'container': applicationContainer
                         }
                     ]
                 }
             },
-            "common": {
-                "importMap": {
-                    "imports": {
-                        "test": "/test.js"
+            'common': {
+                'importMap': {
+                    'imports': {
+                        'test': '/test.js'
                     }
                 }
             }
@@ -91,7 +91,7 @@ describe("configurationRegister", () => {
 
         }
 
-        it("correctly register configuration", () => {
+        it('correctly register configuration', () => {
             const configuration = {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
@@ -103,7 +103,7 @@ describe("configurationRegister", () => {
             ).not.toThrow()
         })
 
-        it("correctly handle current route", () => new Promise<void>(resolve => {
+        it('correctly handle current route', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
@@ -122,7 +122,7 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
         }))
 
-        it("correctly handle navigated route", () => new Promise<void>(resolve => {
+        it('correctly handle navigated route', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
@@ -144,7 +144,7 @@ describe("configurationRegister", () => {
             window.location.href = '/route/load'
         }))
 
-        it("correctly handle optional custom container", () => new Promise<void>(resolve => {
+        it('correctly handle optional custom container', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder('page-configuration', '#custom-container'),
                 client: new TestClient()
@@ -164,7 +164,7 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
         }))
 
-        it("correctly handle default page configuration", () => new Promise<void>(resolve => {
+        it('correctly handle default page configuration', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder(),
                 client: new TestClient()
@@ -186,28 +186,28 @@ describe("configurationRegister", () => {
 
     })
 
-    describe("multiple applications in single microfrontend", () => {
+    describe('multiple applications in single microfrontend', () => {
         const testConfigurationBuilder: (application1Container?: string, application2Container?: string) => Configuration =
             (application1Container?: string, application2Container?: string) => ({
-                "microFrontends": {
-                    "/route/load": {
-                        "pageConfiguration": "page-config",
-                        "applications": [
+                'microFrontends': {
+                    '/route/load': {
+                        'pageConfiguration': 'page-config',
+                        'applications': [
                             {
-                                "entryPoint": "//localhost:3001",
-                                "id": "microfrontend-test-1",
-                                "properties": {
-                                    "mfName": "Name test"
+                                'entryPoint': '//localhost:3001',
+                                'id': 'microfrontend-test-1',
+                                'properties': {
+                                    'mfName': 'Name test'
                                 },
-                                "container": application1Container
+                                'container': application1Container
                             },
                             {
-                                "entryPoint": "//localhost:3001",
-                                "id": "microfrontend-test-2",
-                                "properties": {
-                                    "mfName": "Name test"
+                                'entryPoint': '//localhost:3001',
+                                'id': 'microfrontend-test-2',
+                                'properties': {
+                                    'mfName': 'Name test'
                                 },
-                                "container": application2Container
+                                'container': application2Container
                             }
                         ]
                     }
@@ -240,27 +240,27 @@ describe("configurationRegister", () => {
             expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
         }
 
-        it("correctly reject for missing first container", () => {
+        it('correctly reject for missing first container', () => {
             const configuration = {
                 content: testConfigurationBuilder(),
                 client: new TestClient()
             }
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
-            ).toThrow(new Error(`Invalid container configuration for application id microfrontend-test-1`))
+            ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-1'))
         })
 
-        it("correctly reject for missing second container", () => {
+        it('correctly reject for missing second container', () => {
             const configuration = {
                 content: testConfigurationBuilder('container1'),
                 client: new TestClient()
             }
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
-            ).toThrow(new Error(`Invalid container configuration for application id microfrontend-test-2`))
+            ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-2'))
         })
 
-        it("correctly handle current route", () => new Promise<void>(resolve => {
+        it('correctly handle current route', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder('container1', 'container2'),
                 client: new TestClient()
@@ -280,7 +280,7 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
         }))
 
-        it("correctly handle navigated route", () => new Promise<void>(resolve => {
+        it('correctly handle navigated route', () => new Promise<void>(resolve => {
             const configuration = {
                 content: testConfigurationBuilder('container1', 'container2'),
                 client: new TestClient()
@@ -304,29 +304,29 @@ describe("configurationRegister", () => {
         }))
     })
 
-    describe("multiple microfrontend", () => {
+    describe('multiple microfrontend', () => {
         const testConfiguration = {
-            "microFrontends": {
-                "/route/load": {
-                    "pageConfiguration": 'page-configuration',
-                    "applications": [
+            'microFrontends': {
+                '/route/load': {
+                    'pageConfiguration': 'page-configuration',
+                    'applications': [
                         {
-                            "entryPoint": "//localhost:3001",
-                            "id": "microfrontend-test-1",
-                            "properties": {
-                                "mfName": "Name test"
+                            'entryPoint': '//localhost:3001',
+                            'id': 'microfrontend-test-1',
+                            'properties': {
+                                'mfName': 'Name test'
                             },
                         }
                     ]
                 },
-                "/route/alternative": {
-                    "pageConfiguration": 'page-configuration',
-                    "applications": [
+                '/route/alternative': {
+                    'pageConfiguration': 'page-configuration',
+                    'applications': [
                         {
-                            "entryPoint": "//localhost:3002",
-                            "id": "microfrontend-test-2",
-                            "properties": {
-                                "mfName": "Name test 2"
+                            'entryPoint': '//localhost:3002',
+                            'id': 'microfrontend-test-2',
+                            'properties': {
+                                'mfName': 'Name test 2'
                             },
                         }
                     ]
@@ -384,14 +384,14 @@ describe("configurationRegister", () => {
             expect(loadMicroApp.mock.calls[calledTimes - 1][0].props.eventBus).toBeDefined()
         }
 
-        it("correctly register configuration", () => {
+        it('correctly register configuration', () => {
             const setPageContent = vi.fn()
             expect(
                 () => configurationRegister(configuration, new Navigo('/'), setPageContent)
             ).not.toThrow()
         })
 
-        it("correctly handle first route", () => new Promise<void>(resolve => {
+        it('correctly handle first route', () => new Promise<void>(resolve => {
             window.location.href = '/route/load'
 
             const router = new Navigo('/')
@@ -406,7 +406,7 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
         }))
 
-        it("correctly handle second route", () => new Promise<void>(resolve => {
+        it('correctly handle second route', () => new Promise<void>(resolve => {
             window.location.href = '/route/alternative'
 
             const router = new Navigo('/')
@@ -421,7 +421,7 @@ describe("configurationRegister", () => {
             configurationRegister(configuration, router, setPageContent)
         }))
 
-        it("correctly handle navigation route", () => new Promise<void>(resolve => {
+        it('correctly handle navigation route', () => new Promise<void>(resolve => {
             window.location.href = '/route/load'
 
             const router = new Navigo('/')

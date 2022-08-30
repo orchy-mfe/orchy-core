@@ -12,10 +12,11 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     'semi': ['error', 'never'],
     'no-unused-vars': 'off',
-    "unused-imports/no-unused-imports": "error",
-		"unused-imports/no-unused-vars": [
-			"warn",
-			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-		]
+    'unused-imports/no-unused-imports': 'error',
+		'unused-imports/no-unused-vars': [
+			'warn',
+			{ 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' }
+		],
+    'quotes': [2, 'single', 'avoid-escape']
   },
 }

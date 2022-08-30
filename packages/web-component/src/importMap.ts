@@ -3,9 +3,9 @@ import { FrameworkConfiguration } from 'qiankun'
 import './importMapConfiguration'
 import 'es-module-shims'
 
-type PostProcessTemplate = NonNullable<FrameworkConfiguration["postProcessTemplate"]>
+type PostProcessTemplate = NonNullable<FrameworkConfiguration['postProcessTemplate']>
 
-type SingleScript = ReturnType<PostProcessTemplate>["scripts"][0]
+type SingleScript = ReturnType<PostProcessTemplate>['scripts'][0]
 
 const scriptMapper: (script: SingleScript) => SingleScript = (script: SingleScript) => {
     if (typeof script === 'string') {
