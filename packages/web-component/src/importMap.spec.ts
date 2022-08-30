@@ -1,6 +1,8 @@
 import { Configuration, ImportMap } from '@orchy/models'
 import { describe, it, expect, vi } from 'vitest'
 
+vi.stubGlobal('URL', {createObjectURL: () => undefined})
+
 import importMap from './importMap'
 
 describe('importMap', () => {
