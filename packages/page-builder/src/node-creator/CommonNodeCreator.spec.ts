@@ -3,18 +3,18 @@ import {describe, it, expect} from 'vitest'
 
 import CommonNodeCreator from './CommonNodeCreator'
 
-describe("CommonNodeCreator", () => {
+describe('CommonNodeCreator', () => {
 
     const createPage = (configuration: CommonPageConfiguration) => {
         // eslint-disable-next-line
         // @ts-ignore
         const commonPageCreator = new CommonNodeCreator(configuration)
-        commonPageCreator.currentNode = document.createElement("div")
+        commonPageCreator.currentNode = document.createElement('div')
 
         return commonPageCreator
     }
 
-    it("correctly doest nothing", () => {
+    it('correctly doest nothing', () => {
         const pageCreator = createPage({})
 
         const createdNode = pageCreator.create()
@@ -23,7 +23,7 @@ describe("CommonNodeCreator", () => {
         expect(createdNode.getAttributeNames()).toMatchObject([])
     })
 
-    it("correctly apply not existing attribute", () => {
+    it('correctly apply not existing attribute', () => {
         const pageCreator = createPage({
             attributes: {
                 id: 'root'
@@ -36,14 +36,14 @@ describe("CommonNodeCreator", () => {
         expect(createdNode.id).toEqual('root')
     })
 
-    it("correctly update existing attribute", () => {
+    it('correctly update existing attribute', () => {
         const pageCreator = createPage({
             attributes: {
                 style: 'color:red'
             }
         })
 
-        pageCreator.currentNode.setAttribute("style", "background-color:green")
+        pageCreator.currentNode.setAttribute('style', 'background-color:green')
 
         const createdNode = pageCreator.create()
 
@@ -54,7 +54,7 @@ describe("CommonNodeCreator", () => {
         }.toString())
     })
 
-    it("correctly apply not existing property", () => {
+    it('correctly apply not existing property', () => {
         const pageCreator = createPage({
             properties: {
                 foo: 'goofy'
@@ -67,7 +67,7 @@ describe("CommonNodeCreator", () => {
         expect(createdNode['foo']).toEqual('goofy')
     })
 
-    it("correctly apply both attributes and properties", () => {
+    it('correctly apply both attributes and properties', () => {
         const pageCreator = createPage({
             attributes: {
                 id: 'root',

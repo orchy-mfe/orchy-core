@@ -3,13 +3,13 @@ import { describe, it, expect, afterEach, vi } from 'vitest'
 
 import ElementNodeCreator from './ElementNodeCreator'
 
-describe("ElementNodeCreator", () => {
+describe('ElementNodeCreator', () => {
 
     afterEach(() => {
         document.head.appendChild = vi.fn()
     })
 
-    it("create tag only", () => {
+    it('create tag only', () => {
         const pageCreator = new ElementNodeCreator({
             type: 'element',
             tag: 'foo-wc'
@@ -22,7 +22,7 @@ describe("ElementNodeCreator", () => {
         expect(createdNode.eventBus).toBeDefined()
     })
 
-    it("create tag with url", () => {
+    it('create tag with url', () => {
         const pageCreator = new ElementNodeCreator({
             type: 'element',
             tag: 'foo-wc',
@@ -36,7 +36,7 @@ describe("ElementNodeCreator", () => {
         expect(createdNode.eventBus).toBeDefined()
     })
 
-    it("correctly apply both attributes and properties", () => {
+    it('correctly apply both attributes and properties', () => {
         const pageCreator = new ElementNodeCreator({
             type: 'element',
             tag: 'foo-wc',

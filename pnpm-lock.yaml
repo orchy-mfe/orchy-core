@@ -78,8 +78,8 @@ importers:
   packages/page-builder:
     specifiers:
       '@orchy/models': workspace:*
-      '@typescript-eslint/eslint-plugin': ^5.35.1
-      '@typescript-eslint/parser': ^5.35.1
+      '@typescript-eslint/eslint-plugin': ^5.36.0
+      '@typescript-eslint/parser': ^5.36.0
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
@@ -93,12 +93,12 @@ importers:
       '@orchy/models': link:../models
       rxjs: 7.5.6
     devDependencies:
-      '@typescript-eslint/eslint-plugin': 5.35.1_pfwtupu3r4wxmgbx6hj7gwmyuu
-      '@typescript-eslint/parser': 5.35.1_yqf6kl63nyoq5megxukfnom5rm
+      '@typescript-eslint/eslint-plugin': 5.36.0_3g5q5capxpyhialyvs33l4nssm
+      '@typescript-eslint/parser': 5.36.0_yqf6kl63nyoq5megxukfnom5rm
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
-      eslint-plugin-unused-imports: 2.0.0_h2obgme53psvsi5hnxwhauwpoe
+      eslint-plugin-unused-imports: 2.0.0_ijohqzf7olguqxo5gdzigrwa64
       prettier: 2.7.1
       typescript: 4.8.2
       vite: 3.0.9

@@ -3,9 +3,9 @@ import { describe, it, expect } from 'vitest'
 import ImpaginationNodeCreator from './ImpaginationNodeCreator'
 
 
-describe("ImpaginationNodeCreator", () => {
+describe('ImpaginationNodeCreator', () => {
 
-    it("create flex-column", () => {
+    it('create flex-column', () => {
         const pageCreator = new ImpaginationNodeCreator({
             type: 'flex-column'
         })
@@ -19,7 +19,7 @@ describe("ImpaginationNodeCreator", () => {
         }.toString())
     })
 
-    it("create complete flex-column", () => {
+    it('create complete flex-column', () => {
         const pageCreator = new ImpaginationNodeCreator({
             type: 'flex-column',
             attributes: {
@@ -41,7 +41,7 @@ describe("ImpaginationNodeCreator", () => {
         expect(createdNode.foo).toEqual('goofy')
     })
 
-    it("create flex-row", () => {
+    it('create flex-row', () => {
         const pageCreator = new ImpaginationNodeCreator({
             type: 'flex-row'
         })
@@ -55,7 +55,7 @@ describe("ImpaginationNodeCreator", () => {
         }.toString())
     })
 
-    it("create complete flex-row", () => {
+    it('create complete flex-row', () => {
         const pageCreator = new ImpaginationNodeCreator({
             type: 'flex-row',
             attributes: {

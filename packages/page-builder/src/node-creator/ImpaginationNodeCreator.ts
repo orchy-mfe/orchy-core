@@ -1,14 +1,14 @@
-import { ImpaginationPageConfiguration } from "@orchy/models"
+import { ImpaginationPageConfiguration } from '@orchy/models'
 
-import CommonNodeCreator from "./CommonNodeCreator"
+import CommonNodeCreator from './CommonNodeCreator'
 
 class ImpaginationNodeCreator extends CommonNodeCreator {
 
     currentNode: HTMLElement
 
-    private static stylesByType: Record<ImpaginationPageConfiguration["type"], string> = {
-        "flex-column": "display: flex; flex-direction: column",
-        "flex-row": "display: flex; flex-direction: row"
+    private static stylesByType: Record<ImpaginationPageConfiguration['type'], string> = {
+        'flex-column': 'display: flex; flex-direction: column',
+        'flex-row': 'display: flex; flex-direction: row'
     }
 
     constructor(configuration: ImpaginationPageConfiguration) {

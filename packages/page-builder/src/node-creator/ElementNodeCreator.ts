@@ -1,9 +1,9 @@
-import { ElementPageConfiguration } from "@orchy/models"
-import {Subject} from "rxjs"
+import { ElementPageConfiguration } from '@orchy/models'
+import {Subject} from 'rxjs'
 
-import CommonNodeCreator from "./CommonNodeCreator"
+import CommonNodeCreator from './CommonNodeCreator'
 
-const ESM_SUFFIXES = [".esm.js", ".mjs"]
+const ESM_SUFFIXES = ['.esm.js', '.mjs']
 
 declare global {
     interface Window {

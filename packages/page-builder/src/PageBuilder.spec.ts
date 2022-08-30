@@ -2,8 +2,8 @@ import {describe, it, expect} from 'vitest'
 
 import {pageBuilder} from './PageBuilder'
 
-describe("PageBuilder", () => {
-    it("create a full page", () => {
+describe('PageBuilder', () => {
+    it('create a full page', () => {
 
         const pageBuilt = pageBuilder([{
             type: 'flex-column',
@@ -14,13 +14,13 @@ describe("PageBuilder", () => {
                 type: 'element',
                 tag: 'foo-wc',
                 attributes: {
-                    id: "wc"
+                    id: 'wc'
                 }
             }]
         }])
 
         expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc"></foo-wc></div></div>')
-        expect(pageBuilt.querySelector("foo-wc")?.eventBus).toBeDefined()
-        expect(pageBuilt.querySelector("#column")?.eventBus).not.toBeDefined()
+        expect(pageBuilt.querySelector('foo-wc')?.eventBus).toBeDefined()
+        expect(pageBuilt.querySelector('#column')?.eventBus).not.toBeDefined()
     })
 })

@@ -27,6 +27,7 @@
         "args": "after-used",
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "quotes": [2, "single", "avoid-escape"]
   }
 }
