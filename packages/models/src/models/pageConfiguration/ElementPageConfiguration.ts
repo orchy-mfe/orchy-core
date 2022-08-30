@@ -1,4 +1,4 @@
-import { CommonPageConfiguration } from "./CommonPageConfiguration"
+import { CommonPageConfiguration } from './CommonPageConfiguration'
 
 export type ElementPageConfiguration = CommonPageConfiguration & {
     type: 'element',
