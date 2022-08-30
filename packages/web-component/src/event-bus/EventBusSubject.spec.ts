@@ -1,5 +1,5 @@
-import { ReplaySubject } from 'rxjs'
-import { describe, it, expect } from 'vitest'
+import {ReplaySubject} from 'rxjs'
+import {describe, it, expect} from 'vitest'
 
 import EventBusSubject from './EventBusSubject'
 

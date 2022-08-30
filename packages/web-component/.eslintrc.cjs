@@ -12,6 +12,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-unused-vars': 'error',
     'semi': ['error', 'never'],
-    'quotes': [2, 'single', 'avoid-escape']
+    'quotes': [2, 'single', 'avoid-escape'],
+    'object-curly-spacing': [2, 'never'],
   },
 }

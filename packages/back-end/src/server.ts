@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { URL } from 'node:url'
+import {URL} from 'node:url'
 import fastify from 'fastify'
 import now from 'fastify-now'
 

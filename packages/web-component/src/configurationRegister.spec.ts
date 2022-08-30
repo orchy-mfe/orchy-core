@@ -1,7 +1,7 @@
-import { Configuration, PageConfiguration } from '@orchy/models'
-import Navigo, { Match } from 'navigo'
-import { afterAll, describe, expect, it, vi } from 'vitest'
-import { loadMicroApp, start } from 'qiankun'
+import {Configuration, PageConfiguration} from '@orchy/models'
+import Navigo, {Match} from 'navigo'
+import {afterAll, describe, expect, it, vi} from 'vitest'
+import {loadMicroApp, start} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'

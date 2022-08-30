@@ -1,4 +1,4 @@
-import { CommonPageConfiguration } from '@orchy/models'
+import {CommonPageConfiguration} from '@orchy/models'
 
 abstract class CommonNodeCreator {
     constructor(private configuration: CommonPageConfiguration) { }

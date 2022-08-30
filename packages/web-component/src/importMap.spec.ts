@@ -1,5 +1,5 @@
-import { Configuration, ImportMap } from '@orchy/models'
-import { describe, it, expect, vi } from 'vitest'
+import {Configuration, ImportMap} from '@orchy/models'
+import {describe, it, expect, vi} from 'vitest'
 
 vi.stubGlobal('URL', {createObjectURL: () => undefined})
 

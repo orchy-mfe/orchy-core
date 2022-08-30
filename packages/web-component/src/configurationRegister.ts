@@ -1,7 +1,7 @@
-import { Application, Configuration, MicroFrontend, PageConfiguration } from '@orchy/models'
+import {Application, Configuration, MicroFrontend, PageConfiguration} from '@orchy/models'
 import {pageBuilder} from '@orchy/page-builder'
 import Navigo from 'navigo'
-import { ObjectType, LoadableApp, loadMicroApp, start } from 'qiankun'
+import {ObjectType, LoadableApp, loadMicroApp, start} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'

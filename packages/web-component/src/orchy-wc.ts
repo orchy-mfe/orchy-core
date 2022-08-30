@@ -1,7 +1,7 @@
-import { LitElement, html, PropertyValueMap } from 'lit'
+import {LitElement, html, PropertyValueMap} from 'lit'
 import Navigo from 'navigo'
-import { customElement, property } from 'lit/decorators.js'
-import { Configuration } from '@orchy/models'
+import {customElement, property} from 'lit/decorators.js'
+import {Configuration} from '@orchy/models'
 
 import configurationRegister from './configurationRegister'
 import ConfigurationClient from './configuration-client/configurationClient'
@@ -23,7 +23,7 @@ export class OrchyWC extends LitElement {
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
-        const configuration = { content, client: this.configurationClient }
+        const configuration = {content, client: this.configurationClient}
         const setPageContent = (pageContent: HTMLElement) => this.renderRoot.replaceChildren(pageContent)
         configurationRegister(configuration, router, setPageContent)
       })

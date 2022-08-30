@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest'
-import { Configuration } from '@orchy/models'
+import {describe, it, expect, vi} from 'vitest'
+import {Configuration} from '@orchy/models'
 
 import HttpConfigurationClient from './httpConfigurationClient'
 
@@ -31,13 +31,13 @@ const mockConfig: Configuration = {
 describe('httpConfigurationRetriever', () => {
 
   const httpConfigurationManager = new HttpConfigurationClient()
-  const fetchOptions = { signal: new AbortController().signal }
+  const fetchOptions = {signal: new AbortController().signal}
 
   it('correctly return wanted configuration', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    fetchSpy.mockImplementation(() => Promise.resolve({ json: () => mockConfig }))
+    fetchSpy.mockImplementation(() => Promise.resolve({json: () => mockConfig}))
     const response = await httpConfigurationManager.retrieveConfiguration('test-configuration')
 
     expect(response).toMatchObject(mockConfig)

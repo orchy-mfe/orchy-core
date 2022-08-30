@@ -1,9 +1,9 @@
 import tap from 'tap'
 import path from 'path'
 
-import { FastifyInstance } from 'fastify/types/instance'
+import {FastifyInstance} from 'fastify/types/instance'
 
-import { buildServer } from '../../../../server.js'
+import {buildServer} from '../../../../server.js'
 import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert {type: 'json'}
 
 tap.test('GET /', async t => {

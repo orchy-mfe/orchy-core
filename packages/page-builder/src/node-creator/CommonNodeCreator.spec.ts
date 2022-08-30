@@ -1,4 +1,4 @@
-import { CommonPageConfiguration } from '@orchy/models'
+import {CommonPageConfiguration} from '@orchy/models'
 import {describe, it, expect} from 'vitest'
 
 import CommonNodeCreator from './CommonNodeCreator'

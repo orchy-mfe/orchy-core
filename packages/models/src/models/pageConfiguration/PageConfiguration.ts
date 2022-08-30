@@ -1,5 +1,5 @@
-import { ElementPageConfiguration } from './ElementPageConfiguration'
-import { ImpaginationPageConfiguration } from './ImpaginationPageConfiguration'
+import {ElementPageConfiguration} from './ElementPageConfiguration'
+import {ImpaginationPageConfiguration} from './ImpaginationPageConfiguration'
 
 type PageConfigurationContent = {
     content?: PageConfiguration[]

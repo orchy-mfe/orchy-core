@@ -17,6 +17,7 @@
       "error",
       "never"
     ],
-    "quotes": [2, "single", "avoid-escape"]
+    "quotes": [2, "single", "avoid-escape"],
+    "object-curly-spacing": [2, "never"]
   }
 }

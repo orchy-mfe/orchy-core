@@ -1,5 +1,5 @@
-import { PageConfiguration } from '@orchy/models'
-import { Subject, ReplaySubject } from 'rxjs'
+import {PageConfiguration} from '@orchy/models'
+import {Subject, ReplaySubject} from 'rxjs'
 
 import ElementNodeCreator from './node-creator/ElementNodeCreator'
 import ImpaginationNodeCreator from './node-creator/ImpaginationNodeCreator'

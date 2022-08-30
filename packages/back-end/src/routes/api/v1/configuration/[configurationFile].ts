@@ -1,10 +1,10 @@
-import { NowRequestHandler } from 'fastify-now'
-import { Type } from '@sinclair/typebox'
+import {NowRequestHandler} from 'fastify-now'
+import {Type} from '@sinclair/typebox'
 import fs from 'fs'
-import { FastifyRequest } from 'fastify'
+import {FastifyRequest} from 'fastify'
 import path from 'path'
 
-import { Config } from '../../../../plugins/config.js'
+import {Config} from '../../../../plugins/config.js'
 
 type FastifyTypedRequest = { Params: { configurationFile: string } }
 
@@ -14,7 +14,7 @@ const retrieveConfig = async (configurationPath: string) => {
 }
 
 const retrieveConfigPath = (request: FastifyRequest<FastifyTypedRequest>, config: Config) => {
-    const { configurationFile } = request.params
+    const {configurationFile} = request.params
     return path.join(config.CONFIG_PATH, configurationFile)
 }
 

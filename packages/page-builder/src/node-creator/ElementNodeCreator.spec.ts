@@ -1,5 +1,5 @@
-import { ReplaySubject } from 'rxjs'
-import { describe, it, expect, afterEach, vi } from 'vitest'
+import {ReplaySubject} from 'rxjs'
+import {describe, it, expect, afterEach, vi} from 'vitest'
 
 import ElementNodeCreator from './ElementNodeCreator'
 

@@ -1,4 +1,4 @@
-import { buildServer } from './server.js'
+import {buildServer} from './server.js'
 import tap from 'tap'
 
 tap.only('Server', (t) => {
