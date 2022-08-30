@@ -8,10 +8,8 @@ type PostProcessTemplate = NonNullable<FrameworkConfiguration['postProcessTempla
 type SingleScript = ReturnType<PostProcessTemplate>['scripts'][0]
 
 const scriptMapper: (script: SingleScript) => SingleScript = (script: SingleScript) => {
-    if (typeof script === 'string') {
-        script = script.replace('import(', 'importShim(')
-    }
-    return script
+    const isString = typeof script === 'string'
+    return isString ? script.replace('import(', 'importShim(') : script
 }
 
 const postProcessTemplate: PostProcessTemplate = (tplResult) => {
