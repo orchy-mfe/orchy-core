@@ -1,5 +1,5 @@
-import path from "node:path"
-import { URL } from "node:url"
+import path from 'node:path'
+import { URL } from 'node:url'
 import fastify from 'fastify'
 import now from 'fastify-now'
 
@@ -9,7 +9,7 @@ export const buildServer = async () => {
   const server = fastify({
     ajv: {
       customOptions: {
-        removeAdditional: "all",
+        removeAdditional: 'all',
         coerceTypes: true,
         useDefaults: true,
       }
@@ -21,7 +21,7 @@ export const buildServer = async () => {
 
   await server.register(config)
   await server.register(now, {
-    routesFolder: new URL(path.join(import.meta.url, "../routes")).pathname,
+    routesFolder: new URL(path.join(import.meta.url, '../routes')).pathname,
   })
   await server.ready()
 

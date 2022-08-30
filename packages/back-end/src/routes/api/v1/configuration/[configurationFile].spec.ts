@@ -4,10 +4,10 @@ import path from 'path'
 import { FastifyInstance } from 'fastify/types/instance'
 
 import { buildServer } from '../../../../server.js'
-import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert {type: "json"}
+import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert {type: 'json'}
 
 tap.test('GET /', async t => {
-    process.env.CONFIG_PATH = path.join(import.meta.url.replace("file:", ""), '../../../../../testConfig')
+    process.env.CONFIG_PATH = path.join(import.meta.url.replace('file:', ''), '../../../../../testConfig')
     const fastify: FastifyInstance = await buildServer()
 
     t.teardown(async () => {
