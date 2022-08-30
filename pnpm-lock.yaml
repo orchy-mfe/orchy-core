@@ -21,7 +21,6 @@ importers:
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-unused-imports: ^2.0.0
       fastify: ^4.5.3
       fastify-now: ^3.0.0
       fastify-plugin: ^4.2.1
@@ -47,7 +46,6 @@ importers:
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
-      eslint-plugin-unused-imports: 2.0.0_ijohqzf7olguqxo5gdzigrwa64
       nodemon: 2.0.19
       pino-pretty: 9.1.0
       prettier: 2.7.1
@@ -62,7 +60,6 @@ importers:
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-unused-imports: ^2.0.0
       prettier: ^2.7.1
       typescript: ^4.8.2
     devDependencies:
@@ -71,7 +68,6 @@ importers:
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
-      eslint-plugin-unused-imports: 2.0.0_ijohqzf7olguqxo5gdzigrwa64
       prettier: 2.7.1
       typescript: 4.8.2
 
@@ -83,7 +79,6 @@ importers:
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-unused-imports: ^2.0.0
       prettier: ^2.7.1
       rxjs: ^7.5.6
       typescript: ^4.8.2
@@ -98,7 +93,6 @@ importers:
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
-      eslint-plugin-unused-imports: 2.0.0_ijohqzf7olguqxo5gdzigrwa64
       prettier: 2.7.1
       typescript: 4.8.2
       vite: 3.0.9
@@ -115,7 +109,6 @@ importers:
       eslint: ^8.23.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-unused-imports: ^2.0.0
       happy-dom: ^6.0.4
       lit: ^2.3.1
       navigo: ^8.11.1
@@ -140,7 +133,6 @@ importers:
       eslint: 8.23.0
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
-      eslint-plugin-unused-imports: 2.0.0_ijohqzf7olguqxo5gdzigrwa64
       happy-dom: 6.0.4
       prettier: 2.7.1
       typescript: 4.8.2
@@ -1769,26 +1761,6 @@ packages:
       eslint-config-prettier: 8.5.0_eslint@8.23.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
-    dev: true
-
-  /eslint-plugin-unused-imports/2.0.0_ijohqzf7olguqxo5gdzigrwa64:
-    resolution: {integrity: sha512-3APeS/tQlTrFa167ThtP0Zm0vctjr4M44HMpeg1P4bK6wItarumq0Ma82xorMKdFsWpphQBlRPzw/pxiVELX1A==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^5.0.0
-      eslint: ^8.0.0
-    peerDependenciesMeta:
-      '@typescript-eslint/eslint-plugin':
-        optional: true
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 5.36.0_3g5q5capxpyhialyvs33l4nssm
-      eslint: 8.23.0
-      eslint-rule-composer: 0.3.0
-    dev: true
-
-  /eslint-rule-composer/0.3.0:
-    resolution: {integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==}
-    engines: {node: '>=4.0.0'}
     dev: true
 
   /eslint-scope/5.1.1:
