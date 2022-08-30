@@ -35,11 +35,11 @@
   },
   "homepage": "https://github.com/orchy-mfe/orchy-core#readme",
   "devDependencies": {
-    "@types/node": "^18.7.1",
+    "@types/node": "^18.7.14",
     "@types/tap": "^15.0.7",
-    "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.35.1",
-    "esbuild": "^0.15.5",
+    "@typescript-eslint/eslint-plugin": "^5.36.0",
+    "@typescript-eslint/parser": "^5.36.0",
+    "esbuild": "^0.15.6",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -52,7 +52,7 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.24.28",
+    "@sinclair/typebox": "^0.24.30",
     "ajv": "^8.11.0",
     "env-schema": "^5.0.0",
     "fastify": "^4.5.3",
