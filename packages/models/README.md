@@ -12,3 +12,4 @@ Inside `src` there is the `models` folder, where the models are divided by purpo
 
 - `configuration`: the models about `orchy` configuration;
 - `pageConfiguration`: the models about `page-builder` configuration;
+- `properties`: the models about the properties injected in each micro-frontend;
