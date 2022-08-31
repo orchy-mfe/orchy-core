@@ -26,5 +26,8 @@
     "typescript": "^4.8.2"
   },
   "author": "Matteo Pietro Dazzi",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "rxjs": "^7.5.6"
+  }
 }
