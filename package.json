@@ -9,9 +9,11 @@
     "w:be": "pnpm --filter be",
     "w:wc": "pnpm --filter wc",
     "w:pb": "pnpm --filter page-builder",
-    "lint": "npm-run-all -p 'w:models lint' 'w:be lint' 'w:wc lint'",
-    "lint:fix": "npm-run-all -p 'w:models lint:fix' 'w:be lint:fix' 'w:wc lint:fix'",
-    "dev": "npm-run-all -p 'w:wc dev' 'w:be dev'"
+    "lint": "npm-run-all -p 'w:models lint' 'w:be lint' 'w:wc lint' 'w:pb lint'",
+    "lint:fix": "npm-run-all -p 'w:models lint:fix' 'w:be lint:fix' 'w:wc lint:fix' 'w:pb lint:fix'",
+    "dev": "npm-run-all -p 'w:wc dev' 'w:be dev'",
+    "test": "npm-run-all -p 'w:be test' 'w:wc test' 'w:pb test'",
+    "build": "npm-run-all -p 'w:be build' 'w:wc build'"
   },
   "keywords": [],
   "author": "",
