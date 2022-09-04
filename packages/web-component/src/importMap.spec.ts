@@ -2,12 +2,13 @@ import {Configuration, ImportMap} from '@orchy/models'
 import {describe, it, expect, vi} from 'vitest'
 
 vi.stubGlobal('URL', {createObjectURL: () => undefined})
+vi.mock('es-module-shims', () => ({}))
 
 import importMap from './importMap'
 
 describe('importMap', () => {
-    importShim.addImportMap = vi.fn()
-    
+    window.importShim = {addImportMap: vi.fn()}
+
     const importMapContent = {
         'imports': {
             'react': 'https://ga.jspm.io/npm:react@18.0.0-rc.0/index.js'
@@ -18,7 +19,7 @@ describe('importMap', () => {
             }
         }
     }
-    
+
     const configurationBuilder: (importMap?: ImportMap) => Configuration = (importMap?: ImportMap) => ({
         'microFrontends': {
             '/route/load': {
