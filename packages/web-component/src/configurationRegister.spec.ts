@@ -24,7 +24,6 @@ class TestClient implements ConfigurationClient {
 
 const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve, milliseconds))
 
-
 describe('configurationRegister', () => {
     vi.mock('qiankun', () => ({
         ...vi.importActual('qiankun'),

@@ -26,7 +26,7 @@ const throwError = (application: Application) => {
     throw new Error(`Invalid container configuration for application id ${application.id}`)
 }
 
-const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectType>[] => {
+const microFrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectType>[] => {
     const container = microFrontend.applications.length == 1 ? `#${defaultContainer}` : undefined
 
     return microFrontend.applications.map((application: Application) => ({
@@ -41,8 +41,16 @@ const microfrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectTy
     }))
 }
 
+const microFrontendLoaderBuilder = (mappedMicroFrontends: LoadableApp<ObjectType>[]) => async () => {
+    for (const microFrontend of mappedMicroFrontends) {
+        const safeMountPromise = loadMicroApp(microFrontend)?.mountPromise.catch(console.error)
+        await safeMountPromise
+    }
+}
+
 const registerRoutes = (client: ConfigurationClient, setPageContent: setPageContent, router: Navigo) => ([route, microFrontend]: [string, MicroFrontend]) => {
-    const mappedMicroFrontends = microfrontendMapper(microFrontend)
+    const mappedMicroFrontends = microFrontendMapper(microFrontend)
+    const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
     router.on(route, () => {
         client.abortRetrieve()
 
@@ -54,7 +62,7 @@ const registerRoutes = (client: ConfigurationClient, setPageContent: setPageCont
             .then(pageConfiguration => pageBuilder([pageConfiguration]))
             .then(setPageContent)
             .then(() => eventBus.clearBuffer())
-            .then(() => mappedMicroFrontends.forEach(microFrontend => loadMicroApp(microFrontend)))
+            .then(microFrontendsLoader)
     })
 }
 
