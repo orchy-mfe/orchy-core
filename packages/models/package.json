@@ -14,7 +14,8 @@
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src --ext .ts",
     "lint:fix": "pnpm lint --fix",
-    "dev": "tsc -p tsconfig.json --watch"
+    "dev": "tsc -p tsconfig.json --watch",
+    "prepare": "pnpm build"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.36.2",
