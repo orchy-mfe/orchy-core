@@ -1,5 +1,5 @@
-import {Application, Configuration, MicroFrontend, PageConfiguration} from '@orchy/models'
-import {pageBuilder} from '@orchy/page-builder'
+import {Application, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
+import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
 import {ObjectType, LoadableApp, loadMicroApp, start} from 'qiankun'
 

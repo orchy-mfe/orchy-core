@@ -1,4 +1,4 @@
-import {Configuration} from '@orchy/models'
+import {Configuration} from '@orchy-mfe/models'
 import {FrameworkConfiguration} from 'qiankun'
 import './importMapConfiguration'
 import 'es-module-shims'

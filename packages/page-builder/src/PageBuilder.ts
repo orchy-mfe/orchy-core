@@ -1,4 +1,4 @@
-import {PageConfiguration} from '@orchy/models'
+import {PageConfiguration} from '@orchy-mfe/models'
 import {Subject, ReplaySubject} from 'rxjs'
 
 import ElementNodeCreator from './node-creator/ElementNodeCreator'

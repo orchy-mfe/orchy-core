@@ -76,7 +76,7 @@ importers:
 
   packages/page-builder:
     specifiers:
-      '@orchy/models': workspace:*
+      '@orchy-mfe/models': workspace:*
       '@typescript-eslint/eslint-plugin': ^5.36.2
       '@typescript-eslint/parser': ^5.36.2
       eslint: ^8.23.0
@@ -88,7 +88,7 @@ importers:
       vite: ^3.1.0
       vitest: ^0.23.1
     dependencies:
-      '@orchy/models': link:../models
+      '@orchy-mfe/models': link:../models
       rxjs: 7.5.6
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.36.2_2l2r3i3lm6jysqd4ac3ql4n2mm
@@ -103,8 +103,8 @@ importers:
 
   packages/web-component:
     specifiers:
-      '@orchy/models': workspace:*
-      '@orchy/page-builder': workspace:*
+      '@orchy-mfe/models': workspace:*
+      '@orchy-mfe/page-builder': workspace:*
       '@typescript-eslint/eslint-plugin': ^5.36.2
       '@typescript-eslint/parser': ^5.36.2
       '@vitest/coverage-c8': ^0.23.1
@@ -122,8 +122,8 @@ importers:
       vite: ^3.1.0
       vitest: ^0.23.1
     dependencies:
-      '@orchy/models': link:../models
-      '@orchy/page-builder': link:../page-builder
+      '@orchy-mfe/models': link:../models
+      '@orchy-mfe/page-builder': link:../page-builder
       es-module-shims: 1.5.17
       lit: 2.3.1
       navigo: 8.11.1

@@ -1,5 +1,5 @@
 {
-  "name": "@orchy/wc",
+  "name": "@orchy-mfe/wc",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,8 +22,8 @@
     "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
-    "@orchy/models": "workspace:*",
-    "@orchy/page-builder": "workspace:*",
+    "@orchy-mfe/models": "workspace:*",
+    "@orchy-mfe/page-builder": "workspace:*",
     "es-module-shims": "^1.5.17",
     "lit": "^2.3.1",
     "navigo": "^8.11.1",

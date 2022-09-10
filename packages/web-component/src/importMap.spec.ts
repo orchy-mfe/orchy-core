@@ -1,4 +1,4 @@
-import {Configuration, ImportMap} from '@orchy/models'
+import {Configuration, ImportMap} from '@orchy-mfe/models'
 import {describe, it, expect, vi} from 'vitest'
 
 vi.stubGlobal('URL', {createObjectURL: () => undefined})

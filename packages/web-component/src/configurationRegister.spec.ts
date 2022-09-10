@@ -1,4 +1,4 @@
-import {Configuration, PageConfiguration} from '@orchy/models'
+import {Configuration, PageConfiguration} from '@orchy-mfe/models'
 import Navigo, {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
 import {loadMicroApp, start} from 'qiankun'

@@ -1,4 +1,4 @@
-import {ImpaginationPageConfiguration} from '@orchy/models'
+import {ImpaginationPageConfiguration} from '@orchy-mfe/models'
 
 import CommonNodeCreator from './CommonNodeCreator'
 

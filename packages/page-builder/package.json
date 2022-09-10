@@ -1,5 +1,5 @@
 {
-  "name": "@orchy/page-builder",
+  "name": "@orchy-mfe/page-builder",
   "version": "0.0.1",
   "description": "Build page nodes based on specific configuration",
   "module": "dist/page-builder.mjs",
@@ -20,7 +20,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@orchy/models": "workspace:*",
+    "@orchy-mfe/models": "workspace:*",
     "rxjs": "^7.5.6"
   },
   "devDependencies": {

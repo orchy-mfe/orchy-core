@@ -1,5 +1,5 @@
 {
-  "name": "@orchy/models",
+  "name": "@orchy-mfe/models",
   "version": "0.0.1",
   "description": "Shared models of orchy",
   "main": "dist/index.js",

@@ -1,4 +1,4 @@
-import {ElementPageConfiguration} from '@orchy/models'
+import {ElementPageConfiguration} from '@orchy-mfe/models'
 import {Subject} from 'rxjs'
 
 import CommonNodeCreator from './CommonNodeCreator'

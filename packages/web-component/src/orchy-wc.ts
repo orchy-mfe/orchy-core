@@ -1,7 +1,7 @@
 import {LitElement, html, PropertyValueMap} from 'lit'
 import Navigo from 'navigo'
 import {customElement, property} from 'lit/decorators.js'
-import {Configuration} from '@orchy/models'
+import {Configuration} from '@orchy-mfe/models'
 
 import configurationRegister from './configurationRegister'
 import ConfigurationClient from './configuration-client/configurationClient'
