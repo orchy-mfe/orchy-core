@@ -1,11 +1,10 @@
 {
   "name": "@orchy-mfe/wc",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "main": "dist/orchy-wc.es.js",
+  "main": "dist/wc.js",
   "exports": {
-    ".": "./dist/orchy-wc.es.js"
+    ".": "./dist/wc.js"
   },
   "types": "types/orchy-wc.d.ts",
   "files": [
