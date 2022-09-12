@@ -1,7 +1,7 @@
 import {Common} from './Common'
-import {MicroFrontend} from './Microfrontend'
+import {MicroPage} from './MicroPage'
 
 export type Configuration = {
-  microFrontends: Record<string, MicroFrontend>,
+  microPages: Record<string, MicroPage>,
   common?: Common
 }

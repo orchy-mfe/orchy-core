@@ -1,3 +1,3 @@
 export * from './Configuration'
-export * from './Microfrontend'
+export * from './MicroPage'
 export * from './Common'

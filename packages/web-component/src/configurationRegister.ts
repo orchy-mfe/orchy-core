@@ -1,4 +1,4 @@
-import {Application, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
+import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
 import {ObjectType, LoadableApp, loadMicroApp, start} from 'qiankun'
@@ -22,20 +22,20 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
 
 const eventBus = new EventBusSubject()
 
-const throwError = (application: Application) => {
-    throw new Error(`Invalid container configuration for application id ${application.id}`)
+const throwError = (microFrontend: MicroFrontend) => {
+    throw new Error(`Invalid container configuration for application id ${microFrontend.id}`)
 }
 
-const microFrontendMapper = (microFrontend: MicroFrontend): LoadableApp<ObjectType>[] => {
-    const container = microFrontend.applications.length == 1 ? `#${defaultContainer}` : undefined
+const microFrontendMapper = (microPage: MicroPage): LoadableApp<ObjectType>[] => {
+    const container = microPage.microFrontends.length == 1 ? `#${defaultContainer}` : undefined
 
-    return microFrontend.applications.map((application: Application) => ({
-        name: application.id,
-        entry: application.entryPoint,
-        container: container || application.container || throwError(application),
+    return microPage.microFrontends.map((microFrontend: MicroFrontend) => ({
+        name: microFrontend.id,
+        entry: microFrontend.entryPoint,
+        container: container || microFrontend.container || throwError(microFrontend),
         props: {
             ...microFrontend.properties,
-            ...application.properties,
+            ...microFrontend.properties,
             eventBus
         }
     }))
@@ -48,14 +48,14 @@ const microFrontendLoaderBuilder = (mappedMicroFrontends: LoadableApp<ObjectType
     }
 }
 
-const registerRoutes = (client: ConfigurationClient, setPageContent: setPageContent, router: Navigo) => ([route, microFrontend]: [string, MicroFrontend]) => {
-    const mappedMicroFrontends = microFrontendMapper(microFrontend)
+const registerRoutes = (client: ConfigurationClient, setPageContent: setPageContent, router: Navigo) => ([route, microPage]: [string, MicroPage]) => {
+    const mappedMicroFrontends = microFrontendMapper(microPage)
     const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
     router.on(route, () => {
         client.abortRetrieve()
 
-        const configurationPromise = microFrontend.pageConfiguration ?
-            client.retrieveConfiguration<PageConfiguration>(microFrontend.pageConfiguration)
+        const configurationPromise = microPage.pageConfiguration ?
+            client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
             : singleMfeConfigurationPromise
 
         configurationPromise
@@ -70,7 +70,7 @@ const configurationRegister = (configuration: ConfigurationDependency, router: N
     start(installImportMaps(configuration.content))
         
     const routesRegister = registerRoutes(configuration.client, setPageContent, router)
-    Object.entries(configuration.content.microFrontends).forEach(routesRegister)
+    Object.entries(configuration.content.microPages).forEach(routesRegister)
 
     router.resolve()
 }

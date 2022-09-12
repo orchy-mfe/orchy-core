@@ -1,14 +1,14 @@
 type Properties = Record<string, unknown>
 
-export type Application = {
+export type MicroFrontend = {
   container?: string,
   entryPoint: string,
   id: string,
   properties?: Properties,
 }
 
-export type MicroFrontend = {
+export type MicroPage = {
   pageConfiguration?: string,
-  applications: Application[],
+  microFrontends: MicroFrontend[],
   properties?: Properties,
 }

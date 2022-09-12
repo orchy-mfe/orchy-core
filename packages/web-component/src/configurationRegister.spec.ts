@@ -41,10 +41,10 @@ describe('configurationRegister', () => {
 
     describe('single application in single microfrontend', () => {
         const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string, applicationContainer?: string) => ({
-            'microFrontends': {
+            'microPages': {
                 '/route/load': {
                     'pageConfiguration': pageConfiguration,
-                    'applications': [
+                    'microFrontends': [
                         {
                             'entryPoint': '//localhost:3001',
                             'id': 'microfrontend-test-1',
@@ -188,10 +188,10 @@ describe('configurationRegister', () => {
     describe('multiple applications in single microfrontend', () => {
         const testConfigurationBuilder: (application1Container?: string, application2Container?: string) => Configuration =
             (application1Container?: string, application2Container?: string) => ({
-                'microFrontends': {
+                'microPages': {
                     '/route/load': {
                         'pageConfiguration': 'page-config',
-                        'applications': [
+                        'microFrontends': [
                             {
                                 'entryPoint': '//localhost:3001',
                                 'id': 'microfrontend-test-1',
@@ -305,10 +305,10 @@ describe('configurationRegister', () => {
 
     describe('multiple microfrontend', () => {
         const testConfiguration = {
-            'microFrontends': {
+            'microPages': {
                 '/route/load': {
                     'pageConfiguration': 'page-configuration',
-                    'applications': [
+                    'microFrontends': [
                         {
                             'entryPoint': '//localhost:3001',
                             'id': 'microfrontend-test-1',
@@ -320,7 +320,7 @@ describe('configurationRegister', () => {
                 },
                 '/route/alternative': {
                     'pageConfiguration': 'page-configuration',
-                    'applications': [
+                    'microFrontends': [
                         {
                             'entryPoint': '//localhost:3002',
                             'id': 'microfrontend-test-2',
