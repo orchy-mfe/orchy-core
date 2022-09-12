@@ -7,7 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/orchy-wc.ts',
-      formats: ['es']
+      formats: ['es'],
+      fileName: 'orchy-wc'
     },
   },
   server: {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm-run-all 'w:models build' 'w:pb build'",
+    "postinstall": "pnpm build",
     "w:models": "pnpm --filter models",
     "w:be": "pnpm --filter be",
     "w:wc": "pnpm --filter wc",
@@ -13,7 +13,7 @@
     "lint:fix": "npm-run-all -p 'w:models lint:fix' 'w:be lint:fix' 'w:wc lint:fix' 'w:pb lint:fix'",
     "dev": "npm-run-all -p 'w:wc dev' 'w:be dev'",
     "test": "npm-run-all -p 'w:be test' 'w:wc test' 'w:pb test'",
-    "build": "npm-run-all -p 'w:be build' 'w:wc build'"
+    "build": "npm-run-all 'w:models build' 'w:pb build' 'w:be build' 'w:wc build'"
   },
   "keywords": [],
   "author": "",
