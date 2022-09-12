@@ -1,8 +1,8 @@
 {
-  "microFrontends": {
+  "microPages": {
     "/route/load": {
       "pageConfiguration": "page-config",
-      "applications": [
+      "microFrontends": [
         {
           "entryPoint": "//localhost:5174/route/load",
           "id": "microfrontend-test-1",
