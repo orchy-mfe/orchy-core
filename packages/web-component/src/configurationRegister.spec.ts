@@ -61,7 +61,10 @@ describe('configurationRegister', () => {
                     'imports': {
                         'test': '/test.js'
                     }
-                }
+                },
+                'stylesheets': [
+                    'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css'
+                ],
             }
         })
 
@@ -73,7 +76,7 @@ describe('configurationRegister', () => {
             await waitFor()
 
             expect(setPageContent).toHaveBeenCalledTimes(1)
-            expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><div id="${container}"></div></div>`)
+            expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"><div id="${container}"></div></div>`)
 
             expect(start).toHaveBeenCalledTimes(1)
             

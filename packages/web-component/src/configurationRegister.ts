@@ -16,7 +16,7 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
     type: 'element',
     tag: 'div',
     attributes: {
-        'id': defaultContainer
+        id: defaultContainer
     }
 })
 
@@ -48,18 +48,28 @@ const microFrontendLoaderBuilder = (mappedMicroFrontends: LoadableApp<ObjectType
     }
 }
 
-const registerRoutes = (client: ConfigurationClient, setPageContent: setPageContent, router: Navigo) => ([route, microPage]: [string, MicroPage]) => {
+const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration => ({
+    type: 'element',
+    tag: 'link',
+    attributes: {
+        rel: 'stylesheet',
+        href: stylesheetUrl
+    }
+})
+
+const registerRoutes = (configuration: ConfigurationDependency, setPageContent: setPageContent, router: Navigo) => ([route, microPage]: [string, MicroPage]) => {
     const mappedMicroFrontends = microFrontendMapper(microPage)
     const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
+    const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     router.on(route, () => {
-        client.abortRetrieve()
+        configuration.client.abortRetrieve()
 
         const configurationPromise = microPage.pageConfiguration ?
-            client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
+        configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
             : singleMfeConfigurationPromise
 
         configurationPromise
-            .then(pageConfiguration => pageBuilder([pageConfiguration]))
+            .then(pageConfiguration => pageBuilder(stylesConfiguration.concat(pageConfiguration)))
             .then(setPageContent)
             .then(() => eventBus.clearBuffer())
             .then(microFrontendsLoader)
@@ -69,7 +79,7 @@ const registerRoutes = (client: ConfigurationClient, setPageContent: setPageCont
 const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
     start(installImportMaps(configuration.content))
         
-    const routesRegister = registerRoutes(configuration.client, setPageContent, router)
+    const routesRegister = registerRoutes(configuration, setPageContent, router)
     Object.entries(configuration.content.microPages).forEach(routesRegister)
 
     router.resolve()
