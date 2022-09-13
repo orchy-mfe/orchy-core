@@ -13,7 +13,7 @@ export class OrchyWC extends LitElement {
   configurationName = 'orchy-config'
 
   @property()
-  basePath = '/'
+  basePath = window.location.pathname
 
   private configurationClient: ConfigurationClient = new HttpConfigurationClient()
 
