@@ -1,6 +1,7 @@
 {
   "name": "@orchy-mfe/page-builder",
   "version": "0.0.1",
+  "private": true,
   "description": "Build page nodes based on specific configuration",
   "module": "dist/page-builder.mjs",
   "main": "dist/page-builder.umd.js",
