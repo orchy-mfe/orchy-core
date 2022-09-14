@@ -21,10 +21,10 @@ describe('importMap', () => {
     }
 
     const configurationBuilder: (importMap?: ImportMap) => Configuration = (importMap?: ImportMap) => ({
-        'microFrontends': {
+        'microPages': {
             '/route/load': {
                 'pageConfiguration': 'page-config',
-                'applications': [
+                'microFrontends': [
                     {
                         'entryPoint': '//localhost:3001',
                         'id': 'microfrontend-test-1',
