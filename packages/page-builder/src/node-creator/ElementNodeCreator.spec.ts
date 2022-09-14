@@ -5,6 +5,8 @@ import ElementNodeCreator from './ElementNodeCreator'
 
 describe('ElementNodeCreator', () => {
 
+    type HTMLElementWithBus =  HTMLElement & {eventBus: ReplaySubject<unknown>}
+
     afterEach(() => {
         document.head.appendChild = vi.fn()
     })
@@ -15,7 +17,7 @@ describe('ElementNodeCreator', () => {
             tag: 'foo-wc'
         }, new ReplaySubject())
 
-        const createdNode = pageCreator.create()
+        const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(createdNode.getAttributeNames()).toMatchObject([])
@@ -29,7 +31,7 @@ describe('ElementNodeCreator', () => {
             url: 'https://example.com'
         }, new ReplaySubject())
 
-        const createdNode = pageCreator.create()
+        const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(document.head.appendChild).toHaveBeenCalledTimes(1)
@@ -49,7 +51,7 @@ describe('ElementNodeCreator', () => {
             }
         }, new ReplaySubject())
 
-        const createdNode = pageCreator.create()
+        const createdNode = pageCreator.create() as HTMLElementWithBus & {foo: string}
 
         expect(createdNode.toString()).toEqual('<foo-wc id="root" style="color:red"></foo-wc>')
         expect(createdNode.style.toString()).toEqual({
