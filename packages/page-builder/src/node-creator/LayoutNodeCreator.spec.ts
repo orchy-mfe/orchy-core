@@ -1,12 +1,15 @@
 import {describe, it, expect} from 'vitest'
 
-import ImpaginationNodeCreator from './ImpaginationNodeCreator'
+import LayoutNodeCreator from './LayoutNodeCreator'
 
 
-describe('ImpaginationNodeCreator', () => {
+describe('LayoutNodeCreator', () => {
+
+    type HTMLElementWithBus =  HTMLElement & {foo: string}
+
 
     it('create flex-column', () => {
-        const pageCreator = new ImpaginationNodeCreator({
+        const pageCreator = new LayoutNodeCreator({
             type: 'flex-column'
         })
 
@@ -20,7 +23,7 @@ describe('ImpaginationNodeCreator', () => {
     })
 
     it('create complete flex-column', () => {
-        const pageCreator = new ImpaginationNodeCreator({
+        const pageCreator = new LayoutNodeCreator({
             type: 'flex-column',
             attributes: {
                 id: 'root',
@@ -31,7 +34,7 @@ describe('ImpaginationNodeCreator', () => {
             }
         })
 
-        const createdNode = pageCreator.create()
+        const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<div style="display: flex; flex-direction: column;color:red" id="root"></div>')
         expect(createdNode.style.toString()).toEqual({
@@ -42,7 +45,7 @@ describe('ImpaginationNodeCreator', () => {
     })
 
     it('create flex-row', () => {
-        const pageCreator = new ImpaginationNodeCreator({
+        const pageCreator = new LayoutNodeCreator({
             type: 'flex-row'
         })
 
@@ -56,7 +59,7 @@ describe('ImpaginationNodeCreator', () => {
     })
 
     it('create complete flex-row', () => {
-        const pageCreator = new ImpaginationNodeCreator({
+        const pageCreator = new LayoutNodeCreator({
             type: 'flex-row',
             attributes: {
                 id: 'root',
@@ -67,7 +70,7 @@ describe('ImpaginationNodeCreator', () => {
             }
         })
 
-        const createdNode = pageCreator.create()
+        const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<div style="display: flex; flex-direction: row;color:red" id="root"></div>')
         expect(createdNode.style.toString()).toEqual({
