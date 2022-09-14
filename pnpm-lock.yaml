@@ -21,7 +21,7 @@ importers:
       eslint: ^8.23.1
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      fastify: ^4.5.3
+      fastify: ^4.6.0
       fastify-now: ^3.0.0
       fastify-plugin: ^4.2.1
       nodemon: ^2.0.19
@@ -34,7 +34,7 @@ importers:
       '@sinclair/typebox': 0.24.41
       ajv: 8.11.0
       env-schema: 5.0.0
-      fastify: 4.5.3
+      fastify: 4.6.0
       fastify-now: 3.0.0
       fastify-plugin: 4.2.1
     devDependencies:
@@ -1744,7 +1744,7 @@ packages:
     resolution: {integrity: sha512-6fpyN0Jy9WdOFe9nPE/Lbq+V4/DjM4NFyDvR/Z5E/E+tnXYIBfEKypGXE64dDApqDNTBcBbb8+5VIigj8RK0lQ==}
     engines: {node: '>=12.x.x'}
     dependencies:
-      fastify: 4.5.3
+      fastify: 4.6.0
       fastify-plugin: 3.0.1
     transitivePeerDependencies:
       - supports-color
@@ -1758,8 +1758,8 @@ packages:
     resolution: {integrity: sha512-dlGKiwLzRBKkEf5J5ho0uAD/Jdv8GQVUbriB3tAX3ehRUXE4gTV3lRd5inEg9li1aLzb0EGj8y2K4/8g1TN06g==}
     dev: false
 
-  /fastify/4.5.3:
-    resolution: {integrity: sha512-Q8Zvkmg7GnioMCDX1jT2Q7iRqjywlnDZ1735D2Ipf7ashCM/3/bqPKv2Jo1ZF2iDExct2eP1C/tdhcj0GG/OuQ==}
+  /fastify/4.6.0:
+    resolution: {integrity: sha512-EgWUvcJNvsql1R4g5/ce866BYk8SgJKjGh6AI0e9BR+NidP7hqX1ObiwHEVbkR15A9XwMtkKd3TE/tFZCjsqnA==}
     dependencies:
       '@fastify/ajv-compiler': 3.1.2
       '@fastify/error': 3.0.0
