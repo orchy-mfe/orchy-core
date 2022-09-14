@@ -1,8 +1,8 @@
 import {ElementPageConfiguration} from './ElementPageConfiguration'
-import {ImpaginationPageConfiguration} from './ImpaginationPageConfiguration'
+import {LayoutPageConfiguration} from './ImpaginationPageConfiguration'
 
 type PageConfigurationContent = {
     content?: PageConfiguration[]
 }
 
-export type PageConfiguration = (ElementPageConfiguration | ImpaginationPageConfiguration) & PageConfigurationContent
+export type PageConfiguration = (ElementPageConfiguration | LayoutPageConfiguration) & PageConfigurationContent
