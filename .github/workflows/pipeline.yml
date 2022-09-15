@@ -1,4 +1,4 @@
-name: Orchy template CI
+name: orchy-core CI
 
 on:
   push:
