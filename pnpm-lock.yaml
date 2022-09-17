@@ -85,7 +85,7 @@ importers:
       prettier: ^2.7.1
       rxjs: ^7.5.6
       typescript: ^4.8.3
-      vite: ^3.1.1
+      vite: ^3.1.2
       vitest: ^0.23.2
     dependencies:
       '@orchy-mfe/models': link:../models
@@ -98,7 +98,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_cabrci5exjdaojcvd6xoxgeowu
       prettier: 2.7.1
       typescript: 4.8.3
-      vite: 3.1.1
+      vite: 3.1.2
       vitest: 0.23.2
 
   packages/web-component:
@@ -121,7 +121,7 @@ importers:
       rollup-plugin-visualizer: ^5.8.1
       rxjs: ^7.5.6
       typescript: ^4.8.3
-      vite: ^3.1.1
+      vite: ^3.1.2
       vitest: ^0.23.2
     dependencies:
       '@orchy-mfe/models': link:../models
@@ -143,7 +143,7 @@ importers:
       prettier: 2.7.1
       rollup-plugin-visualizer: 5.8.1
       typescript: 4.8.3
-      vite: 3.1.1
+      vite: 3.1.2
       vitest: 0.23.2_happy-dom@6.0.4
 
 packages:
@@ -3880,8 +3880,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite/3.1.1:
-    resolution: {integrity: sha512-hgxQWev/AL7nWYrqByYo8nfcH9n97v6oFsta9+JX8h6cEkni7nHKP2kJleNYV2kcGhE8jsbaY1aStwPZXzPbgA==}
+  /vite/3.1.2:
+    resolution: {integrity: sha512-wTDKPkiVbeT+drTPdkuvjVIC/2vKKUc1w3qNOuwgpyvPCZF6fvdxB5v5WEcCsqaYea0zrwA4+XialJKCHM3oVQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3939,7 +3939,7 @@ packages:
       tinybench: 2.1.5
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.1.1
+      vite: 3.1.2
     transitivePeerDependencies:
       - less
       - sass
@@ -3981,7 +3981,7 @@ packages:
       tinybench: 2.1.5
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.1.1
+      vite: 3.1.2
     transitivePeerDependencies:
       - less
       - sass
