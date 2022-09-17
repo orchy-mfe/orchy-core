@@ -2,6 +2,7 @@ import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
 import {ObjectType, LoadableApp, loadMicroApp, start} from 'qiankun'
+import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'
@@ -26,7 +27,7 @@ const throwError = (microFrontend: MicroFrontend) => {
     throw new Error(`Invalid container configuration for application id ${microFrontend.id}`)
 }
 
-const microFrontendMapper = (microPage: MicroPage): LoadableApp<ObjectType>[] => {
+const microFrontendMapper = (route: string, microPage: MicroPage, router: Navigo): LoadableApp<ObjectType>[] => {
     const container = microPage.microFrontends.length == 1 ? `#${defaultContainer}` : undefined
 
     return microPage.microFrontends.map((microFrontend: MicroFrontend) => ({
@@ -36,6 +37,7 @@ const microFrontendMapper = (microPage: MicroPage): LoadableApp<ObjectType>[] =>
         props: {
             ...microFrontend.properties,
             ...microFrontend.properties,
+            baseUrl: lightJoin(router.root, route),
             eventBus
         }
     }))
@@ -58,7 +60,7 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 })
 
 const registerRoutes = (configuration: ConfigurationDependency, setPageContent: setPageContent, router: Navigo) => ([route, microPage]: [string, MicroPage]) => {
-    const mappedMicroFrontends = microFrontendMapper(microPage)
+    const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
     const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     router.on(route, () => {

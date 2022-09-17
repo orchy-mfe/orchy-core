@@ -89,8 +89,10 @@ describe('configurationRegister', () => {
                 entry: '//localhost:3001',
                 container: '#root'
             }))
-            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
 
+            const firstCall = loadMicroApp.mock.calls[0][0].props
+            expect(firstCall.eventBus).toBeDefined()
+            expect(firstCall.baseUrl).toBe('/route/load')
         }
 
         it('correctly register configuration', () => {
@@ -238,8 +240,13 @@ describe('configurationRegister', () => {
                 container: 'container2'
             }))
 
-            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
-            expect(loadMicroApp.mock.calls[1][0].props.eventBus).toBeDefined()
+            const firstCallProps = loadMicroApp.mock.calls[0][0].props
+            const secondCallProps = loadMicroApp.mock.calls[1][0].props
+
+            expect(firstCallProps.eventBus).toBeDefined()
+            expect(firstCallProps.baseUrl).toBe('/route/load')
+            expect(secondCallProps.eventBus).toBeDefined()
+            expect(secondCallProps.baseUrl).toBe('/route/load')
         }
 
         it('correctly reject for missing first container', () => {
@@ -361,7 +368,10 @@ describe('configurationRegister', () => {
                 entry: '//localhost:3001',
                 container: '#root'
             }))
-            expect(loadMicroApp.mock.calls[0][0].props.eventBus).toBeDefined()
+
+            const firstCallProps = loadMicroApp.mock.calls[0][0].props
+            expect(firstCallProps.eventBus).toBeDefined()
+            expect(firstCallProps.baseUrl).toBe('/route/load')
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -383,7 +393,10 @@ describe('configurationRegister', () => {
                 entry: '//localhost:3002',
                 container: '#root'
             }))
-            expect(loadMicroApp.mock.calls[calledTimes - 1][0].props.eventBus).toBeDefined()
+
+            const callProp = loadMicroApp.mock.calls[calledTimes - 1][0].props
+            expect(callProp.eventBus).toBeDefined()
+            expect(callProp.baseUrl).toBe('/route/alternative')
         }
 
         it('correctly register configuration', () => {
