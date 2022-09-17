@@ -17,6 +17,8 @@ export class OrchyWC extends LitElement {
 
   private configurationClient: ConfigurationClient = new HttpConfigurationClient()
 
+  private router?: Navigo
+
   protected override firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void {
     super.firstUpdated(changedProperties)
     const router = new Navigo(this.basePath)
@@ -31,6 +33,11 @@ export class OrchyWC extends LitElement {
 
   render() {
     return html``
+  }
+
+  disconnectedCallback(): void {
+      super.disconnectedCallback()
+      this.router?.destroy()
   }
 
   protected createRenderRoot() {
