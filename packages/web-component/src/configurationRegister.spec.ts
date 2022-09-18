@@ -8,10 +8,10 @@ import configurationRegister from './configurationRegister'
 import addImportMap from './importMap'
 
 const testPageConfiguration: PageConfiguration = {
-    'type': 'element',
-    'tag': 'div',
-    'attributes': {
-        'id': 'testPageConfiguration'
+    type: 'element',
+    tag: 'div',
+    attributes: {
+        id: 'testPageConfiguration'
     }
 }
 
@@ -41,31 +41,31 @@ describe('configurationRegister', () => {
 
     describe('single application in single microfrontend', () => {
         const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string, applicationContainer?: string) => ({
-            'microPages': {
+            microPages: {
                 '/route/load': {
-                    'pageConfiguration': pageConfiguration,
-                    'microFrontends': [
+                    pageConfiguration: pageConfiguration,
+                    microFrontends: [
                         {
-                            'entryPoint': '//localhost:3001',
-                            'id': 'microfrontend-test-1',
-                            'properties': {
-                                'mfName': 'Name test'
+                            entryPoint: '//localhost:3001',
+                            id: 'microfrontend-test-1',
+                            properties: {
+                                mfName: 'Name test'
                             },
-                            'container': applicationContainer
+                            container: applicationContainer
                         }
                     ],
-                    'properties': {
-                        'pageName': 'Page test'
+                    properties: {
+                        pageName: 'Page test'
                     },
                 }
             },
-            'common': {
-                'importMap': {
-                    'imports': {
-                        'test': '/test.js'
+            common: {
+                importMap: {
+                    imports: {
+                        test: '/test.js'
                     }
                 },
-                'stylesheets': [
+                stylesheets: [
                     'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css'
                 ],
             }
@@ -203,29 +203,29 @@ describe('configurationRegister', () => {
     describe('multiple applications in single microfrontend', () => {
         const testConfigurationBuilder: (application1Container?: string, application2Container?: string) => Configuration =
             (application1Container?: string, application2Container?: string) => ({
-                'microPages': {
+                microPages: {
                     '/route/load': {
-                        'pageConfiguration': 'page-config',
-                        'microFrontends': [
+                        pageConfiguration: 'page-config',
+                        microFrontends: [
                             {
-                                'entryPoint': '//localhost:3001',
-                                'id': 'microfrontend-test-1',
-                                'properties': {
-                                    'mfName': 'Name test'
+                                entryPoint: '//localhost:3001',
+                                id: 'microfrontend-test-1',
+                                properties: {
+                                    mfName: 'Name test'
                                 },
-                                'container': application1Container
+                                container: application1Container
                             },
                             {
-                                'entryPoint': '//localhost:3002',
-                                'id': 'microfrontend-test-2',
-                                'properties': {
-                                    'mfName': 'Name test 2'
+                                entryPoint: '//localhost:3002',
+                                id: 'microfrontend-test-2',
+                                properties: {
+                                    mfName: 'Name test 2'
                                 },
-                                'container': application2Container
+                                container: application2Container
                             }
                         ],
-                        'properties': {
-                            'pageName': 'Page test'
+                        properties: {
+                            pageName: 'Page test'
                         },
                     }
                 }
@@ -342,35 +342,35 @@ describe('configurationRegister', () => {
 
     describe('multiple microfrontend', () => {
         const testConfiguration = {
-            'microPages': {
+            microPages: {
                 '/route/load': {
-                    'pageConfiguration': 'page-configuration',
-                    'microFrontends': [
+                    pageConfiguration: 'page-configuration',
+                    microFrontends: [
                         {
-                            'entryPoint': '//localhost:3001',
-                            'id': 'microfrontend-test-1',
-                            'properties': {
-                                'mfName': 'Name test'
+                            entryPoint: '//localhost:3001',
+                            id: 'microfrontend-test-1',
+                            properties: {
+                                mfName: 'Name test'
                             },
                         }
                     ],
-                    'properties': {
-                        'pageName': 'Page test'
+                    properties: {
+                        pageName: 'Page test'
                     },
                 },
                 '/route/alternative': {
-                    'pageConfiguration': 'page-configuration',
-                    'microFrontends': [
+                    pageConfiguration: 'page-configuration',
+                    microFrontends: [
                         {
-                            'entryPoint': '//localhost:3002',
-                            'id': 'microfrontend-test-2',
-                            'properties': {
-                                'mfName': 'Name test 2'
+                            entryPoint: '//localhost:3002',
+                            id: 'microfrontend-test-2',
+                            properties: {
+                                mfName: 'Name test 2'
                             },
                         }
                     ],
-                    'properties': {
-                        'pageName': 'Page test 2'
+                    properties: {
+                        pageName: 'Page test 2'
                     },
                 }
             }

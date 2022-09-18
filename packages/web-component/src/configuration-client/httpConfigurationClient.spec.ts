@@ -4,25 +4,25 @@ import {Configuration} from '@orchy-mfe/models'
 import HttpConfigurationClient from './httpConfigurationClient'
 
 const mockConfig: Configuration = {
-  'microFrontends': {
+  microPages: {
     '/route/load': {
-      'pageConfiguration': 'page-config',
-      'applications': [{
-        'entryPoint': '//localhost:3001',
-        'id': 'microfrontend-test-1',
-        'properties': {
-          'mfName': 'Name test'
+      pageConfiguration: 'page-config',
+      microFrontends: [{
+        entryPoint: '//localhost:3001',
+        id: 'microfrontend-test-1',
+        properties: {
+          mfName: 'Name test'
         }
       }]
     }
   },
-  'common': {
-    'stylesheets': [
+  common: {
+    stylesheets: [
       'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css'
     ],
-    'importMap': {
-      'imports': {
-        'react': 'https://unpkg.com/react@18.2.0/index.js'
+    importMap: {
+      imports: {
+        react: 'https://unpkg.com/react@18.2.0/index.js'
       }
     }
   }
