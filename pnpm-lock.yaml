@@ -117,7 +117,7 @@ importers:
       lit: ^2.3.1
       navigo: ^8.11.1
       prettier: ^2.7.1
-      qiankun: ^2.7.5
+      qiankun: ^2.8.0
       rollup-plugin-visualizer: ^5.8.1
       rxjs: ^7.5.6
       typescript: ^4.8.3
@@ -130,7 +130,7 @@ importers:
       light-join: 1.3.0
       lit: 2.3.1
       navigo: 8.11.1
-      qiankun: 2.7.5
+      qiankun: 2.8.0
       rxjs: 7.5.6
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.37.0_22c5fnooleyfkzrkkgdmel5kmi
@@ -2155,8 +2155,8 @@ packages:
       resolve-from: 4.0.0
     dev: true
 
-  /import-html-entry/1.12.0:
-    resolution: {integrity: sha512-wloMEMwupKJ8DWvKsEzJTXhHVieEH8ylu9ebeQg7T9JUsPTo0Zwa1EkuSKgKJvOiA2MxAFkeYYvd/E2pKiFtWQ==}
+  /import-html-entry/1.14.0:
+    resolution: {integrity: sha512-CQQMV+2rxHCLMSXsajV1cjT1g6xi3ujMAPnGwR96xHaN5/JEVIOUGkM7LDRn73dk8E8NaHmOf3rvPPExPPe1xw==}
     dependencies:
       '@babel/runtime': 7.18.9
     dev: false
@@ -3101,14 +3101,13 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
-  /qiankun/2.7.5:
-    resolution: {integrity: sha512-rJgvXTVUAl823likA4HxwOndbpQfMDkliJ0dIqsQY9uLrQupjQgTUgZyMg4VSN+f034aU6G7HmA8lpx1reS6Hg==}
+  /qiankun/2.8.0:
+    resolution: {integrity: sha512-Pbal4mkMnUMS4MS+yZDodW0akW16H3V4hwSCbV/EYK3iMxPmxS3/PiRnYyJndPAaMXxlN2SqWRFcIlTVpu4vSQ==}
     dependencies:
       '@babel/runtime': 7.18.9
-      import-html-entry: 1.12.0
+      import-html-entry: 1.14.0
       lodash: 4.17.21
       single-spa: 5.9.4
-      tslib: 1.14.1
     dev: false
 
   /qs/6.11.0:
@@ -3766,6 +3765,7 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
