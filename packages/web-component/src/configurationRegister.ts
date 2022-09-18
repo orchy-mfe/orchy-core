@@ -35,7 +35,7 @@ const microFrontendMapper = (route: string, microPage: MicroPage, router: Navigo
         entry: microFrontend.entryPoint,
         container: container || microFrontend.container || throwError(microFrontend),
         props: {
-            ...microFrontend.properties,
+            ...microPage.properties,
             ...microFrontend.properties,
             baseUrl: lightJoin(router.root, route),
             eventBus

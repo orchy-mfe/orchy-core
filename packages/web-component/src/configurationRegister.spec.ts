@@ -53,7 +53,10 @@ describe('configurationRegister', () => {
                             },
                             'container': applicationContainer
                         }
-                    ]
+                    ],
+                    'properties': {
+                        'pageName': 'Page test'
+                    },
                 }
             },
             'common': {
@@ -84,15 +87,22 @@ describe('configurationRegister', () => {
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
 
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
-            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+
+            const {props, ...loadableApp} = loadMicroApp.mock.calls[0][0]
+
+            expect(loadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
                 container: '#root'
-            }))
+            })
 
-            const firstCall = loadMicroApp.mock.calls[0][0].props
-            expect(firstCall.eventBus).toBeDefined()
-            expect(firstCall.baseUrl).toBe('/route/load')
+            const {eventBus, ...otherProps} = props
+            expect(eventBus).toBeDefined()
+            expect(otherProps).toMatchObject({
+                baseUrl: '/route/load',
+                mfName: 'Name test',
+                pageName: 'Page test'
+            })
         }
 
         it('correctly register configuration', () => {
@@ -206,14 +216,17 @@ describe('configurationRegister', () => {
                                 'container': application1Container
                             },
                             {
-                                'entryPoint': '//localhost:3001',
+                                'entryPoint': '//localhost:3002',
                                 'id': 'microfrontend-test-2',
                                 'properties': {
-                                    'mfName': 'Name test'
+                                    'mfName': 'Name test 2'
                                 },
                                 'container': application2Container
                             }
-                        ]
+                        ],
+                        'properties': {
+                            'pageName': 'Page test'
+                        },
                     }
                 }
             })
@@ -229,24 +242,38 @@ describe('configurationRegister', () => {
             expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
             expect(loadMicroApp).toHaveBeenCalledTimes(2)
-            expect(loadMicroApp).toHaveBeenNthCalledWith(1, expect.objectContaining({
+
+            const {props: firstProps, ...firstLoadableApp} = loadMicroApp.mock.calls[0][0]
+
+            expect(firstLoadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
                 container: 'container1'
-            }))
-            expect(loadMicroApp).toHaveBeenNthCalledWith(2, expect.objectContaining({
+            })
+
+            const {eventBus: firstEventBus, ...firstOtherProps} = firstProps
+            expect(firstEventBus).toBeDefined()
+            expect(firstOtherProps).toMatchObject({
+                baseUrl: '/route/load',
+                mfName: 'Name test',
+                pageName: 'Page test'
+            })
+
+            const {props: secondProps, ...secondLoadableApp} = loadMicroApp.mock.calls[1][0]
+
+            expect(secondLoadableApp).toMatchObject({
                 name: 'microfrontend-test-2',
-                entry: '//localhost:3001',
+                entry: '//localhost:3002',
                 container: 'container2'
-            }))
+            })
 
-            const firstCallProps = loadMicroApp.mock.calls[0][0].props
-            const secondCallProps = loadMicroApp.mock.calls[1][0].props
-
-            expect(firstCallProps.eventBus).toBeDefined()
-            expect(firstCallProps.baseUrl).toBe('/route/load')
-            expect(secondCallProps.eventBus).toBeDefined()
-            expect(secondCallProps.baseUrl).toBe('/route/load')
+            const {eventBus: secondEventBus, ...secondOtherProps} = secondProps
+            expect(secondEventBus).toBeDefined()
+            expect(secondOtherProps).toMatchObject({
+                baseUrl: '/route/load',
+                mfName: 'Name test 2',
+                pageName: 'Page test'
+            })
         }
 
         it('correctly reject for missing first container', () => {
@@ -326,7 +353,10 @@ describe('configurationRegister', () => {
                                 'mfName': 'Name test'
                             },
                         }
-                    ]
+                    ],
+                    'properties': {
+                        'pageName': 'Page test'
+                    },
                 },
                 '/route/alternative': {
                     'pageConfiguration': 'page-configuration',
@@ -338,7 +368,10 @@ describe('configurationRegister', () => {
                                 'mfName': 'Name test 2'
                             },
                         }
-                    ]
+                    ],
+                    'properties': {
+                        'pageName': 'Page test 2'
+                    },
                 }
             }
         }
@@ -363,15 +396,22 @@ describe('configurationRegister', () => {
             expect(start).toHaveBeenCalledTimes(1)
 
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
-            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+
+            const {props: firstProps, ...firstLoadableApp} = loadMicroApp.mock.calls[0][0]
+
+            expect(firstLoadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
                 container: '#root'
-            }))
+            })
 
-            const firstCallProps = loadMicroApp.mock.calls[0][0].props
-            expect(firstCallProps.eventBus).toBeDefined()
-            expect(firstCallProps.baseUrl).toBe('/route/load')
+            const {eventBus: firstEventBus, ...firstOtherProps} = firstProps
+            expect(firstEventBus).toBeDefined()
+            expect(firstOtherProps).toMatchObject({
+                baseUrl: '/route/load',
+                mfName: 'Name test',
+                pageName: 'Page test'
+            })
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -388,15 +428,22 @@ describe('configurationRegister', () => {
             expect(start).toHaveBeenCalledTimes(1)
 
             expect(loadMicroApp).toHaveBeenCalledTimes(calledTimes)
-            expect(loadMicroApp).toHaveBeenCalledWith(expect.objectContaining({
+
+            const {props: secondProps, ...secondLoadableApp} = loadMicroApp.mock.calls[calledTimes - 1][0]
+
+            expect(secondLoadableApp).toMatchObject({
                 name: 'microfrontend-test-2',
                 entry: '//localhost:3002',
                 container: '#root'
-            }))
+            })
 
-            const callProp = loadMicroApp.mock.calls[calledTimes - 1][0].props
-            expect(callProp.eventBus).toBeDefined()
-            expect(callProp.baseUrl).toBe('/route/alternative')
+            const {eventBus: secondEventBus, ...secondOtherProps} = secondProps
+            expect(secondEventBus).toBeDefined()
+            expect(secondOtherProps).toMatchObject({
+                baseUrl: '/route/alternative',
+                mfName: 'Name test 2',
+                pageName: 'Page test 2'
+            })
         }
 
         it('correctly register configuration', () => {
