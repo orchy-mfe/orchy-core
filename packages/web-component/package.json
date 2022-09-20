@@ -1,5 +1,5 @@
 {
-  "name": "@orchy-mfe/wc",
+  "name": "@orchy-mfe/web-component",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/orchy-wc.js",

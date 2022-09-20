@@ -5,7 +5,7 @@
 Welcome to the `orchy-core` repository, the main one of the `Orchy Project`.  
 
 It is a monorepo which includes the following packages:
-- @orchy-mfe/be: a Fastify backend that can be used to serve orchy's configuration files;
+- @orchy-mfe/back-end: a Fastify backend that can be used to serve orchy's configuration files;
 - @orchy-mfe/models: includes the TypeScript models for the orchy's configurations and the Micro Frontends properties;
 - @orchy-mfe/page-builder: the library which enables the Server Driven UI;
 - @orchy-mfe/web-component: the Web Component which embeds the orchestration logics.

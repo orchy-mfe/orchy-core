@@ -6,8 +6,8 @@
   "scripts": {
     "postinstall": "pnpm build",
     "w:models": "pnpm --filter models",
-    "w:be": "pnpm --filter be",
-    "w:wc": "pnpm --filter wc",
+    "w:be": "pnpm --filter back-end",
+    "w:wc": "pnpm --filter web-component",
     "w:pb": "pnpm --filter page-builder",
     "lint": "npm-run-all -p 'w:models lint' 'w:be lint' 'w:wc lint' 'w:pb lint'",
     "lint:fix": "npm-run-all -p 'w:models lint:fix' 'w:be lint:fix' 'w:wc lint:fix' 'w:pb lint:fix'",

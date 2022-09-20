@@ -1,5 +1,5 @@
 {
-  "name": "@orchy-mfe/be",
+  "name": "@orchy-mfe/back-end",
   "version": "0.0.1",
   "description": "Backend repository for the Orchy project",
   "type": "module",
