@@ -22,7 +22,7 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       fastify: ^4.6.0
-      fastify-now: ^3.0.0
+      fastify-now: ^3.0.1
       fastify-plugin: ^4.2.1
       nodemon: ^2.0.20
       pino-pretty: ^9.1.0
@@ -35,7 +35,7 @@ importers:
       ajv: 8.11.0
       env-schema: 5.0.0
       fastify: 4.6.0
-      fastify-now: 3.0.0
+      fastify-now: 3.0.1
       fastify-plugin: 4.2.1
     devDependencies:
       '@types/node': 18.7.14
@@ -1760,18 +1760,11 @@ packages:
     resolution: {integrity: sha512-qKRta6N7BWEFVlyonVY/V+BMLgFqktCUV0QjT259ekAIlbVrMaFnFLxJ4s/JPl4tou56S1BzPufI60bLe29fHA==}
     dev: false
 
-  /fastify-now/3.0.0:
-    resolution: {integrity: sha512-6fpyN0Jy9WdOFe9nPE/Lbq+V4/DjM4NFyDvR/Z5E/E+tnXYIBfEKypGXE64dDApqDNTBcBbb8+5VIigj8RK0lQ==}
+  /fastify-now/3.0.1:
+    resolution: {integrity: sha512-fME2Fely6mQ67YM4IJPVHno1zNuyU/tzJrC1JWP5ARklVCN09h01RcrViy05igH5ueNLcwmIh0NfpoCaEu0wIA==}
     engines: {node: '>=12.x.x'}
     dependencies:
-      fastify: 4.6.0
-      fastify-plugin: 3.0.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /fastify-plugin/3.0.1:
-    resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
+      fastify-plugin: 4.2.1
     dev: false
 
   /fastify-plugin/4.2.1:
