@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@orchy-mfe/models": "workspace:*",
-    "rxjs": "^7.5.6"
+    "rxjs": "^7.5.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.38.0",
