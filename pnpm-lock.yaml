@@ -117,7 +117,7 @@ importers:
       lit: ^2.3.1
       navigo: ^8.11.1
       prettier: ^2.7.1
-      qiankun: ^2.8.0
+      qiankun: ^2.8.1
       rollup-plugin-visualizer: ^5.8.2
       rxjs: ^7.5.7
       typescript: ^4.8.3
@@ -130,7 +130,7 @@ importers:
       light-join: 1.3.0
       lit: 2.3.1
       navigo: 8.11.1
-      qiankun: 2.8.0
+      qiankun: 2.8.1
       rxjs: 7.5.7
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.38.0_4gkcvl6qsi23tqqawfqgcwtp54
@@ -3099,8 +3099,8 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
-  /qiankun/2.8.0:
-    resolution: {integrity: sha512-Pbal4mkMnUMS4MS+yZDodW0akW16H3V4hwSCbV/EYK3iMxPmxS3/PiRnYyJndPAaMXxlN2SqWRFcIlTVpu4vSQ==}
+  /qiankun/2.8.1:
+    resolution: {integrity: sha512-pPYqbwzvouwV2NgB91Xh7ZLIogyX5qgIBmUwhceUU3V6+TjnFPOGMZ7eRj7z5tDCHAzQeMb7pATPlBV5Nk2uiA==}
     dependencies:
       '@babel/runtime': 7.18.9
       import-html-entry: 1.14.0
