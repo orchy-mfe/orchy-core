@@ -16,7 +16,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.38.1
       '@typescript-eslint/parser': ^5.38.1
       ajv: ^8.11.0
-      env-schema: ^5.0.0
+      env-schema: ^5.1.0
       esbuild: ^0.15.9
       eslint: ^8.24.0
       eslint-config-prettier: ^8.5.0
@@ -33,7 +33,7 @@ importers:
     dependencies:
       '@sinclair/typebox': 0.24.43
       ajv: 8.11.0
-      env-schema: 5.0.0
+      env-schema: 5.1.0
       fastify: 4.6.0
       fastify-now: 3.0.1
       fastify-plugin: 4.2.1
@@ -1231,8 +1231,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dotenv-expand/8.0.3:
-    resolution: {integrity: sha512-SErOMvge0ZUyWd5B0NXMQlDkN+8r+HhVUsxgOO7IoPDOdDRD2JjExpN6y3KnFR66jsJMwSn1pqIivhU5rcJiNg==}
+  /dotenv-expand/9.0.0:
+    resolution: {integrity: sha512-uW8Hrhp5ammm9x7kBLR6jDfujgaDarNA02tprvZdyrJ7MpdzD1KyrIHG4l+YoC2fJ2UcdFdNWNWIjt+sexBHJw==}
     engines: {node: '>=12'}
     dev: false
 
@@ -1255,12 +1255,12 @@ packages:
       once: 1.4.0
     dev: true
 
-  /env-schema/5.0.0:
-    resolution: {integrity: sha512-91u95Nlny+LmjF3Mk96j8k6k+GOXcFEdMUv3bWQjtM2l+KTAdW6qITiv8kHYO8vCaCScXpJTDyd1AFnCQTnYaQ==}
+  /env-schema/5.1.0:
+    resolution: {integrity: sha512-hbu+aC1nddO+tPPgw/guQRNY5CzkgplFu1WbmdiQimy4lcwPCteuKFvxF9uHSU/HkXNlIWR+WC0B53VG21aOxQ==}
     dependencies:
       ajv: 8.11.0
       dotenv: 16.0.1
-      dotenv-expand: 8.0.3
+      dotenv-expand: 9.0.0
     dev: false
 
   /error-ex/1.3.2:
