@@ -7,6 +7,7 @@ import {lightJoin} from 'light-join'
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'
 import installImportMaps from './importMap'
+import pageContentManagerBuilder from './pageContentManager'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
@@ -59,23 +60,28 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
     }
 })
 
-const registerRoutes = (configuration: ConfigurationDependency, setPageContent: setPageContent, router: Navigo) => ([route, microPage]: [string, MicroPage]) => {
-    const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
-    const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
+const registerRoutes = (configuration: ConfigurationDependency, setPageContent: setPageContent, router: Navigo) => {
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
-    router.on(route, () => {
-        configuration.client.abortRetrieve()
+    const clearBuffer = eventBus.clearBuffer.bind(eventBus)
+    const pageContentManager = pageContentManagerBuilder(setPageContent, eventBus)
 
-        const configurationPromise = microPage.pageConfiguration ?
-        configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
-            : singleMfeConfigurationPromise
-
-        configurationPromise
-            .then(pageConfiguration => pageBuilder(stylesConfiguration.concat(pageConfiguration)))
-            .then(setPageContent)
-            .then(() => eventBus.clearBuffer())
-            .then(microFrontendsLoader)
-    })
+    return ([route, microPage]: [string, MicroPage]) => {
+        const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
+        const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
+        router.on(route, () => {
+            configuration.client.abortRetrieve()
+    
+            const configurationPromise = microPage.pageConfiguration ?
+            configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
+                : singleMfeConfigurationPromise
+    
+            configurationPromise
+                .then(pageConfiguration => pageBuilder(stylesConfiguration.concat(pageConfiguration)))
+                .then(pageContentManager)
+                .then(clearBuffer)
+                .then(microFrontendsLoader)
+        })
+    }
 }
 
 const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
