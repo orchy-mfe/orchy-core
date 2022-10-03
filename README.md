@@ -23,6 +23,19 @@ Please, be aware to **always**:
 - test what you write;
 - update accordingly the [documentation](https://github.com/orchy-mfe/orchy-doc) with your changes.
 
+## Local development
+
+To run it locally, you must:
+- install the dependencies
+```bash
+pnpm i
+```
+- run the `dev` script
+```bash
+pnpm dev
+```
+
+
 # Project documentation
 
 You can read the full project documentation [here](https://orchy-mfe.github.io/).
