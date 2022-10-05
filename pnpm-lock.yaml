@@ -25,7 +25,7 @@ importers:
       fastify-now: ^3.0.1
       fastify-plugin: ^4.2.1
       nodemon: ^2.0.20
-      pino-pretty: ^9.1.0
+      pino-pretty: ^9.1.1
       prettier: ^2.7.1
       rimraf: ^3.0.2
       tap: ^16.3.0
@@ -47,7 +47,7 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.24.0
       eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
       nodemon: 2.0.20
-      pino-pretty: 9.1.0
+      pino-pretty: 9.1.1
       prettier: 2.7.1
       rimraf: 3.0.2
       tap: 16.3.0_typescript@4.8.4
@@ -1707,8 +1707,8 @@ packages:
     resolution: {integrity: sha512-inRWzRY7nG+aXZxBzEqYKB3HPgwflZRopAjDCHv0whhRx+MTUr1ei0ICZUypdyE0HRm4L2d5VEcIqLD6yl+BFA==}
     dev: true
 
-  /fast-copy/2.1.3:
-    resolution: {integrity: sha512-LDzYKNTHhD+XOp8wGMuCkY4eTxFZOOycmpwLBiuF3r3OjOmZnURRD8t2dUAbmKuXGbo/MGggwbSjcBdp8QT0+g==}
+  /fast-copy/3.0.0:
+    resolution: {integrity: sha512-4HzS+9pQ5Yxtv13Lhs1Z1unMXamBdn5nA4bEi1abYpDNSpSp7ODYQ1KPMF6nTatfEzgH6/zPvXKU1zvHiUjWlA==}
     dev: true
 
   /fast-decode-uri-component/1.0.1:
@@ -2991,13 +2991,13 @@ packages:
       readable-stream: 4.1.0
       split2: 4.1.0
 
-  /pino-pretty/9.1.0:
-    resolution: {integrity: sha512-IM6NY9LLo/dVgY7/prJhCh4rAJukafdt0ibxeNOWc2fxKMyTk90SOB9Ao2HfbtShT9QPeP0ePpJktksMhSQMYA==}
+  /pino-pretty/9.1.1:
+    resolution: {integrity: sha512-iJrnjgR4FWQIXZkUF48oNgoRI9BpyMhaEmihonHeCnZ6F50ZHAS4YGfGBT/ZVNsPmd+hzkIPGzjKdY08+/yAXw==}
     hasBin: true
     dependencies:
       colorette: 2.0.19
       dateformat: 4.6.3
-      fast-copy: 2.1.3
+      fast-copy: 3.0.0
       fast-safe-stringify: 2.1.1
       help-me: 4.0.1
       joycon: 3.1.1
