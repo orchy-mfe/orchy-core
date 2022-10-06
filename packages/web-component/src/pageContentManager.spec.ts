@@ -36,7 +36,7 @@ describe('pageContentManager', () => {
         const pageContentManager = pageContentManagerBuilder(document.body.appendChild.bind(document), eventBus)
         pageContentManager(container)
 
-        expect(iframe.contentWindow?.postMessage).toHaveBeenCalledWith(messageToSend)
+        expect(iframe.contentWindow?.postMessage).toHaveBeenCalledWith(messageToSend, '*')
     })
 
     it('correctly receive message through eventBus', () => new Promise((resolve) => {

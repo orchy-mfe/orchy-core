@@ -15,7 +15,7 @@ const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: Eve
     
     const handleIframeBusEvent = (iframeElements: NodeListOf<HTMLIFrameElement>) => (data: unknown) => {
         iframeElements.forEach(iframeElement => {
-            if(iframeElement.contentWindow) iframeElement.contentWindow.postMessage(data)
+            if(iframeElement.contentWindow) iframeElement.contentWindow.postMessage(data, '*')
             else unsubscriber.unsubscribe()
         })
     }
