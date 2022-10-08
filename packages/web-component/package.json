@@ -23,7 +23,7 @@
   "dependencies": {
     "@orchy-mfe/models": "workspace:*",
     "@orchy-mfe/page-builder": "workspace:*",
-    "es-module-shims": "^1.6.0",
+    "es-module-shims": "^1.6.1",
     "light-join": "^1.3.0",
     "lit": "^2.4.0",
     "navigo": "^8.11.1",

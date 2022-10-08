@@ -108,7 +108,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.39.0
       '@typescript-eslint/parser': ^5.39.0
       '@vitest/coverage-c8': ^0.24.0
-      es-module-shims: ^1.6.0
+      es-module-shims: ^1.6.1
       eslint: ^8.25.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
@@ -126,7 +126,7 @@ importers:
     dependencies:
       '@orchy-mfe/models': link:../models
       '@orchy-mfe/page-builder': link:../page-builder
-      es-module-shims: 1.6.0
+      es-module-shims: 1.6.1
       light-join: 1.3.0
       lit: 2.4.0
       navigo: 8.11.1
@@ -1294,8 +1294,8 @@ packages:
       unbox-primitive: 1.0.2
     dev: true
 
-  /es-module-shims/1.6.0:
-    resolution: {integrity: sha512-2L9auPYZfTLWvOve7et4I80asI1uL41IY2ivz5pi1vupUMu84p0nEBGnk9B3XjaCcVxGVKLpsZq7RqFMiXbOqg==}
+  /es-module-shims/1.6.1:
+    resolution: {integrity: sha512-It0tP2FKpgsix5Tyy5efodtaIF5k+D5TzfADlq6lv+ZbaMUQ3D/4fBRSklY47UmCDvah9OYR26o70h9Og7LGgg==}
     dev: false
 
   /es-to-primitive/1.2.1:
