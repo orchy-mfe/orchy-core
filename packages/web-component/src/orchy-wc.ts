@@ -19,9 +19,12 @@ export class OrchyWC extends LitElement {
 
   private router?: Navigo
 
+  private static routeNotFoundHandler = () => true
+
   protected override firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void {
     super.firstUpdated(changedProperties)
     const router = new Navigo(this.basePath)
+    router.notFound(OrchyWC.routeNotFoundHandler)
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
