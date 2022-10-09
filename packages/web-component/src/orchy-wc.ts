@@ -19,19 +19,24 @@ export class OrchyWC extends LitElement {
 
   private router?: Navigo
 
-  private static routeNotFoundHandler = () => true
-
   protected override firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void {
     super.firstUpdated(changedProperties)
-    const router = new Navigo(this.basePath)
-    router.notFound(OrchyWC.routeNotFoundHandler)
+    this.createRouter()
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
         const configuration = {content, client: this.configurationClient}
-        const setPageContent = (pageContent: HTMLElement) => this.renderRoot.replaceChildren(pageContent)
-        configurationRegister(configuration, router, setPageContent)
+        configurationRegister(configuration, this.router as Navigo, this.setPageContent.bind(this))
       })
+  }
+
+  private createRouter() {
+    this.router = new Navigo(this.basePath)
+    this.router.notFound(() => true)
+  }
+
+  private setPageContent(pageContent: HTMLElement) {
+    this.renderRoot.replaceChildren(pageContent)
   }
 
   render() {
