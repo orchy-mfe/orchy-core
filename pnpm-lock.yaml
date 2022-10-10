@@ -73,7 +73,7 @@ importers:
 
   packages/page-builder:
     specifiers:
-      '@orchy-mfe/models': workspace:*
+      '@orchy-mfe/models': workspace:^
       '@typescript-eslint/eslint-plugin': ^5.40.0
       '@typescript-eslint/parser': ^5.40.0
       eslint: ^8.25.0
@@ -100,8 +100,8 @@ importers:
 
   packages/web-component:
     specifiers:
-      '@orchy-mfe/models': workspace:*
-      '@orchy-mfe/page-builder': workspace:*
+      '@orchy-mfe/models': workspace:^
+      '@orchy-mfe/page-builder': workspace:^
       '@typescript-eslint/eslint-plugin': ^5.40.0
       '@typescript-eslint/parser': ^5.40.0
       '@vitest/coverage-c8': ^0.24.1
