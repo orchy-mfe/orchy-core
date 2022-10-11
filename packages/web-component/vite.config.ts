@@ -10,6 +10,12 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'orchy-wc'
     },
+    rollupOptions: {
+      external: [
+        '@orchy-mfe/models',
+        '@orchy-mfe/page-builder',
+      ]
+    }
   },
   server: {
     proxy: {
