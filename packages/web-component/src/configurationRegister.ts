@@ -1,7 +1,7 @@
 import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
-import {ObjectType, LoadableApp, loadMicroApp, start} from 'qiankun'
+import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps} from 'qiankun'
 import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
@@ -68,6 +68,7 @@ const registerRoutes = (configuration: ConfigurationDependency, setPageContent: 
     return ([route, microPage]: [string, MicroPage]) => {
         const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
         const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
+        prefetchApps(mappedMicroFrontends)
         router.on(route, () => {
             configuration.client.abortRetrieve()
     

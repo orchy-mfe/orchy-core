@@ -1,7 +1,7 @@
 import {Configuration, PageConfiguration} from '@orchy-mfe/models'
 import Navigo, {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
-import {loadMicroApp, start} from 'qiankun'
+import {loadMicroApp, start, prefetchApps} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
@@ -28,7 +28,8 @@ describe('configurationRegister', () => {
     vi.mock('qiankun', () => ({
         ...vi.importActual('qiankun'),
         loadMicroApp: vi.fn(),
-        start: vi.fn()
+        start: vi.fn(),
+        prefetchApps: vi.fn()
     }))
 
     vi.mock('./importMap', () => ({
@@ -103,6 +104,12 @@ describe('configurationRegister', () => {
                 mfName: 'Name test',
                 pageName: 'Page test'
             })
+
+            expect(prefetchApps).toHaveBeenCalledTimes(1)
+            expect(prefetchApps).toBeCalledWith([{
+                ...loadableApp,
+                props
+            }])
         }
 
         it('correctly register configuration', () => {
@@ -274,6 +281,15 @@ describe('configurationRegister', () => {
                 mfName: 'Name test 2',
                 pageName: 'Page test'
             })
+
+            expect(prefetchApps).toHaveBeenCalledTimes(1)
+            expect(prefetchApps).toBeCalledWith([{
+                ...firstLoadableApp,
+                props: firstProps
+            }, {
+                ...secondLoadableApp,
+                props: secondProps
+            }])
         }
 
         it('correctly reject for missing first container', () => {
@@ -412,6 +428,12 @@ describe('configurationRegister', () => {
                 mfName: 'Name test',
                 pageName: 'Page test'
             })
+
+            expect(prefetchApps).toHaveBeenCalledTimes(2)
+            expect(prefetchApps).toBeCalledWith([{
+                ...firstLoadableApp,
+                props: firstProps
+            }])
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -444,6 +466,12 @@ describe('configurationRegister', () => {
                 mfName: 'Name test 2',
                 pageName: 'Page test 2'
             })
+
+            expect(prefetchApps).toHaveBeenCalledTimes(2)
+            expect(prefetchApps).toBeCalledWith([{
+                ...secondLoadableApp,
+                props: secondProps
+            }])
         }
 
         it('correctly register configuration', () => {
