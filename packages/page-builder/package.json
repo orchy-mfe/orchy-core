@@ -20,10 +20,10 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@orchy-mfe/models": "workspace:^",
     "rxjs": "^7.5.7"
   },
   "devDependencies": {
+    "@orchy-mfe/models": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",

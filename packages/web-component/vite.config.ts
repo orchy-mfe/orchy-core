@@ -12,7 +12,6 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        '@orchy-mfe/models',
         '@orchy-mfe/page-builder',
       ]
     }
