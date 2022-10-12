@@ -114,7 +114,7 @@ importers:
       lit: ^2.4.0
       navigo: ^8.11.1
       prettier: ^2.7.1
-      qiankun: ^2.8.1
+      qiankun: ^2.8.2
       rollup-plugin-visualizer: ^5.8.2
       rxjs: ^7.5.7
       typescript: ^4.8.4
@@ -126,7 +126,7 @@ importers:
       light-join: 1.3.0
       lit: 2.4.0
       navigo: 8.11.1
-      qiankun: 2.8.1
+      qiankun: 2.8.2
       rxjs: 7.5.7
     devDependencies:
       '@orchy-mfe/models': link:../models
@@ -2818,8 +2818,8 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
-  /qiankun/2.8.1:
-    resolution: {integrity: sha512-pPYqbwzvouwV2NgB91Xh7ZLIogyX5qgIBmUwhceUU3V6+TjnFPOGMZ7eRj7z5tDCHAzQeMb7pATPlBV5Nk2uiA==}
+  /qiankun/2.8.2:
+    resolution: {integrity: sha512-MrsjTEVIQGiTpiPdYEmgOy3zhsVJYpzQpWonkdlOREPmIY1DBu7nbwfcpOA5sPiQz/23AqPYBe4DqvVTHXG1vA==}
     dependencies:
       '@babel/runtime': 7.18.9
       import-html-entry: 1.14.0
