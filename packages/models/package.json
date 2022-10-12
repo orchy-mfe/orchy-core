@@ -8,7 +8,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=v16.17.1"
+    "node": ">=v16.18.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
