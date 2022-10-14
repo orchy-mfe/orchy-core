@@ -5,7 +5,6 @@ import EventBusSubject from './event-bus/EventBusSubject'
 type setPageContent = (htmlElement: HTMLElement) => void
 
 const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: EventBusSubject<unknown>) => {
-    const unsubscriber = new Subject()
     const messageHandler = (messageEvent: MessageEvent) => { eventBus.next(messageEvent.data) }
 
     const attachIframeMessageHandler = (iframeElement: HTMLIFrameElement) => {
@@ -13,10 +12,13 @@ const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: Eve
             iframeElement.contentWindow.parent.onmessage = messageHandler
     }
     
-    const handleIframeBusEvent = (iframeElements: NodeListOf<HTMLIFrameElement>) => (data: unknown) => {
+    const handleIframeBusEvent = (iframeElements: NodeListOf<HTMLIFrameElement>, unsubscriber: Subject<unknown>) => (data: unknown) => {
         iframeElements.forEach(iframeElement => {
             if(iframeElement.contentWindow) iframeElement.contentWindow.postMessage(data, '*')
-            else unsubscriber.unsubscribe()
+            else {
+                unsubscriber.next(undefined)
+                unsubscriber.unsubscribe()
+            }
         })
     }
     
@@ -26,7 +28,7 @@ const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: Eve
         const unsubscriber = new Subject()
         eventBus
             .pipe(takeUntil(unsubscriber))
-            .subscribe(handleIframeBusEvent(iframeElements))
+            .subscribe(handleIframeBusEvent(iframeElements, unsubscriber))
     }
 
     return (pageContent: HTMLElement) => {
