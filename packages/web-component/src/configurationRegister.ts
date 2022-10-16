@@ -1,16 +1,16 @@
 import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
-import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps, MicroApp} from 'qiankun'
+import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps} from 'qiankun'
 import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import EventBusSubject from './event-bus/EventBusSubject'
 import installImportMaps from './importMap'
 import pageContentManagerBuilder from './pageContentManager'
+import WebComponentState from './web-component-state'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
-type setPageContent = (htmlElement: HTMLElement) => void
 
 const defaultContainer = 'orchy-root'
 
@@ -63,19 +63,18 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
     }
 })
 
-const registerRoutes = (configuration: ConfigurationDependency, setPageContent: setPageContent, router: Navigo) => {
+const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const clearBuffer = eventBus.clearBuffer.bind(eventBus)
-    const pageContentManager = pageContentManagerBuilder(setPageContent, eventBus)
-    let loadedMicroApps: MicroApp[] = []
+    const pageContentManager = pageContentManagerBuilder(webComponentState.setPageContent, eventBus)
     let lastManagedRoute = ''
 
     return ([route, microPage]: [string, MicroPage]) => {
-        const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
+        const mappedMicroFrontends = microFrontendMapper(route, microPage, webComponentState.router)
         const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
         prefetchApps(mappedMicroFrontends)
         const routeToManage = lightJoin(route, '*')
-        router.on(routeToManage, () => {
+        webComponentState.router.on(routeToManage, () => {
             if(lastManagedRoute === routeToManage) return
 
             lastManagedRoute = routeToManage
@@ -90,23 +89,24 @@ const registerRoutes = (configuration: ConfigurationDependency, setPageContent: 
                 .then(pageContentManager)
                 .then(clearBuffer)
                 .then(microFrontendsLoader)
-                .then((microApps = []) => loadedMicroApps = microApps)
+                .then((microApps = []) => webComponentState.setLoadedMicroFrontends(microApps))
         }, {
             leave: (done) => {
-                loadedMicroApps.forEach(app => app?.unmount().catch(console.error))
+                webComponentState.unloadMicroFrontends()
                 done()
             }
         })
     }
 }
 
-const configurationRegister = (configuration: ConfigurationDependency, router: Navigo, setPageContent: setPageContent) => {
+const configurationRegister = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
     start(installImportMaps(configuration.content))
         
-    const routesRegister = registerRoutes(configuration, setPageContent, router)
+    const routesRegister = registerRoutes(configuration, webComponentState)
     Object.entries(configuration.content.microPages).forEach(routesRegister)
 
-    router.resolve()
+    webComponentState.router.resolve()
+
 }
 
 export default configurationRegister
