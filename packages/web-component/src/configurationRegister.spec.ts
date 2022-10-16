@@ -131,9 +131,7 @@ describe('configurationRegister', () => {
             window.location.href = '/route/load'
 
             document.body.replaceChildren = vi.fn()
-
             const webComponentState = new WebComponentState(document.body, '/')
-
             webComponentState.router.hooks({
                 async after() {
                     await makeChecks(configuration)
