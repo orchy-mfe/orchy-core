@@ -1,11 +1,9 @@
 import {Subject, takeUntil} from 'rxjs'
 
-import EventBusSubject from './event-bus/EventBusSubject'
+import WebComponentState from './web-component-state'
 
-type setPageContent = (htmlElement: HTMLElement) => void
-
-const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: EventBusSubject<unknown>) => {
-    const messageHandler = (messageEvent: MessageEvent) => { eventBus.next(messageEvent.data) }
+const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
+    const messageHandler = (messageEvent: MessageEvent) => { webComponentState.eventBus.next(messageEvent.data) }
 
     const attachIframeMessageHandler = (iframeElement: HTMLIFrameElement) => {
         if(iframeElement.contentWindow) 
@@ -26,13 +24,13 @@ const pageContentManagerBuilder = (setPageContent: setPageContent, eventBus: Eve
         const iframeElements = pageContent.querySelectorAll('iframe') as NodeListOf<HTMLIFrameElement>
         iframeElements.forEach(attachIframeMessageHandler)
         const unsubscriber = new Subject()
-        eventBus
+        webComponentState.eventBus
             .pipe(takeUntil(unsubscriber))
             .subscribe(handleIframeBusEvent(iframeElements, unsubscriber))
     }
 
     return (pageContent: HTMLElement) => {
-        setPageContent(pageContent)
+        webComponentState.setPageContent(pageContent)
         manageIframe(pageContent)
     }
 }

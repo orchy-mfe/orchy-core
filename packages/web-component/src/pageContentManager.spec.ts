@@ -2,6 +2,7 @@ import {describe, it, expect, vi} from 'vitest'
 
 import EventBusSubject from './event-bus/EventBusSubject'
 import pageContentManagerBuilder from './pageContentManager'
+import WebComponentState from './web-component-state'
 
 describe('pageContentManager', () => {
     const createAppendableIframe = () => {
@@ -11,11 +12,19 @@ describe('pageContentManager', () => {
 
         return {container, iframe}
     }
+    const createWebComponentState = (setPageContent, eventBus = new EventBusSubject()) => {
+        const webComponentState = new WebComponentState(document.body, '/')
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        webComponentState._eventBus = eventBus
+        webComponentState.setPageContent = setPageContent
+        return webComponentState
+    }
     it('correctly invokes setPageContent', () => {
         const setPageContentMock = vi.fn()
         const elementToCreate = document.createElement('div')
 
-        const pageContentManager = pageContentManagerBuilder(setPageContentMock, new EventBusSubject())
+        const pageContentManager = pageContentManagerBuilder(createWebComponentState(setPageContentMock))
         pageContentManager(elementToCreate)
 
         expect(setPageContentMock).toHaveBeenCalledWith(elementToCreate)
@@ -33,7 +42,7 @@ describe('pageContentManager', () => {
         const messageToSend = 'hello from bus'
         eventBus.next(messageToSend)
 
-        const pageContentManager = pageContentManagerBuilder(document.body.appendChild.bind(document), eventBus)
+        const pageContentManager = pageContentManagerBuilder(createWebComponentState(document.body.appendChild.bind(document), eventBus))
         pageContentManager(container)
 
         expect(iframe.contentWindow?.postMessage).toHaveBeenCalledWith(messageToSend, '*')
@@ -50,7 +59,7 @@ describe('pageContentManager', () => {
         const eventBus = new EventBusSubject()        
         const messageToSend = 'hello from bus'
 
-        const pageContentManager = pageContentManagerBuilder(document.body.appendChild.bind(document), eventBus)
+        const pageContentManager = pageContentManagerBuilder(createWebComponentState(document.body.appendChild.bind(document), eventBus))
         pageContentManager(container)
 
         // eslint-disable-next-line

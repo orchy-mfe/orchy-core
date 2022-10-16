@@ -1,9 +1,12 @@
 import Navigo from 'navigo'
 import {MicroApp} from 'qiankun'
+import EventBusSubject from './event-bus/EventBusSubject'
 
 export default class WebComponentState {
     private _router: Navigo
     private microApps: MicroApp[] = []
+    private _eventBus = new EventBusSubject()
+
     constructor(
         private renderRoot: HTMLElement | ShadowRoot,
         basePath: string
@@ -14,19 +17,24 @@ export default class WebComponentState {
 
     public destroy() {
         this.router.destroy()
-        this.unloadMicroFrontends()
+        this._eventBus.complete()
+        this.routeLeave()
+    }
+
+    public routeLeave() {
+        this.microApps.forEach(app => app?.unmount().catch(console.error))
     }
 
     public get router(): Navigo {
-        return this.router
+        return this._router
+    }
+
+    public get eventBus(): EventBusSubject<unknown> {
+        return this._eventBus
     }
 
     public setLoadedMicroFrontends(microApps: MicroApp[] = []) {
         this.microApps = microApps
-    }
-
-    public unloadMicroFrontends() {
-        this.microApps.forEach(app => app?.unmount().catch(console.error))
     }
 
     public setPageContent(pageContent: HTMLElement) {

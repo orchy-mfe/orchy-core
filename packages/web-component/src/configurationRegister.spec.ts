@@ -1,11 +1,12 @@
 import {Configuration, PageConfiguration} from '@orchy-mfe/models'
-import Navigo, {Match} from 'navigo'
+import {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
 import {loadMicroApp, start, prefetchApps} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
 import addImportMap from './importMap'
+import WebComponentState from './web-component-state'
 
 const testPageConfiguration: PageConfiguration = {
     type: 'element',
@@ -72,15 +73,13 @@ describe('configurationRegister', () => {
             }
         })
 
-        const setPageContent = vi.fn()
-
         const makeChecks = async (configuration, container = 'testPageConfiguration', applicationContainer = '#orchy-root') => {
             expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
 
             await waitFor()
 
-            expect(setPageContent).toHaveBeenCalledTimes(1)
-            expect(setPageContent.mock.calls[0][0].toString()).toEqual(`<div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"><div id="${container}"></div></div>`)
+            expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual(`<div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"><div id="${container}"></div></div>`)
 
             expect(start).toHaveBeenCalledTimes(1)
             
@@ -118,9 +117,9 @@ describe('configurationRegister', () => {
                 client: new TestClient()
             }
 
-            const setPageContent = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
             expect(
-                () => configurationRegister(configuration, new Navigo('/'), setPageContent)
+                () => configurationRegister(configuration, webComponentState)
             ).not.toThrow()
         })
 
@@ -131,16 +130,18 @@ describe('configurationRegister', () => {
             }
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
+            document.body.replaceChildren = vi.fn()
 
-            router.hooks({
+            const webComponentState = new WebComponentState(document.body, '/')
+
+            webComponentState.router.hooks({
                 async after() {
                     await makeChecks(configuration)
                     resolve()
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
         it('correctly handle navigated route', () => new Promise<void>(resolve => {
@@ -148,9 +149,10 @@ describe('configurationRegister', () => {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
-            const router = new Navigo('/')
 
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
                         await makeChecks(configuration)
@@ -160,7 +162,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
 
             window.location.href = '/route/load'
         }))
@@ -173,9 +175,9 @@ describe('configurationRegister', () => {
             }
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after() {
                     await makeChecks(configuration, 'testPageConfiguration', applicationContainer)
 
@@ -183,7 +185,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
         it('correctly handle default page configuration', () => new Promise<void>(resolve => {
@@ -193,9 +195,9 @@ describe('configurationRegister', () => {
             }
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after() {
                     await makeChecks(configuration, 'orchy-root')
 
@@ -203,7 +205,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
     })
@@ -239,15 +241,13 @@ describe('configurationRegister', () => {
                 }
             })
 
-        const setPageContent = vi.fn()
-
         const makeChecks = async (configuration) => {
             expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
 
             await waitFor()
 
-            expect(setPageContent).toHaveBeenCalledTimes(1)
-            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+            expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
             expect(loadMicroApp).toHaveBeenCalledTimes(2)
 
@@ -298,8 +298,9 @@ describe('configurationRegister', () => {
                 content: testConfigurationBuilder(),
                 client: new TestClient()
             }
+            const webComponentState = new WebComponentState(document.body, '/')
             expect(
-                () => configurationRegister(configuration, new Navigo('/'), setPageContent)
+                () => configurationRegister(configuration, webComponentState)
             ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-1'))
         })
 
@@ -308,8 +309,9 @@ describe('configurationRegister', () => {
                 content: testConfigurationBuilder('container1'),
                 client: new TestClient()
             }
+            const webComponentState = new WebComponentState(document.body, '/')
             expect(
-                () => configurationRegister(configuration, new Navigo('/'), setPageContent)
+                () => configurationRegister(configuration, webComponentState)
             ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-2'))
         })
 
@@ -320,9 +322,9 @@ describe('configurationRegister', () => {
             }
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after() {
                     await makeChecks(configuration)
 
@@ -330,7 +332,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
         it('correctly handle navigated route', () => new Promise<void>(resolve => {
@@ -339,9 +341,9 @@ describe('configurationRegister', () => {
                 client: new TestClient()
             }
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
                         await makeChecks(configuration)
@@ -351,7 +353,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
 
             window.location.href = '/route/load'
         }))
@@ -397,15 +399,14 @@ describe('configurationRegister', () => {
             content: testConfiguration,
             client: new TestClient()
         }
-        const setPageContent = vi.fn()
 
         const checkFirstRoute = async () => {
             expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
 
             await waitFor()
 
-            expect(setPageContent).toHaveBeenCalledTimes(1)
-            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+            expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
@@ -442,8 +443,8 @@ describe('configurationRegister', () => {
 
             await waitFor()
 
-            expect(setPageContent).toHaveBeenCalledTimes(calledTimes)
-            expect(setPageContent.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+            expect(document.body.replaceChildren).toHaveBeenCalledTimes(calledTimes)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
 
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
@@ -476,53 +477,53 @@ describe('configurationRegister', () => {
         }
 
         it('correctly register configuration', () => {
-            const setPageContent = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
             expect(
-                () => configurationRegister(configuration, new Navigo('/'), setPageContent)
+                () => configurationRegister(configuration, webComponentState)
             ).not.toThrow()
         })
 
         it('correctly handle first route', () => new Promise<void>(resolve => {
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after() {
                     await checkFirstRoute()
                     resolve()
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
         it('correctly handle second route', () => new Promise<void>(resolve => {
             window.location.href = '/route/alternative'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after() {
                     await checkSecondRoute(1)
                     resolve()
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
 
         it('correctly handle navigation route', () => new Promise<void>(resolve => {
             window.location.href = '/route/load'
 
-            const router = new Navigo('/')
-
-            router.hooks({
+            document.body.replaceChildren = vi.fn()
+            const webComponentState = new WebComponentState(document.body, '/')
+            webComponentState.router.hooks({
                 async after(match: Match) {
                     if (match.url === 'route/load') {
                         await checkFirstRoute()
 
-                        router.navigate('/route/alternative')
+                        webComponentState.router.navigate('/route/alternative')
                     }
                     else if (match.url === 'route/alternative') {
                         await checkSecondRoute(2)
@@ -532,7 +533,7 @@ describe('configurationRegister', () => {
                 }
             })
 
-            configurationRegister(configuration, router, setPageContent)
+            configurationRegister(configuration, webComponentState)
         }))
     })
 })
