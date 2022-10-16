@@ -74,7 +74,7 @@ describe('configurationRegister', () => {
 
         const setPageContent = vi.fn()
 
-        const makeChecks = async (configuration, container = 'testPageConfiguration') => {
+        const makeChecks = async (configuration, container = 'testPageConfiguration', applicationContainer = '#orchy-root') => {
             expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
 
             await waitFor()
@@ -94,7 +94,7 @@ describe('configurationRegister', () => {
             expect(loadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
-                container: '#orchy-root'
+                container: applicationContainer
             })
 
             const {eventBus, ...otherProps} = props
@@ -166,8 +166,9 @@ describe('configurationRegister', () => {
         }))
 
         it('correctly handle optional custom container', () => new Promise<void>(resolve => {
+            const applicationContainer = '#custom-container'
             const configuration = {
-                content: testConfigurationBuilder('page-configuration', '#custom-container'),
+                content: testConfigurationBuilder('page-configuration', applicationContainer),
                 client: new TestClient()
             }
             window.location.href = '/route/load'
@@ -176,7 +177,7 @@ describe('configurationRegister', () => {
 
             router.hooks({
                 async after() {
-                    await makeChecks(configuration)
+                    await makeChecks(configuration, 'testPageConfiguration', applicationContainer)
 
                     resolve()
                 }

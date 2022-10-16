@@ -34,7 +34,7 @@ const microFrontendMapper = (route: string, microPage: MicroPage, router: Navigo
     return microPage.microFrontends.map((microFrontend: MicroFrontend) => ({
         name: microFrontend.id,
         entry: microFrontend.entryPoint,
-        container: container || microFrontend.container || throwError(microFrontend),
+        container: microFrontend.container || container || throwError(microFrontend),
         props: {
             ...microPage.properties,
             ...microFrontend.properties,
