@@ -62,7 +62,7 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const pageContentManager = pageContentManagerBuilder(webComponentState)
-    const qiankunConfiguration = installImportMaps(configuration.content) || {}
+    const qiankunConfiguration = installImportMaps(configuration.content)
     let lastManagedRoute = ''
 
     return ([route, microPage]: [string, MicroPage]) => {

@@ -104,7 +104,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...loadableApp,
                 props
-            }], {})
+            }], undefined)
         }
 
         it('correctly register configuration', () => {
@@ -284,7 +284,7 @@ describe('configurationRegister', () => {
             }, {
                 ...secondLoadableApp,
                 props: secondProps
-            }], {})
+            }], undefined)
         }
 
         it('correctly reject for missing first container', () => {
@@ -427,7 +427,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...firstLoadableApp,
                 props: firstProps
-            }], {})
+            }], undefined)
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -463,7 +463,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...secondLoadableApp,
                 props: secondProps
-            }], {})
+            }], undefined)
         }
 
         it('correctly register configuration', () => {
