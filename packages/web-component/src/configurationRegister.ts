@@ -40,7 +40,7 @@ const microFrontendMapper = (route: string, microPage: MicroPage, webComponentSt
     }))
 }
 
-const microFrontendLoaderBuilder = (mappedMicroFrontends: LoadableApp<ObjectType>[]) => async () => {
+const microFrontendsLoader = async (mappedMicroFrontends: LoadableApp<ObjectType>[]) => {
     const loadedMicroApps = []
     for (const microFrontend of mappedMicroFrontends) {
         const loadedMicroApp = loadMicroApp(microFrontend)
@@ -61,31 +61,27 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 
 const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
-    const clearBuffer = webComponentState.eventBus.clearBuffer.bind(webComponentState.eventBus)
     const pageContentManager = pageContentManagerBuilder(webComponentState)
     let lastManagedRoute = ''
 
     return ([route, microPage]: [string, MicroPage]) => {
         const mappedMicroFrontends = microFrontendMapper(route, microPage, webComponentState)
-        const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
         prefetchApps(mappedMicroFrontends)
         const routeToManage = lightJoin(route, '*')
-        webComponentState.router.on(routeToManage, () => {
+        webComponentState.router.on(routeToManage, async () => {
             if(lastManagedRoute === routeToManage) return
 
             lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
     
-            const configurationPromise = microPage.pageConfiguration ?
-            configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
-                : singleMfeConfigurationPromise
-    
-            configurationPromise
-                .then(pageConfiguration => pageBuilder(stylesConfiguration.concat(pageConfiguration)))
-                .then(pageContentManager)
-                .then(clearBuffer)
-                .then(microFrontendsLoader)
-                .then((microApps = []) => webComponentState.setLoadedMicroFrontends(microApps))
+            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration) : singleMfeConfigurationPromise
+
+            const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
+            const pageElement = pageBuilder(pageConfiguration)
+            pageContentManager(pageElement)
+            
+            webComponentState.eventBus.clearBuffer()
+            webComponentState.setLoadedMicroFrontends(await microFrontendsLoader(mappedMicroFrontends))
         }, {
             leave: (done) => {
                 webComponentState.routeLeave()
