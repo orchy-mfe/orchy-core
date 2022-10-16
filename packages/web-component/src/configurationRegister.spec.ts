@@ -94,7 +94,7 @@ describe('configurationRegister', () => {
             expect(loadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
-                container: '#root'
+                container: '#orchy-root'
             })
 
             const {eventBus, ...otherProps} = props
@@ -196,7 +196,7 @@ describe('configurationRegister', () => {
 
             router.hooks({
                 async after() {
-                    await makeChecks(configuration, 'root')
+                    await makeChecks(configuration, 'orchy-root')
 
                     resolve()
                 }
@@ -418,7 +418,7 @@ describe('configurationRegister', () => {
             expect(firstLoadableApp).toMatchObject({
                 name: 'microfrontend-test-1',
                 entry: '//localhost:3001',
-                container: '#root'
+                container: '#orchy-root'
             })
 
             const {eventBus: firstEventBus, ...firstOtherProps} = firstProps
@@ -456,7 +456,7 @@ describe('configurationRegister', () => {
             expect(secondLoadableApp).toMatchObject({
                 name: 'microfrontend-test-2',
                 entry: '//localhost:3002',
-                container: '#root'
+                container: '#orchy-root'
             })
 
             const {eventBus: secondEventBus, ...secondOtherProps} = secondProps

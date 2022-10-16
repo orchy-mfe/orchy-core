@@ -12,7 +12,7 @@ import pageContentManagerBuilder from './pageContentManager'
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 type setPageContent = (htmlElement: HTMLElement) => void
 
-const defaultContainer = 'root'
+const defaultContainer = 'orchy-root'
 
 const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolve({
     type: 'element',
