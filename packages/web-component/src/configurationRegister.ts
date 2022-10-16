@@ -1,6 +1,6 @@
 import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
-import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps} from 'qiankun'
+import {ObjectType, LoadableApp, loadMicroApp, prefetchApps, FrameworkConfiguration} from 'qiankun'
 import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
@@ -40,10 +40,10 @@ const microFrontendMapper = (route: string, microPage: MicroPage, webComponentSt
     }))
 }
 
-const microFrontendsLoader = async (mappedMicroFrontends: LoadableApp<ObjectType>[]) => {
+const microFrontendsLoader = async (mappedMicroFrontends: LoadableApp<ObjectType>[], qiankunConfiguration: FrameworkConfiguration) => {
     const loadedMicroApps = []
     for (const microFrontend of mappedMicroFrontends) {
-        const loadedMicroApp = loadMicroApp(microFrontend)
+        const loadedMicroApp = loadMicroApp(microFrontend, qiankunConfiguration)
         await loadedMicroApp?.mountPromise.catch(console.error)
         loadedMicroApps.push(loadedMicroApp)
     }
@@ -62,11 +62,12 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const pageContentManager = pageContentManagerBuilder(webComponentState)
+    const qiankunConfiguration = installImportMaps(configuration.content) || {}
     let lastManagedRoute = ''
 
     return ([route, microPage]: [string, MicroPage]) => {
         const mappedMicroFrontends = microFrontendMapper(route, microPage, webComponentState)
-        prefetchApps(mappedMicroFrontends)
+        prefetchApps(mappedMicroFrontends, qiankunConfiguration)
         const routeToManage = lightJoin(route, '*')
         webComponentState.router.on(routeToManage, async () => {
             if(lastManagedRoute === routeToManage) return
@@ -81,7 +82,7 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             pageContentManager(pageElement)
             
             webComponentState.eventBus.clearBuffer()
-            webComponentState.setLoadedMicroFrontends(await microFrontendsLoader(mappedMicroFrontends))
+            webComponentState.setLoadedMicroFrontends(await microFrontendsLoader(mappedMicroFrontends, qiankunConfiguration))
         }, {
             leave: (done) => {
                 webComponentState.routeLeave()
@@ -91,14 +92,11 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
     }
 }
 
-const configurationRegister = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
-    start(installImportMaps(configuration.content))
-        
+const configurationRegister = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {        
     const routesRegister = registerRoutes(configuration, webComponentState)
     Object.entries(configuration.content.microPages).forEach(routesRegister)
 
     webComponentState.router.resolve()
-
 }
 
 export default configurationRegister

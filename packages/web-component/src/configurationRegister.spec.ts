@@ -1,7 +1,7 @@
 import {Configuration, PageConfiguration} from '@orchy-mfe/models'
 import {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
-import {loadMicroApp, start, prefetchApps} from 'qiankun'
+import {loadMicroApp, prefetchApps} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
@@ -27,9 +27,7 @@ const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve,
 
 describe('configurationRegister', () => {
     vi.mock('qiankun', () => ({
-        ...vi.importActual('qiankun'),
         loadMicroApp: vi.fn(),
-        start: vi.fn(),
         prefetchApps: vi.fn()
     }))
 
@@ -80,8 +78,6 @@ describe('configurationRegister', () => {
 
             expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
             expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual(`<div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"><div id="${container}"></div></div>`)
-
-            expect(start).toHaveBeenCalledTimes(1)
             
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
@@ -108,7 +104,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...loadableApp,
                 props
-            }])
+            }], {})
         }
 
         it('correctly register configuration', () => {
@@ -288,7 +284,7 @@ describe('configurationRegister', () => {
             }, {
                 ...secondLoadableApp,
                 props: secondProps
-            }])
+            }], {})
         }
 
         it('correctly reject for missing first container', () => {
@@ -409,8 +405,6 @@ describe('configurationRegister', () => {
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
 
-            expect(start).toHaveBeenCalledTimes(1)
-
             expect(loadMicroApp).toHaveBeenCalledTimes(1)
 
             const {props: firstProps, ...firstLoadableApp} = loadMicroApp.mock.calls[0][0]
@@ -433,7 +427,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...firstLoadableApp,
                 props: firstProps
-            }])
+            }], {})
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -446,8 +440,6 @@ describe('configurationRegister', () => {
 
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
-
-            expect(start).toHaveBeenCalledTimes(1)
 
             expect(loadMicroApp).toHaveBeenCalledTimes(calledTimes)
 
@@ -471,7 +463,7 @@ describe('configurationRegister', () => {
             expect(prefetchApps).toBeCalledWith([{
                 ...secondLoadableApp,
                 props: secondProps
-            }])
+            }], {})
         }
 
         it('correctly register configuration', () => {
