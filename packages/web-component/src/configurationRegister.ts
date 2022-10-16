@@ -1,7 +1,7 @@
 import {MicroPage, Configuration, MicroFrontend, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import Navigo from 'navigo'
-import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps} from 'qiankun'
+import {ObjectType, LoadableApp, loadMicroApp, start, prefetchApps, MicroApp} from 'qiankun'
 import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
@@ -45,10 +45,13 @@ const microFrontendMapper = (route: string, microPage: MicroPage, router: Navigo
 }
 
 const microFrontendLoaderBuilder = (mappedMicroFrontends: LoadableApp<ObjectType>[]) => async () => {
+    const loadedMicroApps = []
     for (const microFrontend of mappedMicroFrontends) {
-        const safeMountPromise = loadMicroApp(microFrontend)?.mountPromise.catch(console.error)
-        await safeMountPromise
+        const loadedMicroApp = loadMicroApp(microFrontend)
+        await loadedMicroApp?.mountPromise.catch(console.error)
+        loadedMicroApps.push(loadedMicroApp)
     }
+    return loadedMicroApps
 }
 
 const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration => ({
@@ -64,12 +67,18 @@ const registerRoutes = (configuration: ConfigurationDependency, setPageContent: 
     const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const clearBuffer = eventBus.clearBuffer.bind(eventBus)
     const pageContentManager = pageContentManagerBuilder(setPageContent, eventBus)
+    let loadedMicroApps: MicroApp[] = []
+    let lastManagedRoute = ''
 
     return ([route, microPage]: [string, MicroPage]) => {
         const mappedMicroFrontends = microFrontendMapper(route, microPage, router)
         const microFrontendsLoader = microFrontendLoaderBuilder(mappedMicroFrontends)
         prefetchApps(mappedMicroFrontends)
-        router.on(route, () => {
+        const routeToManage = lightJoin(route, '*')
+        router.on(routeToManage, () => {
+            if(lastManagedRoute === routeToManage) return
+
+            lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
     
             const configurationPromise = microPage.pageConfiguration ?
@@ -81,6 +90,12 @@ const registerRoutes = (configuration: ConfigurationDependency, setPageContent: 
                 .then(pageContentManager)
                 .then(clearBuffer)
                 .then(microFrontendsLoader)
+                .then((microApps = []) => loadedMicroApps = microApps)
+        }, {
+            leave: (done) => {
+                loadedMicroApps.forEach(app => app?.unmount().catch(console.error))
+                done()
+            }
         })
     }
 }
