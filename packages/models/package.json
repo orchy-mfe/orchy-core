@@ -10,6 +10,9 @@
   "engines": {
     "node": ">=v16.18.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src --ext .ts",
