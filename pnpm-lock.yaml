@@ -109,7 +109,7 @@ importers:
       eslint: ^8.25.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      happy-dom: ^7.5.13
+      happy-dom: ^7.6.0
       light-join: ^1.3.0
       lit: ^2.4.0
       navigo: ^8.11.1
@@ -132,16 +132,16 @@ importers:
       '@orchy-mfe/models': link:../models
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
       '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
-      '@vitest/coverage-c8': 0.24.3_happy-dom@7.5.13
+      '@vitest/coverage-c8': 0.24.3_happy-dom@7.6.0
       eslint: 8.25.0
       eslint-config-prettier: 8.5.0_eslint@8.25.0
       eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
-      happy-dom: 7.5.13
+      happy-dom: 7.6.0
       prettier: 2.7.1
       rollup-plugin-visualizer: 5.8.3
       typescript: 4.8.4
       vite: 3.1.8
-      vitest: 0.24.3_happy-dom@7.5.13
+      vitest: 0.24.3_happy-dom@7.6.0
 
 packages:
 
@@ -705,11 +705,11 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitest/coverage-c8/0.24.3_happy-dom@7.5.13:
+  /@vitest/coverage-c8/0.24.3_happy-dom@7.6.0:
     resolution: {integrity: sha512-tAmMyHxWYnAwGeJb7QgTuEX8aLasTg4X1/6INobXa/7wYGEJ28CACFO5iLn1HzFVPoLvhsS3luQjiflGjjSMRQ==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.24.3_happy-dom@7.5.13
+      vitest: 0.24.3_happy-dom@7.6.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -1956,8 +1956,8 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /happy-dom/7.5.13:
-    resolution: {integrity: sha512-J8OehFPl71FtmkifnxqUpFWHA9jJ5pIwnEAFdZvZnXexev6RIgtkB6H/pTEHhBp7qCGUPHhkjvF3gqKxlBTeLg==}
+  /happy-dom/7.6.0:
+    resolution: {integrity: sha512-QnNsiblZdyVDzW5ts6E7ub79JnabqHJeJgt+1WGNq9fSYqS/r/RzzTVXCZSDl6EVkipdwI48B4bgXAnMZPecIw==}
     dependencies:
       css.escape: 1.5.1
       he: 1.2.0
@@ -3567,7 +3567,7 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.24.3_happy-dom@7.5.13:
+  /vitest/0.24.3_happy-dom@7.6.0:
     resolution: {integrity: sha512-aM0auuPPgMSstWvr851hB74g/LKaKBzSxcG3da7ejfZbx08Y21JpZmbmDYrMTCGhVZKqTGwzcnLMwyfz2WzkhQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -3594,7 +3594,7 @@ packages:
       '@types/node': 18.7.14
       chai: 4.3.6
       debug: 4.3.4
-      happy-dom: 7.5.13
+      happy-dom: 7.6.0
       local-pkg: 0.4.2
       strip-literal: 0.4.2
       tinybench: 2.3.0
