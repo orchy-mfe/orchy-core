@@ -2,6 +2,6 @@
     "type": "element",
     "tag": "div",
     "attributes": {
-        "id": "root"
+        "id": "orchy-root"
     }
 }
