@@ -7,7 +7,7 @@ importers:
 
   packages/back-end:
     specifiers:
-      '@sinclair/typebox': ^0.24.48
+      '@sinclair/typebox': ^0.24.50
       '@types/node': ^18.7.14
       '@types/tap': ^15.0.7
       '@typescript-eslint/eslint-plugin': ^5.40.1
@@ -28,7 +28,7 @@ importers:
       tap: ^16.3.0
       typescript: ^4.8.4
     dependencies:
-      '@sinclair/typebox': 0.24.48
+      '@sinclair/typebox': 0.24.50
       ajv: 8.11.0
       env-schema: 5.1.0
       fastify: 4.9.2
@@ -513,8 +513,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@sinclair/typebox/0.24.48:
-    resolution: {integrity: sha512-WPGpRNHbkOsfBDmh8QHU7a5NWzEuYNThST8x1cISvX0RpP+1+V8zjuJqNwGJkHGIlhdIIhv6qVYqXz2q5/gjAA==}
+  /@sinclair/typebox/0.24.50:
+    resolution: {integrity: sha512-k8ETQOOQDg5FtK7y9KJWpsGLik+QlPmIi8zzl/dGUgshV2QitprkFlCR/AemjWOTyKn9UwSSGRTzLVotvgCjYQ==}
     dev: false
 
   /@types/chai-subset/1.3.3:
