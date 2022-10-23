@@ -1,11 +1,13 @@
 import Navigo from 'navigo'
 import {MicroApp} from 'qiankun'
+
+import EventBusRegistry from './event-bus/EventBusRegistry'
 import EventBusSubject from './event-bus/EventBusSubject'
 
 export default class WebComponentState {
     private _router: Navigo
     private microApps: MicroApp[] = []
-    private _eventBus = new EventBusSubject()
+    private eventBusRegistry = new EventBusRegistry()
 
     constructor(
         private renderRoot: HTMLElement | ShadowRoot,
@@ -17,7 +19,7 @@ export default class WebComponentState {
 
     public destroy() {
         this.router.destroy()
-        this._eventBus.complete()
+        this.eventBusRegistry.destroyBus()
         this.routeLeave()
     }
 
@@ -25,12 +27,17 @@ export default class WebComponentState {
         this.microApps.forEach(app => app?.unmount().catch(console.error))
     }
 
+    public async routeChange(microApps: Promise<MicroApp[]>) {
+        this.eventBusRegistry.clearBus()
+        this.setLoadedMicroFrontends(await microApps)
+    }
+
     public get router(): Navigo {
         return this._router
     }
 
-    public get eventBus(): EventBusSubject<unknown> {
-        return this._eventBus
+    public getEventBus(eventBusDiscriminator?: string): EventBusSubject<unknown> {
+        return this.eventBusRegistry.getBus(eventBusDiscriminator)
     }
 
     public setLoadedMicroFrontends(microApps: MicroApp[] = []) {

@@ -5,6 +5,7 @@ export type MicroFrontend = {
   entryPoint: string,
   id: string,
   properties?: Properties,
+  busDiscriminator?: string
 }
 
 export type MicroPage = {

@@ -24,10 +24,10 @@ describe('WebComponentState', () => {
         expect(webComponentState.router.root).toBe(basePath.slice(1))
     })
 
-    it('should return an eventBus', () => {
+    it('should return the default eventBus', () => {
         const webComponentState = new WebComponentState(document.body, '/')
-
-        expect(webComponentState.eventBus).toBeDefined()
+    
+        expect(webComponentState.getEventBus()).toBeDefined()
     })
 
     it('should correctly set and unmount Micro Frontends', () => {

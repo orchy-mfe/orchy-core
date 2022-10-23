@@ -3,7 +3,7 @@ import {Subject, takeUntil} from 'rxjs'
 import WebComponentState from './web-component-state'
 
 const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
-    const messageHandler = (messageEvent: MessageEvent) => { webComponentState.eventBus.next(messageEvent.data) }
+    const messageHandler = (messageEvent: MessageEvent) => { webComponentState.getEventBus().next(messageEvent.data) }
 
     const attachIframeMessageHandler = (iframeElement: HTMLIFrameElement) => {
         if(iframeElement.contentWindow) 
@@ -24,7 +24,7 @@ const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
         const iframeElements = pageContent.querySelectorAll('iframe') as NodeListOf<HTMLIFrameElement>
         iframeElements.forEach(attachIframeMessageHandler)
         const unsubscriber = new Subject()
-        webComponentState.eventBus
+        webComponentState.getEventBus()
             .pipe(takeUntil(unsubscriber))
             .subscribe(handleIframeBusEvent(iframeElements, unsubscriber))
     }

@@ -1,6 +1,5 @@
 import {describe, it, expect, vi} from 'vitest'
 
-import EventBusSubject from './event-bus/EventBusSubject'
 import pageContentManagerBuilder from './pageContentManager'
 import WebComponentState from './web-component-state'
 
@@ -12,11 +11,8 @@ describe('pageContentManager', () => {
 
         return {container, iframe}
     }
-    const createWebComponentState = (setPageContent, eventBus = new EventBusSubject()) => {
+    const createWebComponentState = (setPageContent) => {
         const webComponentState = new WebComponentState(document.body, '/')
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        webComponentState._eventBus = eventBus
         webComponentState.setPageContent = setPageContent
         return webComponentState
     }
@@ -38,11 +34,13 @@ describe('pageContentManager', () => {
             parent: window,
             postMessage: vi.fn()
         }
-        const eventBus = new EventBusSubject()        
+        const webComponentState = createWebComponentState(document.body.appendChild.bind(document))
+        
+        const eventBus = webComponentState.getEventBus()     
         const messageToSend = 'hello from bus'
         eventBus.next(messageToSend)
 
-        const pageContentManager = pageContentManagerBuilder(createWebComponentState(document.body.appendChild.bind(document), eventBus))
+        const pageContentManager = pageContentManagerBuilder(webComponentState)
         pageContentManager(container)
 
         expect(iframe.contentWindow?.postMessage).toHaveBeenCalledWith(messageToSend, '*')
@@ -56,17 +54,18 @@ describe('pageContentManager', () => {
             parent: window,
             postMessage: vi.fn()
         }
-        const eventBus = new EventBusSubject()        
+        const webComponentState = createWebComponentState(document.body.appendChild.bind(document))
+
         const messageToSend = 'hello from bus'
 
-        const pageContentManager = pageContentManagerBuilder(createWebComponentState(document.body.appendChild.bind(document), eventBus))
+        const pageContentManager = pageContentManagerBuilder(webComponentState)
         pageContentManager(container)
 
         // eslint-disable-next-line
         // @ts-ignore
         window.onmessage?.({data: messageToSend})
 
-        eventBus.subscribe(message => {
+        webComponentState.getEventBus().subscribe(message => {
             expect(message).toBe(messageToSend)
             resolve(true)
         })

@@ -35,7 +35,7 @@ const microFrontendMapper = (route: string, microPage: MicroPage, webComponentSt
             ...microPage.properties,
             ...microFrontend.properties,
             baseUrl: lightJoin(webComponentState.router.root, route),
-            eventBus: webComponentState.eventBus
+            eventBus: webComponentState.getEventBus(microFrontend.busDiscriminator)
         }
     }))
 }
@@ -80,9 +80,9 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
             const pageElement = pageBuilder(pageConfiguration)
             pageContentManager(pageElement)
-            
-            webComponentState.eventBus.clearBuffer()
-            webComponentState.setLoadedMicroFrontends(await microFrontendsLoader(mappedMicroFrontends, qiankunConfiguration))
+
+            const microFrontendsPromises = microFrontendsLoader(mappedMicroFrontends, qiankunConfiguration)
+            webComponentState.routeChange(microFrontendsPromises)            
         }, {
             leave: (done) => {
                 webComponentState.routeLeave()
