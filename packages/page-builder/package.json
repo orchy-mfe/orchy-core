@@ -9,7 +9,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=v16.18.1"
+    "node": ">=v18.12.1"
   },
   "publishConfig": {
     "access": "public"
