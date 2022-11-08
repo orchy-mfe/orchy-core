@@ -8,20 +8,21 @@ import {Config} from '../../../../plugins/config.js'
 
 type FastifyTypedRequest = { Params: { configurationFile: string } }
 
-const retrieveConfig = async (configurationPath: string) => {
-    const fileContent = await fs.promises.readFile(configurationPath)
-    return fileContent.toString()
-}
-
 const retrieveConfigPath = (request: FastifyRequest<FastifyTypedRequest>, config: Config) => {
     const {configurationFile} = request.params
     return path.join(config.CONFIG_PATH, configurationFile)
 }
 
+const fileExistsAsync = (configPath: string) => fs.promises.access(configPath).then(() => true).catch(() => false)
+
 export const GET: NowRequestHandler<FastifyTypedRequest> = async function (request, response) {
     const configPath = retrieveConfigPath(request, this.config)
-    const configContent = await retrieveConfig(configPath)
-    response.send(configContent)
+    const fileExists = await fileExistsAsync(configPath)
+
+    if(!fileExists)
+        response.status(404).send()
+    else
+        response.send(await fs.promises.readFile(configPath))
 }
 
 GET.opts = {

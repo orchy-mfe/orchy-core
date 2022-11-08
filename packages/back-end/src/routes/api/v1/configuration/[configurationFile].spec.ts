@@ -34,7 +34,7 @@ tap.test('GET /', async t => {
             path: '/api/v1/configuration/not-existing-file.json',
         })
 
-        t.equal(response.statusCode, 500)
+        t.equal(response.statusCode, 404)
     })
 
     t.end()
