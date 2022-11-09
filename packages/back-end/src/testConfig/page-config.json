@@ -4,7 +4,7 @@
     "content": [{
         "type": "micro-frontend",
         "tag": "react-mfe",
-        "url": "//localhost:3000/remoteEntry.js"
+        "url": "//localhost:3001/src/main.tsx"
     }, {
         "type": "micro-frontend",
         "tag": "svelte-mfe",
