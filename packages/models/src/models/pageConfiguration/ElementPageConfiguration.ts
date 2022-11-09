@@ -1,7 +1,7 @@
 import {CommonPageConfiguration} from './CommonPageConfiguration'
 
 export type ElementPageConfiguration = CommonPageConfiguration & {
-    type: 'element' | 'microfrontend',
+    type: 'element' | 'micro-frontend',
     tag: string,
     url?: string
 }
