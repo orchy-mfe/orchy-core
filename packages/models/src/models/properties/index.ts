@@ -1,1 +1,1 @@
-export * from './MicrofrontendProperties'
+export * from './MicroFrontendProperties'

@@ -1,10 +1,7 @@
-import {ReplaySubject} from 'rxjs'
-import {MicroPage, MicroFrontend} from '../configuration'
+import {MicroPage} from '../configuration'
 
-type AdditionalProperties<T = unknown> = {
+type AdditionalProperties = {
     baseUrl: string,
-    eventBus: ReplaySubject<T>,
-    container?: HTMLElement
 }
 
-export type MicrofrontendProperties<T> = MicroPage['properties'] & MicroFrontend['properties'] & AdditionalProperties<T>
+export type MicroFrontendProperties = MicroPage['properties'] & AdditionalProperties

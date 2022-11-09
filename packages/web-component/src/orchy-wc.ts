@@ -21,7 +21,7 @@ export class OrchyWC extends LitElement {
 
   protected override firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void {
     super.firstUpdated(changedProperties)
-    this.webComponentState = new WebComponentState(this.renderRoot, this.basePath)
+    this.webComponentState = new WebComponentState(this.renderRoot as HTMLElement, this.basePath)
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
