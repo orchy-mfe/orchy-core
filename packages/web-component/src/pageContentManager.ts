@@ -30,7 +30,6 @@ const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
     }
 
     return (pageContent: HTMLElement) => {
-        webComponentState.setPageContent(pageContent)
         manageIframe(pageContent)
     }
 }
