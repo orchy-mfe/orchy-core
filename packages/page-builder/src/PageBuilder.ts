@@ -9,7 +9,7 @@ const createNode = (configuration: PageConfiguration, eventBus: Subject<unknown>
     switch (configuration.type) {
         case 'element':
             return new ElementNodeCreator(configuration, eventBus).create()
-        case 'microfrontend':
+        case 'micro-frontend':
             return new MicroFrontendNodeCreator(configuration, eventBus, microFrontendProperties).create()
         case 'flex-column':
         case 'flex-row':
@@ -24,10 +24,11 @@ export const pageBuilder = (
     microFrontendProperties: MicroFrontendProperties
     
 ): HTMLElement => {
-    configurations.forEach(configuration => {
+    const childrens = configurations.map(configuration => {
         const createdNode = createNode(configuration, eventBus, microFrontendProperties)
         pageBuilder(configuration.content || [], createdNode, eventBus, microFrontendProperties)
-        root.replaceChildren(createdNode)
+        return createdNode
     })
+    root.replaceChildren(...childrens)
     return root
 }
