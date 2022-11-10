@@ -9,6 +9,7 @@
     "w:be": "pnpm --filter back-end",
     "w:wc": "pnpm --filter web-component",
     "w:pb": "pnpm --filter page-builder",
+    "w:sa": "pnpm --filter spa-adapter",
     "lint": "pnpm -r --parallel lint",
     "lint:fix": "pnpm -r --parallel lint:fix",
     "dev": "pnpm -r --parallel dev",
