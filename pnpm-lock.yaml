@@ -95,6 +95,27 @@ importers:
       vite: 3.2.3
       vitest: 0.25.1
 
+  packages/spa-adapter:
+    specifiers:
+      '@orchy-mfe/models': workspace:^0.0.1
+      eslint: ^8.27.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
+      lit: ^2.4.1
+      prettier: ^2.7.1
+      typescript: ^4.8.4
+      vite: ^3.2.3
+    dependencies:
+      lit: 2.4.1
+    devDependencies:
+      '@orchy-mfe/models': link:../models
+      eslint: 8.27.0
+      eslint-config-prettier: 8.5.0_eslint@8.27.0
+      eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
+      prettier: 2.7.1
+      typescript: 4.8.4
+      vite: 3.2.3
+
   packages/web-component:
     specifiers:
       '@orchy-mfe/models': workspace:^
