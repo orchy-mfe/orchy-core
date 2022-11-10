@@ -97,7 +97,7 @@ importers:
 
   packages/spa-adapter:
     specifiers:
-      '@orchy-mfe/models': workspace:^0.0.1
+      '@orchy-mfe/models': workspace:^
       eslint: ^8.27.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1

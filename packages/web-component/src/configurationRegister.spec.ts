@@ -1,7 +1,6 @@
 import {Configuration, PageConfiguration} from '@orchy-mfe/models'
 import {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
-import {loadMicroApp, prefetchApps} from 'qiankun'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
@@ -40,20 +39,10 @@ describe('configurationRegister', () => {
     })
 
     describe('single application in single microfrontend', () => {
-        const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string, applicationContainer?: string) => ({
+        const testConfigurationBuilder: (pageConfiguration?: string, applicationContainer?: string) => Configuration = (pageConfiguration?: string) => ({
             microPages: {
                 '/route/load': {
                     pageConfiguration: pageConfiguration,
-                    microFrontends: [
-                        {
-                            entryPoint: '//localhost:3001',
-                            id: 'microfrontend-test-1',
-                            properties: {
-                                mfName: 'Name test'
-                            },
-                            container: applicationContainer
-                        }
-                    ],
                     properties: {
                         pageName: 'Page test'
                     },
@@ -71,40 +60,16 @@ describe('configurationRegister', () => {
             }
         })
 
-        const makeChecks = async (configuration, container = 'testPageConfiguration', applicationContainer = '#orchy-root') => {
+        const makeChecks = async (configuration) => {
             expect(configuration.client.abortRetrieve).toHaveBeenCalledTimes(1)
 
             await waitFor()
 
             expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
-            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual(`<div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"><div id="${container}"></div></div>`)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">')
             
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
-
-            expect(loadMicroApp).toHaveBeenCalledTimes(1)
-
-            const {props, ...loadableApp} = loadMicroApp.mock.calls[0][0]
-
-            expect(loadableApp).toMatchObject({
-                name: 'microfrontend-test-1',
-                entry: '//localhost:3001',
-                container: applicationContainer
-            })
-
-            const {eventBus, ...otherProps} = props
-            expect(eventBus).toBeDefined()
-            expect(otherProps).toMatchObject({
-                baseUrl: '/route/load',
-                mfName: 'Name test',
-                pageName: 'Page test'
-            })
-
-            expect(prefetchApps).toHaveBeenCalledTimes(1)
-            expect(prefetchApps).toBeCalledWith([{
-                ...loadableApp,
-                props
-            }], undefined)
         }
 
         it('correctly register configuration', () => {
@@ -160,48 +125,6 @@ describe('configurationRegister', () => {
 
             window.location.href = '/route/load'
         }))
-
-        it('correctly handle optional custom container', () => new Promise<void>(resolve => {
-            const applicationContainer = '#custom-container'
-            const configuration = {
-                content: testConfigurationBuilder('page-configuration', applicationContainer),
-                client: new TestClient()
-            }
-            window.location.href = '/route/load'
-
-            document.body.replaceChildren = vi.fn()
-            const webComponentState = new WebComponentState(document.body, '/')
-            webComponentState.router.hooks({
-                async after() {
-                    await makeChecks(configuration, 'testPageConfiguration', applicationContainer)
-
-                    resolve()
-                }
-            })
-
-            configurationRegister(configuration, webComponentState)
-        }))
-
-        it('correctly handle default page configuration', () => new Promise<void>(resolve => {
-            const configuration = {
-                content: testConfigurationBuilder(),
-                client: new TestClient()
-            }
-            window.location.href = '/route/load'
-
-            document.body.replaceChildren = vi.fn()
-            const webComponentState = new WebComponentState(document.body, '/')
-            webComponentState.router.hooks({
-                async after() {
-                    await makeChecks(configuration, 'orchy-root')
-
-                    resolve()
-                }
-            })
-
-            configurationRegister(configuration, webComponentState)
-        }))
-
     })
 
     describe('multiple applications in single microfrontend', () => {
@@ -241,73 +164,8 @@ describe('configurationRegister', () => {
             await waitFor()
 
             expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
-            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
-
-            expect(loadMicroApp).toHaveBeenCalledTimes(2)
-
-            const {props: firstProps, ...firstLoadableApp} = loadMicroApp.mock.calls[0][0]
-
-            expect(firstLoadableApp).toMatchObject({
-                name: 'microfrontend-test-1',
-                entry: '//localhost:3001',
-                container: 'container1'
-            })
-
-            const {eventBus: firstEventBus, ...firstOtherProps} = firstProps
-            expect(firstEventBus).toBeDefined()
-            expect(firstOtherProps).toMatchObject({
-                baseUrl: '/route/load',
-                mfName: 'Name test',
-                pageName: 'Page test'
-            })
-
-            const {props: secondProps, ...secondLoadableApp} = loadMicroApp.mock.calls[1][0]
-
-            expect(secondLoadableApp).toMatchObject({
-                name: 'microfrontend-test-2',
-                entry: '//localhost:3002',
-                container: 'container2'
-            })
-
-            const {eventBus: secondEventBus, ...secondOtherProps} = secondProps
-            expect(secondEventBus).toBeDefined()
-            expect(secondOtherProps).toMatchObject({
-                baseUrl: '/route/load',
-                mfName: 'Name test 2',
-                pageName: 'Page test'
-            })
-
-            expect(prefetchApps).toHaveBeenCalledTimes(1)
-            expect(prefetchApps).toBeCalledWith([{
-                ...firstLoadableApp,
-                props: firstProps
-            }, {
-                ...secondLoadableApp,
-                props: secondProps
-            }], undefined)
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div id="testPageConfiguration"></div>')
         }
-
-        it('correctly reject for missing first container', () => {
-            const configuration = {
-                content: testConfigurationBuilder(),
-                client: new TestClient()
-            }
-            const webComponentState = new WebComponentState(document.body, '/')
-            expect(
-                () => configurationRegister(configuration, webComponentState)
-            ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-1'))
-        })
-
-        it('correctly reject for missing second container', () => {
-            const configuration = {
-                content: testConfigurationBuilder('container1'),
-                client: new TestClient()
-            }
-            const webComponentState = new WebComponentState(document.body, '/')
-            expect(
-                () => configurationRegister(configuration, webComponentState)
-            ).toThrow(new Error('Invalid container configuration for application id microfrontend-test-2'))
-        })
 
         it('correctly handle current route', () => new Promise<void>(resolve => {
             const configuration = {
@@ -400,34 +258,10 @@ describe('configurationRegister', () => {
             await waitFor()
 
             expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
-            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div id="testPageConfiguration"></div>')
 
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
-
-            expect(loadMicroApp).toHaveBeenCalledTimes(1)
-
-            const {props: firstProps, ...firstLoadableApp} = loadMicroApp.mock.calls[0][0]
-
-            expect(firstLoadableApp).toMatchObject({
-                name: 'microfrontend-test-1',
-                entry: '//localhost:3001',
-                container: '#orchy-root'
-            })
-
-            const {eventBus: firstEventBus, ...firstOtherProps} = firstProps
-            expect(firstEventBus).toBeDefined()
-            expect(firstOtherProps).toMatchObject({
-                baseUrl: '/route/load',
-                mfName: 'Name test',
-                pageName: 'Page test'
-            })
-
-            expect(prefetchApps).toHaveBeenCalledTimes(2)
-            expect(prefetchApps).toBeCalledWith([{
-                ...firstLoadableApp,
-                props: firstProps
-            }], undefined)
         }
 
         const checkSecondRoute = async (calledTimes) => {
@@ -436,34 +270,10 @@ describe('configurationRegister', () => {
             await waitFor()
 
             expect(document.body.replaceChildren).toHaveBeenCalledTimes(calledTimes)
-            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div><div id="testPageConfiguration"></div></div>')
+            expect(document.body.replaceChildren.mock.calls[0][0].toString()).toEqual('<div id="testPageConfiguration"></div>')
 
             expect(addImportMap).toHaveBeenCalledTimes(1)
             expect(addImportMap).toHaveBeenCalledWith(configuration.content)
-
-            expect(loadMicroApp).toHaveBeenCalledTimes(calledTimes)
-
-            const {props: secondProps, ...secondLoadableApp} = loadMicroApp.mock.calls[calledTimes - 1][0]
-
-            expect(secondLoadableApp).toMatchObject({
-                name: 'microfrontend-test-2',
-                entry: '//localhost:3002',
-                container: '#orchy-root'
-            })
-
-            const {eventBus: secondEventBus, ...secondOtherProps} = secondProps
-            expect(secondEventBus).toBeDefined()
-            expect(secondOtherProps).toMatchObject({
-                baseUrl: '/route/alternative',
-                mfName: 'Name test 2',
-                pageName: 'Page test 2'
-            })
-
-            expect(prefetchApps).toHaveBeenCalledTimes(2)
-            expect(prefetchApps).toBeCalledWith([{
-                ...secondLoadableApp,
-                props: secondProps
-            }], undefined)
         }
 
         it('correctly register configuration', () => {

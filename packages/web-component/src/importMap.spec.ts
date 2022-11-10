@@ -42,20 +42,15 @@ describe('importMap', () => {
     })
 
     it('correctly import defined maps', () => {
-        const result = importMap(configurationBuilder(importMapContent))
+        importMap(configurationBuilder(importMapContent))
 
         expect(importShim.addImportMap).toHaveBeenCalledOnce()
         expect(importShim.addImportMap).toHaveBeenCalledWith(importMapContent)
-
-        expect(Object.keys(result).length).toEqual(1)
-        expect(result.postProcessTemplate).toBeDefined()
     })
 
     it('correctly skip not defined maps', () => {
-        const result = importMap(configurationBuilder())
+        importMap(configurationBuilder())
 
         expect(importShim.addImportMap).not.toHaveBeenCalled()
-
-        expect(result).toMatchObject({})
     })
 })

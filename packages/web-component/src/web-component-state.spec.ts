@@ -1,19 +1,13 @@
-import {MicroApp} from 'qiankun'
 import {describe, it, expect, vi} from 'vitest'
 
 import WebComponentState from './web-component-state'
 
 
 describe('WebComponentState', () => {
-    it('should correctly setPageContent', () => {
-        document.body.replaceChildren = vi.fn()
-        const elementToInsert = document.createElement('div')
-
+    it('should correctly return rootElement', () => {
         const webComponentState = new WebComponentState(document.body, '/')
-        webComponentState.setPageContent(elementToInsert)
 
-        expect(document.body.replaceChildren).toHaveBeenCalledTimes(1)
-        expect(document.body.replaceChildren).toHaveBeenCalledWith(elementToInsert)
+        expect(webComponentState.rootElement).toBe(document.body)
     })
 
     it('should create and return a router', () => {
@@ -30,18 +24,10 @@ describe('WebComponentState', () => {
         expect(webComponentState.eventBus).toBeDefined()
     })
 
-    it('should correctly set and unmount Micro Frontends', () => {
+    it('should destroy correctly', () => {
         const webComponentState = new WebComponentState(document.body, '/')
-        const createUnmountMock = () => vi.fn().mockReturnValueOnce(Promise.resolve())
+        webComponentState.destroy()
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const microApps: MicroApp[] = [{unmount: createUnmountMock()}, {unmount: createUnmountMock()}]
-
-        webComponentState.setLoadedMicroFrontends(microApps)
-        webComponentState.routeLeave()
-
-        expect(microApps[0].unmount).toHaveBeenCalledOnce()
-        expect(microApps[1].unmount).toHaveBeenCalledOnce()
+        expect(() => webComponentState.destroy()).not.toThrow()
     })
 })
