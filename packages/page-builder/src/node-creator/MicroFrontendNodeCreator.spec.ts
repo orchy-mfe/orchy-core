@@ -40,7 +40,6 @@ describe('MicroFrontendNodeCreator', () => {
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
-        expect(document.head.appendChild).toHaveBeenCalledTimes(1)
         expect(createdNode.eventBus).toBeDefined()
         expect(createdNode.orchyProperties).toBe(microFrontendProperties)
     })

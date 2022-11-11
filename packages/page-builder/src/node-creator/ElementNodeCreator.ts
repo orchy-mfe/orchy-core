@@ -2,9 +2,6 @@ import {ElementPageConfiguration} from '@orchy-mfe/models'
 import {Subject} from 'rxjs'
 
 import CommonNodeCreator from './CommonNodeCreator'
-
-const MODULES_SUFFIXES = ['.esm.js', '.mjs', 'tsx', 'ts', 'jsx']
-
 declare global {
     interface Window {
         importShim?: (scriptUrl: string) => void;
@@ -15,7 +12,7 @@ class ElementNodeCreator extends CommonNodeCreator {
 
     currentNode: HTMLElement
 
-    constructor(private elementConfiguration: ElementPageConfiguration, private eventBus: Subject<unknown>) {
+    constructor(private elementConfiguration: ElementPageConfiguration, eventBus: Subject<unknown>) {
         super({...elementConfiguration, properties: {...elementConfiguration.properties, eventBus}})
         this.currentNode = document.createElement(elementConfiguration.tag)
     }
@@ -35,13 +32,7 @@ class ElementNodeCreator extends CommonNodeCreator {
 
     private importScript() {
         if (this.elementConfiguration.url) {
-            const isEsmUrl = MODULES_SUFFIXES.some(suffix => this.elementConfiguration.url?.endsWith(suffix))
-            if (isEsmUrl) {
-                this.manageEsmScript(this.elementConfiguration.url)
-            } else {
-                const scriptCreator = new ElementNodeCreator({attributes: {src: this.elementConfiguration.url}, type: 'element', tag: 'script'}, this.eventBus)
-                document.head.appendChild(scriptCreator.create())
-            }
+            this.manageEsmScript(this.elementConfiguration.url)
         }
     }
 
