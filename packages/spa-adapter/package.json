@@ -2,12 +2,12 @@
   "name": "@orchy-mfe/spa-adapter",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/spa-adapter.es.js",
+  "main": "dist/spa-adapter.js",
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./dist/spa-adapter.es.js"
+    ".": "./dist/spa-adapter.js"
   },
   "types": "types/spa-adapter.d.ts",
   "files": [
