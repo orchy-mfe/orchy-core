@@ -2,10 +2,10 @@ import {Configuration, PageConfiguration} from '@orchy-mfe/models'
 import {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
 
-import ConfigurationClient from './configuration-client/configurationClient'
+import ConfigurationClient from '../configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
-import addImportMap from './import-map/importMap'
-import WebComponentState from './web-component-state/WebComponentState'
+import addImportMap from '../import-map/importMap'
+import WebComponentState from '../web-component-state/WebComponentState'
 
 const testPageConfiguration: PageConfiguration = {
     type: 'element',
@@ -25,7 +25,7 @@ class TestClient implements ConfigurationClient {
 const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve, milliseconds))
 
 describe('configurationRegister', () => {
-    vi.mock('./import-map/importMap', () => ({
+    vi.mock('../import-map/importMap', () => ({
         default: vi.fn()
     }))
 
