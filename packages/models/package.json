@@ -1,6 +1,6 @@
 {
   "name": "@orchy-mfe/models",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Shared models of orchy",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
