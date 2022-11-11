@@ -4,7 +4,7 @@ import {afterAll, describe, expect, it, vi} from 'vitest'
 
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
-import addImportMap from './importMap'
+import addImportMap from './import-map/importMap'
 import WebComponentState from './web-component-state/WebComponentState'
 
 const testPageConfiguration: PageConfiguration = {
@@ -25,12 +25,7 @@ class TestClient implements ConfigurationClient {
 const waitFor = (milliseconds = 0) => new Promise(resolve => setTimeout(resolve, milliseconds))
 
 describe('configurationRegister', () => {
-    vi.mock('qiankun', () => ({
-        loadMicroApp: vi.fn(),
-        prefetchApps: vi.fn()
-    }))
-
-    vi.mock('./importMap', () => ({
+    vi.mock('./import-map/importMap', () => ({
         default: vi.fn()
     }))
 
