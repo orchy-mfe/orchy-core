@@ -5,7 +5,7 @@ import {afterAll, describe, expect, it, vi} from 'vitest'
 import ConfigurationClient from './configuration-client/configurationClient'
 import configurationRegister from './configurationRegister'
 import addImportMap from './importMap'
-import WebComponentState from './web-component-state'
+import WebComponentState from './web-component-state/WebComponentState'
 
 const testPageConfiguration: PageConfiguration = {
     type: 'element',

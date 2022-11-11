@@ -5,7 +5,7 @@ import {Configuration} from '@orchy-mfe/models'
 import configurationRegister from './configurationRegister'
 import ConfigurationClient from './configuration-client/configurationClient'
 import HttpConfigurationClient from './configuration-client/httpConfigurationClient'
-import WebComponentState from './web-component-state'
+import WebComponentState from './web-component-state/WebComponentState'
 
 @customElement('orchy-wc')
 export class OrchyWC extends LitElement {

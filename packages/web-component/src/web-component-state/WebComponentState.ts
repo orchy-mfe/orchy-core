@@ -1,5 +1,5 @@
 import Navigo from 'navigo'
-import EventBusSubject from './event-bus/EventBusSubject'
+import EventBusSubject from '../event-bus/EventBusSubject'
 
 export default class WebComponentState {
     private _router: Navigo

@@ -5,7 +5,7 @@ import {lightJoin} from 'light-join'
 import ConfigurationClient from './configuration-client/configurationClient'
 import installImportMaps from './importMap'
 import pageContentManagerBuilder from './pageContentManager'
-import WebComponentState from './web-component-state'
+import WebComponentState from './web-component-state/WebComponentState'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 
