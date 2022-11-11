@@ -2,10 +2,10 @@ import {MicroPage, Configuration, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import {lightJoin} from 'light-join'
 
-import ConfigurationClient from './configuration-client/configurationClient'
-import installImportMaps from './import-map/importMap'
-import pageContentManagerBuilder from './page-content-manager/pageContentManager'
-import WebComponentState from './web-component-state/WebComponentState'
+import ConfigurationClient from '../configuration-client/configurationClient'
+import installImportMaps from '../import-map/importMap'
+import pageContentManagerBuilder from '../page-content-manager/pageContentManager'
+import WebComponentState from '../web-component-state/WebComponentState'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 
