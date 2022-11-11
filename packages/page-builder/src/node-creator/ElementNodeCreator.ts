@@ -3,7 +3,7 @@ import {Subject} from 'rxjs'
 
 import CommonNodeCreator from './CommonNodeCreator'
 
-const MODULES_SUFFIXES = ['.esm.js', '.mjs']
+const MODULES_SUFFIXES = ['.esm.js', '.mjs', 'tsx', 'ts', 'jsx']
 
 declare global {
     interface Window {
