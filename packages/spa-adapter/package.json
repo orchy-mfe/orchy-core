@@ -1,0 +1,35 @@
+{
+  "name": "@orchy-mfe/spa-adapter",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/spa-adapter.es.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/spa-adapter.es.js"
+  },
+  "types": "types/spa-adapter.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix"
+  },
+  "dependencies": {
+    "lit": "^2.4.1"
+  },
+  "devDependencies": {
+    "@orchy-mfe/models": "workspace:^",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3"
+  }
+}

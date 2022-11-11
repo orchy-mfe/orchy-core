@@ -8,9 +8,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=v18.12.1"
-  },
   "publishConfig": {
     "access": "public"
   },

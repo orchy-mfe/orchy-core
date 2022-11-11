@@ -3,7 +3,7 @@ import {Subject} from 'rxjs'
 
 import CommonNodeCreator from './CommonNodeCreator'
 
-const ESM_SUFFIXES = ['.esm.js', '.mjs']
+const MODULES_SUFFIXES = ['.esm.js', '.mjs']
 
 declare global {
     interface Window {
@@ -35,7 +35,7 @@ class ElementNodeCreator extends CommonNodeCreator {
 
     private importScript() {
         if (this.elementConfiguration.url) {
-            const isEsmUrl = ESM_SUFFIXES.some(suffix => this.elementConfiguration.url?.endsWith(suffix))
+            const isEsmUrl = MODULES_SUFFIXES.some(suffix => this.elementConfiguration.url?.endsWith(suffix))
             if (isEsmUrl) {
                 this.manageEsmScript(this.elementConfiguration.url)
             } else {
