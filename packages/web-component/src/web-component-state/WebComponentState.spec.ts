@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest'
 
-import WebComponentState from './web-component-state'
+import WebComponentState from './WebComponentState'
 
 
 describe('WebComponentState', () => {

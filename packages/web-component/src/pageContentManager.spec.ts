@@ -2,7 +2,7 @@ import {describe, it, expect, vi} from 'vitest'
 
 import EventBusSubject from './event-bus/EventBusSubject'
 import pageContentManagerBuilder from './pageContentManager'
-import WebComponentState from './web-component-state'
+import WebComponentState from './web-component-state/WebComponentState'
 
 describe('pageContentManager', () => {
     const createAppendableIframe = () => {
