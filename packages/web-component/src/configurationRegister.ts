@@ -3,7 +3,7 @@ import {pageBuilder} from '@orchy-mfe/page-builder'
 import {lightJoin} from 'light-join'
 
 import ConfigurationClient from './configuration-client/configurationClient'
-import installImportMaps from './importMap'
+import installImportMaps from './import-map/importMap'
 import pageContentManagerBuilder from './pageContentManager'
 import WebComponentState from './web-component-state/WebComponentState'
 
