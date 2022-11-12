@@ -1,6 +1,6 @@
 import {Subject, takeUntil} from 'rxjs'
 
-import WebComponentState from './web-component-state'
+import WebComponentState from '../web-component-state/WebComponentState'
 
 const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
     const messageHandler = (messageEvent: MessageEvent) => { webComponentState.eventBus.next(messageEvent.data) }
