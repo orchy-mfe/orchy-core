@@ -26,7 +26,7 @@ class ElementNodeCreator extends CommonNodeCreator {
         if(window.importShim) {
             window.importShim(scriptUrl)
         } else {
-            import(/* webpackIgnore: true */scriptUrl)
+            import(/* @vite-ignore */ /* webpackIgnore: true */scriptUrl)
         }
     }
 
