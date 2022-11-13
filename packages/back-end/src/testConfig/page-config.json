@@ -1,13 +1,21 @@
 {
-    "type": "element",
-    "tag": "div",
+    "type": "flex-row",
+    "attributes": {
+        "style": "width: 100vw"
+    },
     "content": [{
         "type": "micro-frontend",
         "tag": "react-mfe",
-        "url": "//localhost:3001/src/main.tsx"
+        "url": "//localhost:3001/src/main.jsx",
+        "properties": {
+            "foo": "foo"
+        },
+        "attributes": {
+            "style": "background: red"
+        }
     }, {
         "type": "micro-frontend",
         "tag": "svelte-mfe",
-        "url": "//localhost:8080/remoteEntry.js"
+        "url": "//localhost:5000/src/main.js"
     }]
 }

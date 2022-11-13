@@ -1,7 +1,7 @@
 import {MicroPage} from '../configuration'
 
 type AdditionalProperties = {
-    baseUrl: string,
+    basePath: string,
 }
 
 export type MicroFrontendProperties = MicroPage['properties'] & AdditionalProperties

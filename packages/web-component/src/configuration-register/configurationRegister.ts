@@ -21,7 +21,7 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
 
 const buildOrchyProps = (route: string, microPage: MicroPage, webComponentState: WebComponentState) => ({
     ...microPage.properties,
-    baseUrl: lightJoin(webComponentState.router.root, route),
+    basePath: lightJoin(webComponentState.router.root, route),
 })
 
 const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration => ({
