@@ -8,6 +8,8 @@ describe('MicroFrontendNodeCreator', () => {
 
     type HTMLElementWithBus =  HTMLElement & {eventBus: ReplaySubject<unknown>, orchyProperties: MicroFrontendProperties}
 
+    const subject = new ReplaySubject()
+
     const microFrontendProperties: MicroFrontendProperties = {
         baseUrl: '/base',
     }
@@ -20,14 +22,14 @@ describe('MicroFrontendNodeCreator', () => {
         const pageCreator = new MicroFrontendNodeCreator({
             type: 'element',
             tag: 'foo-wc'
-        }, new ReplaySubject(), microFrontendProperties)
+        }, subject, microFrontendProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(createdNode.getAttributeNames()).toMatchObject([])
-        expect(createdNode.eventBus).toBeDefined()
-        expect(createdNode.orchyProperties).toBe(microFrontendProperties)
+        expect(createdNode.orchyProperties.eventBus).toBe(subject)
+        expect(createdNode.orchyProperties).toMatchObject(microFrontendProperties)
     })
 
     it('create tag with url', () => {
@@ -35,13 +37,13 @@ describe('MicroFrontendNodeCreator', () => {
             type: 'element',
             tag: 'foo-wc',
             url: 'https://example.com'
-        }, new ReplaySubject(), microFrontendProperties)
+        }, subject, microFrontendProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
-        expect(createdNode.eventBus).toBeDefined()
-        expect(createdNode.orchyProperties).toBe(microFrontendProperties)
+        expect(createdNode.orchyProperties.eventBus).toBe(subject)
+        expect(createdNode.orchyProperties).toMatchObject(microFrontendProperties)
     })
 
     it('correctly apply attributes, properties and orchyProperties', () => {
@@ -55,7 +57,7 @@ describe('MicroFrontendNodeCreator', () => {
             properties: {
                 foo: 'goofy'
             }
-        }, new ReplaySubject(), microFrontendProperties)
+        }, subject, microFrontendProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus & {foo: string}
 
@@ -64,8 +66,8 @@ describe('MicroFrontendNodeCreator', () => {
             0: 'color',
         }.toString())
         expect(createdNode.id).toEqual('root')
-        expect(createdNode.foo).toEqual('goofy')
-        expect(createdNode.eventBus).toBeDefined()
-        expect(createdNode.orchyProperties).toBe(microFrontendProperties)
+        expect(createdNode.orchyProperties.foo).toEqual('goofy')
+        expect(createdNode.orchyProperties.eventBus).toBe(subject)
+        expect(createdNode.orchyProperties).toMatchObject(microFrontendProperties)
     })
 })

@@ -12,7 +12,7 @@ class ElementNodeCreator extends CommonNodeCreator {
 
     currentNode: HTMLElement
 
-    constructor(private elementConfiguration: ElementPageConfiguration, eventBus: Subject<unknown>) {
+    constructor(private elementConfiguration: ElementPageConfiguration, eventBus?: Subject<unknown>) {
         super({...elementConfiguration, properties: {...elementConfiguration.properties, eventBus}})
         this.currentNode = document.createElement(elementConfiguration.tag)
     }

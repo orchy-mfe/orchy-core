@@ -27,8 +27,8 @@ describe('PageBuilder', () => {
 
         expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc"></foo-wc><mfe-wc id="wc"></mfe-wc></div></div>')
         expect(pageBuilt.querySelector('foo-wc')?.eventBus).toBeDefined()
-        expect(pageBuilt.querySelector('mfe-wc')?.eventBus).toBeDefined()
         expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties).toBeDefined()
+        expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties.eventBus).toBeDefined()
         expect(pageBuilt.querySelector('#column')?.eventBus).not.toBeDefined()
     })
 })
