@@ -2,6 +2,7 @@ import {LitElement, html, PropertyValueMap} from 'lit'
 import {customElement, property} from 'lit/decorators.js'
 import {Configuration} from '@orchy-mfe/models'
 
+import './history-patcher'
 import configurationRegister from './configuration-register/configurationRegister'
 import ConfigurationClient from './configuration-client/configurationClient'
 import HttpConfigurationClient from './configuration-client/httpConfigurationClient'

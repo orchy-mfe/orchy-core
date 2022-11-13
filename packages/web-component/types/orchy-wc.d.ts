@@ -1,4 +1,5 @@
 import { LitElement, PropertyValueMap } from 'lit';
+import './history-patcher';
 export declare class OrchyWC extends LitElement {
     configurationName: string;
     basePath: string;
