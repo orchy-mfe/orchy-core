@@ -21,6 +21,7 @@ const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolv
 
 const buildOrchyProps = (route: string, microPage: MicroPage, webComponentState: WebComponentState) => ({
     ...microPage.properties,
+    eventBus: webComponentState.eventBus,
     basePath: lightJoin(webComponentState.router.root, route),
 })
 
@@ -50,7 +51,7 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration) : singleMfeConfigurationPromise
 
             const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
-            const pageElement = pageBuilder(pageConfiguration, webComponentState.rootElement, webComponentState.eventBus, orchyProps)
+            const pageElement = pageBuilder(pageConfiguration, webComponentState.rootElement, orchyProps)
             pageContentManager(pageElement)
             
             webComponentState.eventBus.clearBuffer()

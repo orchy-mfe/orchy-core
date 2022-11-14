@@ -8,10 +8,9 @@ describe('MicroFrontendNodeCreator', () => {
 
     type HTMLElementWithBus =  HTMLElement & {eventBus: ReplaySubject<unknown>, orchyProperties: MicroFrontendProperties}
 
-    const subject = new ReplaySubject()
-
     const microFrontendBaseProperties: MicroFrontendProperties = {
-        baseUrl: '/base',
+        basePath: '/base',
+        eventBus: new ReplaySubject()
     }
 
     afterEach(() => {
@@ -22,13 +21,12 @@ describe('MicroFrontendNodeCreator', () => {
         const pageCreator = new MicroFrontendNodeCreator({
             type: 'element',
             tag: 'foo-wc'
-        }, subject, microFrontendBaseProperties)
+        }, microFrontendBaseProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(createdNode.getAttributeNames()).toMatchObject([])
-        expect(createdNode.orchyProperties.eventBus).toBe(subject)
         expect(createdNode.orchyProperties).toMatchObject(microFrontendBaseProperties)
     })
 
@@ -37,12 +35,11 @@ describe('MicroFrontendNodeCreator', () => {
             type: 'element',
             tag: 'foo-wc',
             url: 'https://example.com'
-        }, subject, microFrontendBaseProperties)
+        }, microFrontendBaseProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
-        expect(createdNode.orchyProperties.eventBus).toBe(subject)
         expect(createdNode.orchyProperties).toMatchObject(microFrontendBaseProperties)
     })
 
@@ -57,7 +54,7 @@ describe('MicroFrontendNodeCreator', () => {
             properties: {
                 foo: 'goofy'
             }
-        }, subject, microFrontendBaseProperties)
+        }, microFrontendBaseProperties)
 
         const createdNode = pageCreator.create() as HTMLElementWithBus & {foo: string}
 
@@ -67,7 +64,6 @@ describe('MicroFrontendNodeCreator', () => {
         }.toString())
         expect(createdNode.id).toEqual('root')
         expect(createdNode.orchyProperties.foo).toEqual('goofy')
-        expect(createdNode.orchyProperties.eventBus).toBe(subject)
         expect(createdNode.orchyProperties.id).toEqual('root')
         expect(createdNode.orchyProperties.style).toEqual('color:red')
         expect(createdNode.orchyProperties).toMatchObject(microFrontendBaseProperties)

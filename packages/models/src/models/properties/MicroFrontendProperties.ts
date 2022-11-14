@@ -1,7 +1,10 @@
+import {ReplaySubject} from 'rxjs'
+
 import {MicroPage} from '../configuration'
 
-type AdditionalProperties = {
+type AdditionalProperties<E> = {
     basePath: string,
+    eventBus: ReplaySubject<E>
 }
 
-export type MicroFrontendProperties = MicroPage['properties'] & AdditionalProperties
+export type MicroFrontendProperties<T = unknown, E=unknown> = MicroPage['properties'] & AdditionalProperties<E> & T
