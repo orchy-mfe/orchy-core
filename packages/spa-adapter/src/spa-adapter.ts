@@ -2,19 +2,19 @@ import {MicroFrontendProperties} from '@orchy-mfe/models'
 import {LitElement, html} from 'lit'
 import {property} from 'lit/decorators.js'
 
-export default abstract class OrchyBaseMfe extends LitElement {
-    abstract mount(orchyProperties?: MicroFrontendProperties): Promise<void>
-    abstract unmount(orchyProperties?: MicroFrontendProperties): Promise<void>
+export default abstract class OrchyBaseMfe<T=unknown, E=unknown> extends LitElement {
+    abstract mount(orchyProperties?: MicroFrontendProperties<T, E>): Promise<void>
+    abstract unmount(orchyProperties?: MicroFrontendProperties<T, E>): Promise<void>
 
-    private _orchyProperties?: MicroFrontendProperties
+    private _orchyProperties?: MicroFrontendProperties<T, E>
     private isOrchyBoot = false
 
     @property({attribute: false})
-    get orchyProperties (): MicroFrontendProperties | undefined {
+    get orchyProperties (): MicroFrontendProperties<T, E> | undefined {
         return this._orchyProperties
     }
 
-    set orchyProperties (orchyProperties: MicroFrontendProperties | undefined) {
+    set orchyProperties (orchyProperties: MicroFrontendProperties<T, E> | undefined) {
         this.isOrchyBoot = true
         this.unmount(this._orchyProperties)
         this._orchyProperties = orchyProperties
