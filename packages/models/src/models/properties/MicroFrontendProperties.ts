@@ -7,4 +7,4 @@ type AdditionalProperties<E> = {
     eventBus: ReplaySubject<E>
 }
 
-export type MicroFrontendProperties<T = unknown, E=unknown> = MicroPage['properties'] & AdditionalProperties<E> & T
+export type MicroFrontendProperties<E=unknown> = MicroPage['properties'] & AdditionalProperties<E>
