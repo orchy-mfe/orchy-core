@@ -2,7 +2,7 @@ import {MicroFrontendProperties} from '@orchy-mfe/models'
 import {LitElement, html} from 'lit'
 import {property} from 'lit/decorators.js'
 
-export default abstract class OrchyBaseMfe<T=unknown, E=unknown> extends LitElement {
+export default abstract class OrchyMicroFrontend<T=unknown, E=unknown> extends LitElement {
     abstract mount(orchyProperties?: MicroFrontendProperties<T, E>): Promise<void>
     abstract unmount(orchyProperties?: MicroFrontendProperties<T, E>): Promise<void>
 
@@ -44,5 +44,4 @@ export default abstract class OrchyBaseMfe<T=unknown, E=unknown> extends LitElem
     protected createRenderRoot() {
         return this
     }
-
 }
