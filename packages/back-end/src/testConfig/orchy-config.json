@@ -1,7 +1,7 @@
 {
   "microPages": {
     "/route/load": {
-      "pageConfiguration": "page-config",
+      "pageConfiguration": "page-config.json",
       "properties": {
         "general": "general"
       }
