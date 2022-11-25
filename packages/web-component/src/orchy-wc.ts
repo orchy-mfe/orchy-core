@@ -11,7 +11,7 @@ import WebComponentState from './web-component-state/WebComponentState'
 @customElement('orchy-wc')
 export class OrchyWC extends LitElement {
   @property()
-  configurationName = 'orchy-config'
+  configurationName = 'orchy-config.json'
 
   @property()
   basePath = window.location.pathname

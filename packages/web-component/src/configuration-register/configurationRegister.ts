@@ -35,7 +35,7 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 })
 
 const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
-    const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
+    const stylesConfiguration: Array<PageConfiguration | string> = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const pageContentManager = pageContentManagerBuilder(webComponentState)
     let lastManagedRoute = ''
 
@@ -48,7 +48,7 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
     
-            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration) : singleMfeConfigurationPromise
+            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration | string>(microPage.pageConfiguration) : singleMfeConfigurationPromise
 
             const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
             const pageElement = pageBuilder(pageConfiguration, webComponentState.rootElement, orchyProps)

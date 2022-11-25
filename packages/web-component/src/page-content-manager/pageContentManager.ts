@@ -20,7 +20,7 @@ const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
         })
     }
     
-    const manageIframe = (pageContent: HTMLElement) => {
+    const manageIframe = (pageContent: ParentNode) => {
         const iframeElements = pageContent.querySelectorAll('iframe') as NodeListOf<HTMLIFrameElement>
         iframeElements.forEach(attachIframeMessageHandler)
         const unsubscriber = new Subject()
@@ -29,7 +29,7 @@ const pageContentManagerBuilder = (webComponentState: WebComponentState) => {
             .subscribe(handleIframeBusEvent(iframeElements, unsubscriber))
     }
 
-    return (pageContent: HTMLElement) => {
+    return (pageContent: ParentNode) => {
         manageIframe(pageContent)
     }
 }

@@ -1,30 +1,21 @@
 import {MicroFrontendProperties, PageConfiguration} from '@orchy-mfe/models'
-
-import ElementNodeCreator from './node-creator/ElementNodeCreator'
-import LayoutNodeCreator from './node-creator/LayoutNodeCreator'
-import MicroFrontendNodeCreator from './node-creator/MicroFrontendNodeCreator'
-
-const createNode = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties): HTMLElement => {
-    switch (configuration.type) {
-        case 'element':
-            return new ElementNodeCreator(configuration, microFrontendProperties.eventBus).create()
-        case 'micro-frontend':
-            return new MicroFrontendNodeCreator(configuration, microFrontendProperties).create()
-        case 'flex-column':
-        case 'flex-row':
-            return new LayoutNodeCreator(configuration).create()
-    }
-}
+import createNode from './node-creator'
+import enrichNode from './string-node'
 
 export const pageBuilder = (
-    configurations: PageConfiguration[],
-    root: HTMLElement = document.createElement('div'),
+    configurations: Array<PageConfiguration | string>,
+    root: ParentNode = document.createElement('div'),
     microFrontendProperties: MicroFrontendProperties
-    
-): HTMLElement => {
+): ParentNode => {
     const childrens = configurations.map(configuration => {
-        const createdNode = createNode(configuration, microFrontendProperties)
-        pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
+        let createdNode: ParentNode
+        if(typeof configuration === 'string') {
+            createdNode = document.createRange().createContextualFragment(configuration)
+            enrichNode(createdNode, microFrontendProperties)
+        } else {
+            createdNode = createNode(configuration, microFrontendProperties)
+            pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
+        }
         return createdNode
     })
     root.replaceChildren(...childrens)
