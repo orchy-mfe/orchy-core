@@ -31,7 +31,7 @@ describe('httpConfigurationRetriever', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     fetchSpy.mockImplementation(() => Promise.resolve({json: () => mockConfig}))
-    const response = await httpConfigurationManager.retrieveConfiguration('test-configuration')
+    const response = await httpConfigurationManager.retrieveConfiguration('test-configuration.json')
 
     expect(response).toMatchObject(mockConfig)
     expect(fetchSpy.mock.calls[0][0]).toBe('/api/v1/configuration/test-configuration.json')
@@ -43,8 +43,8 @@ describe('httpConfigurationRetriever', () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
     fetchSpy.mockImplementation(() => Promise.reject(new Error('file not found')))
 
-    await expect(httpConfigurationManager.retrieveConfiguration('missing-configuration')).rejects.toThrow('file not found')
-    expect(fetchSpy.mock.calls[0][0]).toBe('/api/v1/configuration/missing-configuration.json')
+    await expect(httpConfigurationManager.retrieveConfiguration('missing-configuration.html')).rejects.toThrow('file not found')
+    expect(fetchSpy.mock.calls[0][0]).toBe('/api/v1/configuration/missing-configuration.html')
     expect(fetchSpy.mock.calls[0][1]).toMatchObject(fetchOptions)
   })
 })

@@ -7,7 +7,7 @@ class HttpConfigurationClient implements ConfigurationClient {
 
     public async retrieveConfiguration<T>(configurationName: string): Promise<T> {
         this.abortController = new AbortController()
-        const configurationPath = `${CONFIGURATION_API}/${configurationName}.json`
+        const configurationPath = `${CONFIGURATION_API}/${configurationName}`
         const configurationResponse = await fetch(configurationPath, {signal: this.abortController.signal})
         return configurationResponse.json()
     }
