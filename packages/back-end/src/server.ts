@@ -19,10 +19,10 @@ export const buildServer = async () => {
     },
   })
 
+  await server.register(config)
   await server.register(now, {
     routesFolder: new URL(path.join(import.meta.url, '../routes')).pathname,
   })
-  await server.register(config)
   await server.ready()
 
   for (const signal of ['SIGINT', 'SIGTERM']) {
