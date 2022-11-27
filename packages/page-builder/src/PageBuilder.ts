@@ -19,12 +19,11 @@ export const pageBuilder = (
     root: ParentNode = document.createElement('div'),
     microFrontendProperties: MicroFrontendProperties
 ): ParentNode => {
-    const childrens = configurations.map(configuration => {
-        if(typeof configuration === 'string') {
-            return stringConfigStrategy(configuration, microFrontendProperties)
-        }
-        return jsonConfigStrategy(configuration, microFrontendProperties)
-    })
+    const childrens = configurations.map(configuration =>
+        typeof configuration === 'string' ?
+            stringConfigStrategy(configuration, microFrontendProperties)
+            : jsonConfigStrategy(configuration, microFrontendProperties)
+    )
     root.replaceChildren(...childrens)
     return root
 }
