@@ -7,30 +7,27 @@ describe('ElementEnricher', () => {
     const microFrontendProperties = {eventBus: new ReplaySubject(), basePath: '/'}
     
     it('works if query returns no element', () => {
-        const divElement = document.createElement('div')
+        const divElement = document.createRange().createContextualFragment('<div></div>')
         enrichElementNode(divElement, microFrontendProperties)
 
         expect(divElement.eventBus).toBeUndefined()
     })
 
-    it('ignored if element is not a leaf', () => {
-        const divElement = document.createElement('div')
-        divElement.setAttribute('orchy-element', '')
+    it('work if element is on root', () => {
+        const divElement = document.createRange().createContextualFragment('<div orchy-element></div>')
 
         enrichElementNode(divElement, microFrontendProperties)
 
-        expect(divElement.eventBus).toBeUndefined()
+        expect(divElement.childNodes[0].eventBus).toBe(microFrontendProperties.eventBus)
     })
 
     it('works if element is a leaf', () => {
-        const divElement = document.createElement('div')
-        const childElement = document.createElement('div')
-        childElement.setAttribute('orchy-element', '')
-        divElement.appendChild(childElement)
+        const divElement = document.createRange().createContextualFragment('<div><div orchy-element></div></div>')
 
         enrichElementNode(divElement, microFrontendProperties)
 
         expect(divElement.eventBus).toBeUndefined()
-        expect(childElement.eventBus).toBe(microFrontendProperties.eventBus)
+        expect(divElement.children[0].eventBus).toBeUndefined()
+        expect(divElement.children[0].children[0].eventBus).toBe(microFrontendProperties.eventBus)
     })
 })

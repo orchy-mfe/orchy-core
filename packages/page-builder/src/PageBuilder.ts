@@ -3,7 +3,7 @@ import createNode from './node-creator'
 import enrichNode from './string-node'
 
 const stringConfigStrategy = (configuration: string, microFrontendProperties: MicroFrontendProperties) => {
-    const createdNode: ParentNode = document.createRange().createContextualFragment(configuration)
+    const createdNode: DocumentFragment = document.createRange().createContextualFragment(configuration)
     enrichNode(createdNode, microFrontendProperties)
     return createdNode
 }

@@ -1,7 +1,14 @@
 import {MicroFrontendProperties} from '@orchy-mfe/models'
 
-export const enrichElementNode = (createdNode: ParentNode, microFrontendProperties: MicroFrontendProperties) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    createdNode.querySelectorAll('[orchy-element]').forEach(node => node.eventBus = microFrontendProperties.eventBus)
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const eventBusSetter = (microFrontendProperties: MicroFrontendProperties) => (node: Node) => node.eventBus = microFrontendProperties.eventBus
+
+export const enrichElementNode = (createdNode: DocumentFragment, microFrontendProperties: MicroFrontendProperties) => {
+    const setEventBus = eventBusSetter(microFrontendProperties)
+
+    createdNode.querySelectorAll('[orchy-element]').forEach(setEventBus)
+    if(createdNode.firstElementChild?.hasAttribute('orchy-element')) {
+        setEventBus(createdNode.firstElementChild)
+    }
 }

@@ -3,34 +3,31 @@ import {describe, it, expect} from 'vitest'
 
 import {enrichMicroFrontendNode} from './MicroFrontendEnricher'
 
-describe('MicroFrontendEnricher', () => {
+describe('ElementEnricher', () => {
     const microFrontendProperties = {eventBus: new ReplaySubject(), basePath: '/'}
-
+    
     it('works if query returns no element', () => {
-        const divElement = document.createElement('div')
-        enrichMicroFrontendNode(divElement, microFrontendProperties)
-
-        expect(divElement.eventBus).toBeUndefined()
-    })
-
-    it('ignored if element is not a leaf', () => {
-        const divElement = document.createElement('div')
-        divElement.setAttribute('orchy-micro-frontend', '')
-
+        const divElement = document.createRange().createContextualFragment('<div></div>')
         enrichMicroFrontendNode(divElement, microFrontendProperties)
 
         expect(divElement.orchyProperties).toBeUndefined()
+    })
+
+    it('work if element is on root', () => {
+        const divElement = document.createRange().createContextualFragment('<div orchy-micro-frontend></div>')
+
+        enrichMicroFrontendNode(divElement, microFrontendProperties)
+
+        expect(divElement.childNodes[0].orchyProperties).toBe(microFrontendProperties)
     })
 
     it('works if element is a leaf', () => {
-        const divElement = document.createElement('div')
-        const childElement = document.createElement('div')
-        childElement.setAttribute('orchy-micro-frontend', '')
-        divElement.appendChild(childElement)
+        const divElement = document.createRange().createContextualFragment('<div><div orchy-micro-frontend></div></div>')
 
         enrichMicroFrontendNode(divElement, microFrontendProperties)
 
         expect(divElement.orchyProperties).toBeUndefined()
-        expect(childElement.orchyProperties).toBe(microFrontendProperties)
+        expect(divElement.children[0].orchyProperties).toBeUndefined()
+        expect(divElement.children[0].children[0].orchyProperties).toBe(microFrontendProperties)
     })
 })
