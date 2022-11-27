@@ -1,9 +1,7 @@
 import {MicroFrontendProperties} from '@orchy-mfe/models'
 
-const enrichMicroFrontendNode = (createdNode: ParentNode, microFrontendProperties: MicroFrontendProperties) => {
+export const enrichMicroFrontendNode = (createdNode: ParentNode, microFrontendProperties: MicroFrontendProperties) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     createdNode.querySelectorAll('[orchy-micro-frontend]').forEach(node => node.orchyProperties = microFrontendProperties)
 }
-
-export default enrichMicroFrontendNode
