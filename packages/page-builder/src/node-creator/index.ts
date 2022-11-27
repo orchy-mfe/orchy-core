@@ -3,7 +3,7 @@ import ElementNodeCreator from './ElementNodeCreator'
 import LayoutNodeCreator from './LayoutNodeCreator'
 import MicroFrontendNodeCreator from './MicroFrontendNodeCreator'
 
-const createNode = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties): HTMLElement => {
+export const createNode = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties): HTMLElement => {
     switch (configuration.type) {
         case 'element':
             return new ElementNodeCreator(configuration, microFrontendProperties.eventBus).create()
@@ -14,5 +14,3 @@ const createNode = (configuration: PageConfiguration, microFrontendProperties: M
             return new LayoutNodeCreator(configuration).create()
     }
 }
-
-export default createNode

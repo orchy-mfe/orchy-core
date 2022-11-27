@@ -1,10 +1,10 @@
 import {MicroFrontendProperties, PageConfiguration} from '@orchy-mfe/models'
-import createNode from './node-creator'
-import enrichNode from './string-node'
+import {createNode} from './node-creator'
+import {manageNode} from './string-node'
 
 const stringConfigStrategy = (configuration: string, microFrontendProperties: MicroFrontendProperties) => {
     const createdNode: DocumentFragment = document.createRange().createContextualFragment(configuration)
-    enrichNode(createdNode, microFrontendProperties)
+    manageNode(createdNode, microFrontendProperties)
     return createdNode
 }
 
