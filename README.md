@@ -8,6 +8,7 @@ It is a monorepo which includes the following packages:
 - @orchy-mfe/back-end: a Fastify backend that can be used to serve orchy's configuration files;
 - @orchy-mfe/models: includes the TypeScript models for the orchy's configurations and the Micro Frontends properties;
 - @orchy-mfe/page-builder: the library which enables the Server Driven UI;
+- @orchy-mfe/spa-adapter: the Web Component's base class that must be extended to trigger the Micro Frontend's bootstrap;
 - @orchy-mfe/web-component: the Web Component which embeds the orchestration logics.
 
 
