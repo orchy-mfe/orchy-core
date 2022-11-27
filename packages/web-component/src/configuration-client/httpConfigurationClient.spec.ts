@@ -30,7 +30,7 @@ describe('httpConfigurationRetriever', () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    fetchSpy.mockImplementation(() => Promise.resolve({json: () => mockConfig, headers: new Map([['content-type', 'application/json']])}))
+    fetchSpy.mockImplementation(() => Promise.resolve({text: () => JSON.stringify(mockConfig)}))
     const response = await httpConfigurationManager.retrieveConfiguration('test-configuration.json')
 
     expect(response).toMatchObject(mockConfig)
@@ -44,7 +44,7 @@ describe('httpConfigurationRetriever', () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    fetchSpy.mockImplementation(() => Promise.resolve({text: () => mockHtml, headers: new Map([['content-type', 'text/html']])}))
+    fetchSpy.mockImplementation(() => Promise.resolve({text: () => mockHtml}))
     const response = await httpConfigurationManager.retrieveConfiguration('test-configuration.html')
 
     expect(response).toMatchObject(mockHtml)
