@@ -9,7 +9,7 @@ const stringConfigStrategy = (configuration: string, microFrontendProperties: Mi
 }
 
 const jsonConfigStrategy = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties) => {
-    const createdNode: ParentNode = createNode(configuration, microFrontendProperties)
+    const createdNode: HTMLElement = createNode(configuration, microFrontendProperties)
     pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
     return createdNode
 }
