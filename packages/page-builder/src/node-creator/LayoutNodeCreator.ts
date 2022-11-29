@@ -3,7 +3,6 @@ import {LayoutPageConfiguration} from '@orchy-mfe/models'
 import CommonNodeCreator from './CommonNodeCreator'
 
 class LayoutNodeCreator extends CommonNodeCreator {
-
     currentNode: HTMLElement
 
     private static stylesByType: Record<LayoutPageConfiguration['type'], string> = {
