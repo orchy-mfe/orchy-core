@@ -4,7 +4,7 @@ import {describe, it, expect} from 'vitest'
 import {pageBuilder} from './PageBuilder'
 
 describe('PageBuilder', () => {
-    it('create a full page with json config', () => {
+    it('creates a full page with json config', () => {
         const pageBuilt = pageBuilder([{
             type: 'flex-column',
             attributes: {
@@ -32,7 +32,7 @@ describe('PageBuilder', () => {
         expect(pageBuilt.querySelector('#column')?.eventBus).not.toBeDefined()
     })
 
-    it('create a full page with string config', () => {
+    it('creates a full page with string config', () => {
         const pageBuilt = pageBuilder([
             '<div style="display: flex; flex-direction: column" id="column"><foo-wc orchy-element id="wc"></foo-wc><mfe-wc orchy-micro-frontend id="wc"></mfe-wc></div>'
         ], undefined, {basePath: '/', eventBus: new ReplaySubject()})
@@ -44,7 +44,7 @@ describe('PageBuilder', () => {
         expect(pageBuilt.querySelector('#column')?.eventBus).not.toBeDefined()
     })
 
-    it('create a full page mixing config type', () => {
+    it('creates a full page mixing config type', () => {
         const pageBuilt = pageBuilder([
             '<div><foo-wc orchy-element></foo-wc><mfe-wc orchy-micro-frontend></mfe-wc></div>',
             {
