@@ -9,16 +9,6 @@ import WebComponentState from '../web-component-state/WebComponentState'
 
 type ConfigurationDependency = { content: Configuration, client: ConfigurationClient }
 
-const defaultContainer = 'orchy-root'
-
-const singleMfeConfigurationPromise: Promise<PageConfiguration> = Promise.resolve({
-    type: 'element',
-    tag: 'div',
-    attributes: {
-        id: defaultContainer
-    }
-})
-
 const buildOrchyProps = (route: string, microPage: MicroPage, webComponentState: WebComponentState) => ({
     ...microPage.properties,
     eventBus: webComponentState.eventBus,
@@ -48,10 +38,10 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
     
-            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration) : singleMfeConfigurationPromise
+            const pageConfiguration = await configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
 
-            const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
-            const pageElement = pageBuilder(pageConfiguration, webComponentState.rootElement, orchyProps)
+            const fullPageConfiguration = stylesConfiguration.concat(pageConfiguration)
+            const pageElement = pageBuilder(fullPageConfiguration, webComponentState.rootElement, orchyProps)
             pageContentManager(pageElement)
             
             webComponentState.eventBus.clearBuffer()
