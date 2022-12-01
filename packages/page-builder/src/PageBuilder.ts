@@ -1,32 +1,28 @@
 import {MicroFrontendProperties, PageConfiguration} from '@orchy-mfe/models'
+import {createNode} from './node-creator'
+import {manageNode} from './string-node'
 
-import ElementNodeCreator from './node-creator/ElementNodeCreator'
-import LayoutNodeCreator from './node-creator/LayoutNodeCreator'
-import MicroFrontendNodeCreator from './node-creator/MicroFrontendNodeCreator'
+const stringConfigStrategy = (configuration: string, microFrontendProperties: MicroFrontendProperties) => {
+    const createdNode: DocumentFragment = document.createRange().createContextualFragment(configuration)
+    manageNode(createdNode, microFrontendProperties)
+    return createdNode
+}
 
-const createNode = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties): HTMLElement => {
-    switch (configuration.type) {
-        case 'element':
-            return new ElementNodeCreator(configuration, microFrontendProperties.eventBus).create()
-        case 'micro-frontend':
-            return new MicroFrontendNodeCreator(configuration, microFrontendProperties).create()
-        case 'flex-column':
-        case 'flex-row':
-            return new LayoutNodeCreator(configuration).create()
-    }
+const jsonConfigStrategy = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties) => {
+    const createdNode: HTMLElement = createNode(configuration, microFrontendProperties)
+    pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
+    return createdNode
 }
 
 export const pageBuilder = (
-    configurations: PageConfiguration[],
-    root: HTMLElement = document.createElement('div'),
+    configurations: Array<PageConfiguration | string>,
+    root: ParentNode = document.createElement('div'),
     microFrontendProperties: MicroFrontendProperties
-    
-): HTMLElement => {
-    const childrens = configurations.map(configuration => {
-        const createdNode = createNode(configuration, microFrontendProperties)
-        pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
-        return createdNode
-    })
+): ParentNode => {
+    const childrens = configurations.map(configuration => typeof configuration === 'string' ?
+        stringConfigStrategy(configuration, microFrontendProperties)
+        : jsonConfigStrategy(configuration, microFrontendProperties)
+    )
     root.replaceChildren(...childrens)
     return root
 }

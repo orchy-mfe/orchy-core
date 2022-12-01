@@ -9,7 +9,6 @@ declare global {
 }
 
 class ElementNodeCreator extends CommonNodeCreator {
-
     currentNode: HTMLElement
 
     constructor(private elementConfiguration: ElementPageConfiguration, eventBus?: Subject<unknown>) {

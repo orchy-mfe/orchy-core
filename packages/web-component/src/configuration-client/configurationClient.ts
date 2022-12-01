@@ -1,5 +1,5 @@
 interface ConfigurationClient {
-    retrieveConfiguration<T>(configurationName: string): Promise<T>
+    retrieveConfiguration<T>(configurationName: string): Promise<T | string>
     abortRetrieve(): void
 }
 

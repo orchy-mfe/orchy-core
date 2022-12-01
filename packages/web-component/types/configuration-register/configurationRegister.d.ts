@@ -1,7 +1,7 @@
 import { Configuration } from '@orchy-mfe/models';
 import ConfigurationClient from '../configuration-client/configurationClient';
 import WebComponentState from '../web-component-state/WebComponentState';
-declare type ConfigurationDependency = {
+type ConfigurationDependency = {
     content: Configuration;
     client: ConfigurationClient;
 };

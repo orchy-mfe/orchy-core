@@ -1,7 +1,6 @@
-import path from 'node:path'
-import {URL} from 'node:url'
 import fastify from 'fastify'
 import now from 'fastify-now'
+import {join} from 'desm'
 
 import config from './plugins/config.js'
 
@@ -21,7 +20,7 @@ export const buildServer = async () => {
 
   await server.register(config)
   await server.register(now, {
-    routesFolder: new URL(path.join(import.meta.url, '../routes')).pathname,
+    routesFolder: join(import.meta.url, 'routes'),
   })
   await server.ready()
 

@@ -35,7 +35,7 @@ const createStylesheetConfiguration = (stylesheetUrl: string): PageConfiguration
 })
 
 const registerRoutes = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
-    const stylesConfiguration = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
+    const stylesConfiguration: Array<PageConfiguration | string> = configuration.content.common?.stylesheets?.map(createStylesheetConfiguration) || []
     const pageContentManager = pageContentManagerBuilder(webComponentState)
     let lastManagedRoute = ''
 

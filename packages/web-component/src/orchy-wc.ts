@@ -11,7 +11,7 @@ import WebComponentState from './web-component-state/WebComponentState'
 @customElement('orchy-wc')
 export class OrchyWC extends LitElement {
   @property()
-  configurationName = 'orchy-config'
+  configurationName = 'orchy-config.json'
 
   @property()
   basePath = window.location.pathname
@@ -26,7 +26,7 @@ export class OrchyWC extends LitElement {
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
-        const configuration = {content, client: this.configurationClient}
+        const configuration = {content: content as Configuration, client: this.configurationClient}
         configurationRegister(configuration, this.webComponentState as WebComponentState)
       })
   }
