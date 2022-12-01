@@ -48,7 +48,7 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
             lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
     
-            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration | string>(microPage.pageConfiguration) : singleMfeConfigurationPromise
+            const pageConfigurationPromise = microPage.pageConfiguration ? configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration) : singleMfeConfigurationPromise
 
             const pageConfiguration = stylesConfiguration.concat(await pageConfigurationPromise)
             const pageElement = pageBuilder(pageConfiguration, webComponentState.rootElement, orchyProps)
