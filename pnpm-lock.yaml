@@ -60,10 +60,10 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.8.0
-      rxjs: ^7.5.7
+      rxjs: ^7.6.0
       typescript: ^4.9.3
     dependencies:
-      rxjs: 7.5.7
+      rxjs: 7.6.0
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.45.0_yjegg5cyoezm3fzsmuszzhetym
       '@typescript-eslint/parser': 5.45.0_s5ps7njkmjlaqajutnox5ntcla
@@ -82,12 +82,12 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.8.0
-      rxjs: ^7.5.7
+      rxjs: ^7.6.0
       typescript: ^4.9.3
       vite: ^3.2.4
       vitest: ^0.25.3
     dependencies:
-      rxjs: 7.5.7
+      rxjs: 7.6.0
     devDependencies:
       '@orchy-mfe/models': link:../models
       '@typescript-eslint/eslint-plugin': 5.45.0_yjegg5cyoezm3fzsmuszzhetym
@@ -138,7 +138,7 @@ importers:
       navigo: ^8.11.1
       prettier: ^2.8.0
       rollup-plugin-visualizer: ^5.8.3
-      rxjs: ^7.5.7
+      rxjs: ^7.6.0
       typescript: ^4.9.3
       vite: ^3.2.4
       vitest: ^0.25.3
@@ -148,7 +148,7 @@ importers:
       light-join: 1.3.0
       lit: 2.4.1
       navigo: 8.11.1
-      rxjs: 7.5.7
+      rxjs: 7.6.0
     devDependencies:
       '@orchy-mfe/models': link:../models
       '@typescript-eslint/eslint-plugin': 5.45.0_yjegg5cyoezm3fzsmuszzhetym
@@ -3002,8 +3002,8 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
-  /rxjs/7.5.7:
-    resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
+  /rxjs/7.6.0:
+    resolution: {integrity: sha512-DDa7d8TFNUalGC9VqXvQ1euWNN7sc63TrUCuM9J998+ViviahMIjKSOU7rfcgFOF+FCD71BhDRv4hrFz+ImDLQ==}
     dependencies:
       tslib: 2.4.0
     dev: false
