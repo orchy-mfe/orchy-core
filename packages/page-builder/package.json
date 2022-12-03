@@ -20,7 +20,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "rxjs": "^7.5.7"
+    "rxjs": "^7.6.0"
   },
   "devDependencies": {
     "@orchy-mfe/models": "workspace:^",

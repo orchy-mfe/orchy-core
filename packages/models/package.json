@@ -29,6 +29,6 @@
   "author": "Matteo Pietro Dazzi",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "^7.5.7"
+    "rxjs": "^7.6.0"
   }
 }
