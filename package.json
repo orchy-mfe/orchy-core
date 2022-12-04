@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "pnpm build",
+    "prepare": "pnpm build",
     "w:models": "pnpm --filter models",
     "w:be": "pnpm --filter back-end",
     "w:wc": "pnpm --filter web-component",
