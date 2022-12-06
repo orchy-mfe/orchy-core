@@ -17,6 +17,6 @@
     "build": "pnpm -r build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Matteo Pietro Dazzi",
   "license": "MIT"
 }
