@@ -106,12 +106,12 @@ importers:
       eslint: ^8.29.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
-      lit: ^2.4.1
+      lit: ^2.5.0
       prettier: ^2.8.1
       typescript: ^4.9.4
       vite: ^3.2.5
     dependencies:
-      lit: 2.4.1
+      lit: 2.5.0
     devDependencies:
       '@orchy-mfe/models': link:../models
       eslint: 8.29.0
@@ -134,7 +134,7 @@ importers:
       eslint-plugin-prettier: ^4.2.1
       happy-dom: ^7.7.2
       light-join: ^1.3.0
-      lit: ^2.4.1
+      lit: ^2.5.0
       navigo: ^8.11.1
       prettier: ^2.8.1
       rollup-plugin-visualizer: ^5.8.3
@@ -146,7 +146,7 @@ importers:
       '@orchy-mfe/page-builder': link:../page-builder
       es-module-shims: 1.6.2
       light-join: 1.3.0
-      lit: 2.4.1
+      lit: 2.5.0
       navigo: 8.11.1
       rxjs: 7.6.0
     devDependencies:
@@ -700,8 +700,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lit/reactive-element/1.4.1:
-    resolution: {integrity: sha512-qDv4851VFSaBWzpS02cXHclo40jsbAjRXnebNXpm0uVg32kCneZPo9RYVQtrTNICtZ+1wAYHu1ZtxWSWMbKrBw==}
+  /@lit/reactive-element/1.5.0:
+    resolution: {integrity: sha512-fQh9FDK0LPTwDk+0HhSZEtb8K0LTN1wXerwpGrWA+a8tWulYRDLI4vQDWp4GOIsewn0572KYV/oZ3+492D7osA==}
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -2582,22 +2582,22 @@ packages:
   /lit-element/3.2.2:
     resolution: {integrity: sha512-6ZgxBR9KNroqKb6+htkyBwD90XGRiqKDHVrW/Eh0EZ+l+iC+u+v+w3/BA5NGi4nizAVHGYvQBHUDuSmLjPp7NQ==}
     dependencies:
-      '@lit/reactive-element': 1.4.1
-      lit-html: 2.4.0
+      '@lit/reactive-element': 1.5.0
+      lit-html: 2.5.0
     dev: false
 
-  /lit-html/2.4.0:
-    resolution: {integrity: sha512-G6qXu4JNUpY6aaF2VMfaszhO9hlWw0hOTRFDmuMheg/nDYGB+2RztUSOyrzALAbr8Nh0Y7qjhYkReh3rPnplVg==}
+  /lit-html/2.5.0:
+    resolution: {integrity: sha512-bLHosg1XL3JRUcKdSVI0sLCs0y1wWrj2sqqAN3cZ7bDDPNgmDHH29RV48x6Wz3ZmkxIupaE+z7uXSZ/pXWAO1g==}
     dependencies:
       '@types/trusted-types': 2.0.2
     dev: false
 
-  /lit/2.4.1:
-    resolution: {integrity: sha512-qohSgLiyN1cFnJG26dIiY03S4F49857A0AHQfnS0zYtnUVnD2MFvx+UT52rtXsIuNFQrnUupX+zyGSATlk1f/A==}
+  /lit/2.5.0:
+    resolution: {integrity: sha512-DtnUP6vR3l4Q8nRPPNBD+UxbAhwJPeky+OVbi3pdgMqm0g57xFSl1Sj64D1rIB+nVNdiVVg8YxB0hqKjvdadZA==}
     dependencies:
-      '@lit/reactive-element': 1.4.1
+      '@lit/reactive-element': 1.5.0
       lit-element: 3.2.2
-      lit-html: 2.4.0
+      lit-html: 2.5.0
     dev: false
 
   /local-pkg/0.4.2:
