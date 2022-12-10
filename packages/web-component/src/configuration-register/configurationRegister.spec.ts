@@ -84,7 +84,7 @@ describe('configurationRegister', () => {
                 content: testConfigurationBuilder('page-configuration'),
                 client: new TestClient()
             }
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
 
             document.body.replaceChildren = vi.fn()
             const webComponentState = new WebComponentState(document.body, '/')
@@ -118,7 +118,7 @@ describe('configurationRegister', () => {
 
             configurationRegister(configuration, webComponentState)
 
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
         }))
     })
 
@@ -167,7 +167,7 @@ describe('configurationRegister', () => {
                 content: testConfigurationBuilder('container1', 'container2'),
                 client: new TestClient()
             }
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
 
             document.body.replaceChildren = vi.fn()
             const webComponentState = new WebComponentState(document.body, '/')
@@ -202,7 +202,7 @@ describe('configurationRegister', () => {
 
             configurationRegister(configuration, webComponentState)
 
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
         }))
     })
 
@@ -279,7 +279,7 @@ describe('configurationRegister', () => {
         })
 
         it('correctly handle first route', () => new Promise<void>(resolve => {
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
 
             document.body.replaceChildren = vi.fn()
             const webComponentState = new WebComponentState(document.body, '/')
@@ -294,7 +294,7 @@ describe('configurationRegister', () => {
         }))
 
         it('correctly handle second route', () => new Promise<void>(resolve => {
-            window.location.href = '/route/alternative'
+            window.location.href = 'http://localhost:8080/route/alternative'
 
             document.body.replaceChildren = vi.fn()
             const webComponentState = new WebComponentState(document.body, '/')
@@ -309,7 +309,7 @@ describe('configurationRegister', () => {
         }))
 
         it('correctly handle navigation route', () => new Promise<void>(resolve => {
-            window.location.href = '/route/load'
+            window.location.href = 'http://localhost:8080/route/load'
 
             document.body.replaceChildren = vi.fn()
             const webComponentState = new WebComponentState(document.body, '/')
