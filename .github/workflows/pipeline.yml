@@ -27,3 +27,10 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
+      - name: Trigger release
+        if: ${{ matrix.node-version == '18.x' }}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.TRIGGER_DEPLOY_ACCESS_TOKEN }}
+          repository: orchy-mfe/orchy-examples
+          event-type: trigger-pipeline
