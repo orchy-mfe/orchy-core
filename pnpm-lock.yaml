@@ -84,7 +84,7 @@ importers:
       prettier: ^2.8.1
       rxjs: ^7.8.0
       typescript: ^4.9.4
-      vite: ^4.0.2
+      vite: ^4.0.3
       vitest: ^0.25.8
     dependencies:
       rxjs: 7.8.0
@@ -97,7 +97,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
       prettier: 2.8.1
       typescript: 4.9.4
-      vite: 4.0.2
+      vite: 4.0.3
       vitest: 0.25.8
 
   packages/spa-adapter:
@@ -109,7 +109,7 @@ importers:
       lit: ^2.5.0
       prettier: ^2.8.1
       typescript: ^4.9.4
-      vite: ^4.0.2
+      vite: ^4.0.3
     dependencies:
       lit: 2.5.0
     devDependencies:
@@ -119,7 +119,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
       prettier: 2.8.1
       typescript: 4.9.4
-      vite: 4.0.2
+      vite: 4.0.3
 
   packages/web-component:
     specifiers:
@@ -140,7 +140,7 @@ importers:
       rollup-plugin-visualizer: ^5.8.3
       rxjs: ^7.8.0
       typescript: ^4.9.4
-      vite: ^4.0.2
+      vite: ^4.0.3
       vitest: ^0.25.8
     dependencies:
       '@orchy-mfe/page-builder': link:../page-builder
@@ -161,7 +161,7 @@ importers:
       prettier: 2.8.1
       rollup-plugin-visualizer: 5.8.3
       typescript: 4.9.4
-      vite: 4.0.2
+      vite: 4.0.3
       vitest: 0.25.8_happy-dom@8.1.1
 
 packages:
@@ -3297,8 +3297,8 @@ packages:
       convert-source-map: 1.8.0
     dev: true
 
-  /vite/4.0.2:
-    resolution: {integrity: sha512-QJaY3R+tFlTagH0exVqbgkkw45B+/bXVBzF2ZD1KB5Z8RiAoiKo60vSUf6/r4c2Vh9jfGBKM4oBI9b4/1ZJYng==}
+  /vite/4.0.3:
+    resolution: {integrity: sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3330,8 +3330,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/4.0.2_@types+node@18.11.17:
-    resolution: {integrity: sha512-QJaY3R+tFlTagH0exVqbgkkw45B+/bXVBzF2ZD1KB5Z8RiAoiKo60vSUf6/r4c2Vh9jfGBKM4oBI9b4/1ZJYng==}
+  /vite/4.0.3_@types+node@18.11.17:
+    resolution: {integrity: sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3399,7 +3399,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 4.0.2_@types+node@18.11.17
+      vite: 4.0.3_@types+node@18.11.17
     transitivePeerDependencies:
       - less
       - sass
@@ -3445,7 +3445,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 4.0.2_@types+node@18.11.17
+      vite: 4.0.3_@types+node@18.11.17
     transitivePeerDependencies:
       - less
       - sass
