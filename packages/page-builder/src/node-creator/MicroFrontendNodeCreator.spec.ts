@@ -1,6 +1,6 @@
 import {MicroFrontendProperties} from '@orchy-mfe/models'
 import {ReplaySubject} from 'rxjs'
-import {describe, it, expect, afterEach, vi} from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import MicroFrontendNodeCreator from './MicroFrontendNodeCreator'
 
@@ -15,6 +15,7 @@ describe('MicroFrontendNodeCreator', () => {
 
     afterEach(() => {
         document.head.appendChild = vi.fn()
+        window.importShim = vi.fn()
     })
 
     it('create tag only', () => {
@@ -41,6 +42,7 @@ describe('MicroFrontendNodeCreator', () => {
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(createdNode.orchyProperties).toMatchObject(microFrontendBaseProperties)
+        expect(window.importShim).toHaveBeenCalledWith('https://example.com')
     })
 
     it('correctly apply attributes, properties and orchyProperties', () => {

@@ -1,5 +1,5 @@
 import {ReplaySubject} from 'rxjs'
-import {describe, it, expect, afterEach, vi} from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import ElementNodeCreator from './ElementNodeCreator'
 
@@ -9,6 +9,7 @@ describe('ElementNodeCreator', () => {
 
     afterEach(() => {
         document.head.appendChild = vi.fn()
+        window.importShim = vi.fn()
     })
 
     it('create tag only', () => {
@@ -35,6 +36,7 @@ describe('ElementNodeCreator', () => {
 
         expect(createdNode.toString()).toEqual('<foo-wc></foo-wc>')
         expect(createdNode.eventBus).toBeDefined()
+        expect(window.importShim).toHaveBeenCalledWith('https://example.com')
     })
 
     it('correctly apply both attributes and properties', () => {
