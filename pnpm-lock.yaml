@@ -137,7 +137,7 @@ importers:
       lit: ^2.5.0
       navigo: ^8.11.1
       prettier: ^2.8.1
-      rollup-plugin-visualizer: ^5.8.3
+      rollup-plugin-visualizer: ^5.9.0
       rxjs: ^7.8.0
       typescript: ^4.9.4
       vite: ^4.0.3
@@ -159,7 +159,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
       happy-dom: 8.1.1
       prettier: 2.8.1
-      rollup-plugin-visualizer: 5.8.3
+      rollup-plugin-visualizer: 5.9.0
       typescript: 4.9.4
       vite: 4.0.3
       vitest: 0.26.2_happy-dom@8.1.1
@@ -2836,8 +2836,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup-plugin-visualizer/5.8.3:
-    resolution: {integrity: sha512-QGJk4Bqe4AOat5AjipOh8esZH1nck5X2KFpf4VytUdSUuuuSwvIQZjMGgjcxe/zXexltqaXp5Vx1V3LmnQH15Q==}
+  /rollup-plugin-visualizer/5.9.0:
+    resolution: {integrity: sha512-bbDOv47+Bw4C/cgs0czZqfm8L82xOZssk4ayZjG40y9zbXclNk7YikrZTDao6p7+HDiGxrN0b65SgZiVm9k1Cg==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
@@ -2847,6 +2847,7 @@ packages:
         optional: true
     dependencies:
       open: 8.4.0
+      picomatch: 2.3.1
       source-map: 0.7.4
       yargs: 17.5.1
     dev: true
