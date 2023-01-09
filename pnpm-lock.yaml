@@ -26,7 +26,7 @@ importers:
       pino-pretty: ^9.1.1
       prettier: ^2.8.2
       rimraf: ^3.0.2
-      tap: ^16.3.2
+      tap: ^16.3.3
       typescript: ^4.9.4
     dependencies:
       '@sinclair/typebox': 0.25.17
@@ -49,7 +49,7 @@ importers:
       pino-pretty: 9.1.1
       prettier: 2.8.2
       rimraf: 3.0.2
-      tap: 16.3.2_typescript@4.9.4
+      tap: 16.3.3_typescript@4.9.4
       typescript: 4.9.4
 
   packages/models:
@@ -3107,8 +3107,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap/16.3.2_typescript@4.9.4:
-    resolution: {integrity: sha512-4MWMObR8unbv5gAHHVW9F0MNk3opQMnLusSWvt4KBAnKmkwpBRKIfNF64fimQbcR4y9a7U9ISV7pCldlV3J8Pw==}
+  /tap/16.3.3_typescript@4.9.4:
+    resolution: {integrity: sha512-E6Ti4FaH3zUvOtl13GA60n8aodRj44S8Vu5efM84U5NmquJo4+y21+2VM9r9jR5iiEcce5dqvlrrwAhZ6r11xg==}
     engines: {node: '>=12'}
     hasBin: true
     peerDependencies:
