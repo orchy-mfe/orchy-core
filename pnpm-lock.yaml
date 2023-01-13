@@ -25,7 +25,7 @@ importers:
       nodemon: ^2.0.20
       pino-pretty: ^9.1.1
       prettier: ^2.8.2
-      rimraf: ^3.0.2
+      rimraf: ^4.0.4
       tap: ^16.3.3
       typescript: ^4.9.4
     dependencies:
@@ -48,7 +48,7 @@ importers:
       nodemon: 2.0.20
       pino-pretty: 9.1.1
       prettier: 2.8.2
-      rimraf: 3.0.2
+      rimraf: 4.0.4
       tap: 16.3.3_typescript@4.9.4
       typescript: 4.9.4
 
@@ -2845,6 +2845,12 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rimraf/4.0.4:
+    resolution: {integrity: sha512-R0hoVr9xTwemarQjoWlNt/nb5dEGVTBhVdkRmEX2zEkT8T6onH0XKiGjuaC7rNNj/gYzY2p4NVRJ3sjO1ascHQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /rollup-plugin-visualizer/5.9.0:
