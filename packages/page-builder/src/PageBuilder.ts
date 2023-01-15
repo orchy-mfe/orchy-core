@@ -1,4 +1,5 @@
 import {MicroFrontendProperties, PageConfiguration} from '@orchy-mfe/models'
+
 import {createNode} from './node-creator'
 import {manageNode} from './string-node'
 

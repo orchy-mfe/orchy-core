@@ -1,9 +1,10 @@
-import Navigo from 'navigo';
-import EventBusSubject from '../event-bus/EventBusSubject';
+import Navigo from 'navigo'
+
+import EventBusSubject from '../event-bus/EventBusSubject'
 export default class WebComponentState {
-    private renderRoot;
-    private _router;
-    private _eventBus;
+    private renderRoot
+    private _router
+    private _eventBus
     constructor(renderRoot: HTMLElement, basePath: string);
     destroy(): void;
     get router(): Navigo;

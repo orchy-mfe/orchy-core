@@ -1,7 +1,6 @@
 import {join} from 'desm'
-import tap from 'tap'
-
 import {FastifyInstance} from 'fastify/types/instance'
+import tap from 'tap'
 
 import {buildServer} from '../../../../server.js'
 import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert { type: 'json' }

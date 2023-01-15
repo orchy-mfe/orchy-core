@@ -1,4 +1,5 @@
 import Navigo from 'navigo'
+
 import EventBusSubject from '../event-bus/EventBusSubject'
 
 export default class WebComponentState {

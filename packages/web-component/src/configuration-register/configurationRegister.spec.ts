@@ -3,9 +3,9 @@ import {Match} from 'navigo'
 import {afterAll, describe, expect, it, vi} from 'vitest'
 
 import ConfigurationClient from '../configuration-client/configurationClient'
-import configurationRegister from './configurationRegister'
 import addImportMap from '../import-map/importMap'
 import WebComponentState from '../web-component-state/WebComponentState'
+import configurationRegister from './configurationRegister'
 
 const testPageConfiguration: PageConfiguration = {
     type: 'element',

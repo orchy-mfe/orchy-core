@@ -1,6 +1,6 @@
+import {join} from 'desm'
 import fastify from 'fastify'
 import now from 'fastify-now'
-import {join} from 'desm'
 
 import config from './plugins/config.js'
 

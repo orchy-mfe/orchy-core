@@ -1,5 +1,5 @@
 import {Configuration, ImportMap} from '@orchy-mfe/models'
-import {describe, it, expect, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 vi.stubGlobal('URL', {createObjectURL: () => undefined})
 vi.mock('es-module-shims', () => ({}))

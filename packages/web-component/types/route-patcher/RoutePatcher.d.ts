@@ -1,2 +1,2 @@
-declare const routePatcher: () => void;
-export default routePatcher;
+declare const routePatcher: () => void
+export default routePatcher

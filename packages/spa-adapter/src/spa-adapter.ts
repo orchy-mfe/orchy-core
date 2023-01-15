@@ -1,5 +1,5 @@
 import {MicroFrontendProperties} from '@orchy-mfe/models'
-import {LitElement, html} from 'lit'
+import {html,LitElement} from 'lit'
 import {property} from 'lit/decorators.js'
 
 export default abstract class OrchyMicroFrontend<E = unknown> extends LitElement {

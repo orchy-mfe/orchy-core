@@ -1,4 +1,5 @@
 import tap from 'tap'
+
 import {buildServer} from './server.js'
 
 tap.test('Server', (t) => {

@@ -1,8 +1,8 @@
-import {describe, it, expect, vi} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import EventBusSubject from '../event-bus/EventBusSubject'
-import pageContentManagerBuilder from './pageContentManager'
 import WebComponentState from '../web-component-state/WebComponentState'
+import pageContentManagerBuilder from './pageContentManager'
 
 describe('pageContentManager', () => {
     const createAppendableIframe = () => {

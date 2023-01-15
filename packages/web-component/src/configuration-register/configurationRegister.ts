@@ -1,4 +1,4 @@
-import {MicroPage, Configuration, PageConfiguration} from '@orchy-mfe/models'
+import {Configuration, MicroPage, PageConfiguration} from '@orchy-mfe/models'
 import {pageBuilder} from '@orchy-mfe/page-builder'
 import {lightJoin} from 'light-join'
 

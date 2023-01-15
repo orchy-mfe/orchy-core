@@ -1,11 +1,12 @@
-import {LitElement, html, PropertyValueMap} from 'lit'
-import {customElement, property} from 'lit/decorators.js'
-import {Configuration} from '@orchy-mfe/models'
-
 import './history-patcher'
-import configurationRegister from './configuration-register/configurationRegister'
+
+import {Configuration} from '@orchy-mfe/models'
+import {html, LitElement, PropertyValueMap} from 'lit'
+import {customElement, property} from 'lit/decorators.js'
+
 import ConfigurationClient from './configuration-client/configurationClient'
 import HttpConfigurationClient from './configuration-client/httpConfigurationClient'
+import configurationRegister from './configuration-register/configurationRegister'
 import WebComponentState from './web-component-state/WebComponentState'
 
 @customElement('orchy-wc')

@@ -1,7 +1,8 @@
 {
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "simple-import-sort"
     ],
     "extends": [
         "eslint:recommended",
@@ -29,6 +30,8 @@
         "quote-props": [
             "error",
             "as-needed"
-        ]
+        ],
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error"
     }
 }

@@ -1,5 +1,5 @@
 import {CommonPageConfiguration} from '@orchy-mfe/models'
-import {describe, it, expect} from 'vitest'
+import {describe, expect,it} from 'vitest'
 
 import CommonNodeCreator from './CommonNodeCreator'
 

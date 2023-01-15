@@ -1,6 +1,7 @@
-import {Configuration} from '@orchy-mfe/models'
 import './importMapConfiguration'
 import 'es-module-shims'
+
+import {Configuration} from '@orchy-mfe/models'
 
 const installImportMaps = (configurationContent: Configuration): void => {
     if (configurationContent.common?.importMap) {

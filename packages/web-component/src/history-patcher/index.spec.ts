@@ -1,6 +1,6 @@
-import {describe, expect, test} from 'vitest'
-
 import './index'
+
+import {describe, expect, test} from 'vitest'
 
 describe('history-patcher', () => {
     test('already patched history api', () => {

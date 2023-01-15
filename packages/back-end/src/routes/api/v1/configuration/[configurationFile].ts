@@ -1,7 +1,7 @@
-import {NowRequestHandler} from 'fastify-now'
 import {Type} from '@sinclair/typebox'
-import fs from 'fs'
 import {FastifyRequest} from 'fastify'
+import {NowRequestHandler} from 'fastify-now'
+import fs from 'fs'
 import path from 'path'
 
 import {Config} from '../../../../plugins/config.js'

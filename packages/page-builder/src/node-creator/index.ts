@@ -1,4 +1,4 @@
-import {PageConfiguration, MicroFrontendProperties} from '@orchy-mfe/models'
+import {MicroFrontendProperties,PageConfiguration} from '@orchy-mfe/models'
 
 import ElementNodeCreator from './ElementNodeCreator'
 import LayoutNodeCreator from './LayoutNodeCreator'

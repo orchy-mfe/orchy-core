@@ -1,8 +1,8 @@
-import fp from 'fastify-plugin'
-import {FastifyPluginAsync} from 'fastify'
 import {Static, Type} from '@sinclair/typebox'
 import Ajv from 'ajv'
 import {ValidateFunction} from 'ajv/lib/types'
+import {FastifyPluginAsync} from 'fastify'
+import fp from 'fastify-plugin'
 
 const ConfigSchema = Type.Strict(
   Type.Object({
