@@ -1,10 +1,10 @@
-import tap from 'tap'
 import {join} from 'desm'
+import tap from 'tap'
 
 import {FastifyInstance} from 'fastify/types/instance'
 
 import {buildServer} from '../../../../server.js'
-import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert {type: 'json'}
+import orchyConfigContent from '../../../../testConfig/orchy-config.json' assert { type: 'json' }
 
 tap.test('GET /', async t => {
     process.env.CONFIG_PATH = join(import.meta.url, '..', '..', '..', '..', 'testConfig')

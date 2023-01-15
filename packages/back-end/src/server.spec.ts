@@ -1,7 +1,7 @@
-import {buildServer} from './server.js'
 import tap from 'tap'
+import {buildServer} from './server.js'
 
-tap.only('Server', (t) => {
+tap.test('Server', (t) => {
   t.plan(2)
   t.test('Reject for missing CONFIG_PATH env variable', async (t) => {
     t.plan(1)
