@@ -43,7 +43,7 @@
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-simple-import-sort": "^9.0.0",
     "nodemon": "^2.0.20",
     "pino-pretty": "^9.1.1",
     "prettier": "^2.8.3",
