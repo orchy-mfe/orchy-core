@@ -21,7 +21,8 @@
     "test:coverage": "vitest run --coverage",
     "coverage": "pnpm test --coverage",
     "lint": "eslint .",
-    "lint:fix": "pnpm lint --fix"
+    "lint:fix": "pnpm lint --fix",
+    "prepare": "pnpm lint:fix"
   },
   "dependencies": {
     "@orchy-mfe/page-builder": "workspace:^",
