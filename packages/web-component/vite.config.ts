@@ -23,7 +23,10 @@ export default defineConfig({
   },
   test: {
     environment: 'happy-dom',
-    mockReset: true
+    mockReset: true,
+    coverage: {
+      enabled: true
+    }
   },
   define: {
     'process.env': process.env

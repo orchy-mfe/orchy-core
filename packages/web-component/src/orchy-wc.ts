@@ -7,6 +7,7 @@ import {customElement, property} from 'lit/decorators.js'
 import ConfigurationClient from './configuration-client/configurationClient'
 import HttpConfigurationClient from './configuration-client/httpConfigurationClient'
 import configurationRegister from './configuration-register/configurationRegister'
+import EventBusSubject from './event-bus/EventBusSubject'
 import WebComponentState from './web-component-state/WebComponentState'
 
 @customElement('orchy-wc')
@@ -17,13 +18,16 @@ export class OrchyWC extends LitElement {
   @property()
   basePath = window.location.pathname
 
+  @property({attribute: false})
+  private eventBus?: EventBusSubject<unknown>
+
   private configurationClient: ConfigurationClient = new HttpConfigurationClient()
 
   private webComponentState?: WebComponentState
 
   protected override firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void {
     super.firstUpdated(changedProperties)
-    this.webComponentState = new WebComponentState(this.renderRoot as HTMLElement, this.basePath)
+    this.webComponentState = new WebComponentState(this.renderRoot as HTMLElement, this.basePath, this.eventBus)
     this.configurationClient
       .retrieveConfiguration<Configuration>(this.configurationName)
       .then(content => {
@@ -44,7 +48,7 @@ export class OrchyWC extends LitElement {
   protected createRenderRoot() {
     return this
   }
-  
+
 }
 
 declare global {
