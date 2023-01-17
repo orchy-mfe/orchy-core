@@ -10,5 +10,8 @@ export default defineConfig({
     },
     test: {
         environment: 'happy-dom',
+        coverage: {
+            enabled: true
+        }
     },
 })

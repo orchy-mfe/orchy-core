@@ -4,14 +4,16 @@ import EventBusSubject from '../event-bus/EventBusSubject'
 
 export default class WebComponentState {
     private _router: Navigo
-    private _eventBus = new EventBusSubject()
+    private _eventBus: EventBusSubject<unknown>
 
     constructor(
         private renderRoot: HTMLElement,
-        basePath: string
+        basePath: string,
+        eventBus?: EventBusSubject<unknown>
     ){
         this._router = new Navigo(basePath)
         this._router.notFound(() => true)
+        this._eventBus = eventBus || new EventBusSubject()
     }
 
     public destroy() {

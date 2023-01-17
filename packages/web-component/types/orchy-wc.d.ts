@@ -4,6 +4,7 @@ import {LitElement, PropertyValueMap} from 'lit'
 export declare class OrchyWC extends LitElement {
     configurationName: string
     basePath: string
+    private eventBus?
     private configurationClient
     private webComponentState?
     protected firstUpdated(changedProperties: PropertyValueMap<unknown> | Map<PropertyKey, unknown>): void;
