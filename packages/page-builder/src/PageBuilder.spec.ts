@@ -1,5 +1,5 @@
 import {ReplaySubject} from 'rxjs'
-import {describe, expect,it} from 'vitest'
+import {describe, expect, it} from 'vitest'
 
 import {pageBuilder} from './PageBuilder'
 
@@ -17,6 +17,12 @@ describe('PageBuilder', () => {
                     id: 'wc'
                 }
             }, {
+                type: 'element',
+                tag: 'span',
+                properties: {
+                    innerHTML: 'Span content'
+                }
+            }, {
                 type: 'micro-frontend',
                 tag: 'mfe-wc',
                 attributes: {
@@ -25,7 +31,7 @@ describe('PageBuilder', () => {
             }]
         }], undefined, {basePath: '/', eventBus: new ReplaySubject()})
 
-        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc"></foo-wc><mfe-wc id="wc"></mfe-wc></div></div>')
+        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc"></foo-wc><span>Span content</span><mfe-wc id="wc"></mfe-wc></div></div>')
         expect(pageBuilt.querySelector('foo-wc')?.eventBus).toBeDefined()
         expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties).toBeDefined()
         expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties.eventBus).toBeDefined()

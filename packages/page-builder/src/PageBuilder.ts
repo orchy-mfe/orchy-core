@@ -24,6 +24,8 @@ export const pageBuilder = (
         stringConfigStrategy(configuration, microFrontendProperties)
         : jsonConfigStrategy(configuration, microFrontendProperties)
     )
-    root.replaceChildren(...childrens)
+    if(childrens.length) {
+        root.replaceChildren(...childrens)
+    }
     return root
 }
