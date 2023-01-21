@@ -82,7 +82,7 @@ importers:
       '@orchy-mfe/models': workspace:^
       '@typescript-eslint/eslint-plugin': ^5.48.2
       '@typescript-eslint/parser': ^5.48.2
-      '@vitest/coverage-c8': ^0.27.2
+      '@vitest/coverage-c8': ^0.27.3
       eslint: ^8.32.0
       eslint-config-prettier: ^8.6.0
       eslint-plugin-prettier: ^4.2.1
@@ -91,14 +91,14 @@ importers:
       rxjs: ^7.8.0
       typescript: ^4.9.4
       vite: ^4.0.4
-      vitest: ^0.27.2
+      vitest: ^0.27.3
     dependencies:
       rxjs: 7.8.0
     devDependencies:
       '@orchy-mfe/models': link:../models
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
-      '@vitest/coverage-c8': 0.27.2
+      '@vitest/coverage-c8': 0.27.3
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
       eslint-plugin-prettier: 4.2.1_cn4lalcyadplruoxa5mhp7j3dq
@@ -106,7 +106,7 @@ importers:
       prettier: 2.8.3
       typescript: 4.9.4
       vite: 4.0.4
-      vitest: 0.27.2
+      vitest: 0.27.3
 
   packages/spa-adapter:
     specifiers:
@@ -137,7 +137,7 @@ importers:
       '@orchy-mfe/page-builder': workspace:^
       '@typescript-eslint/eslint-plugin': ^5.48.2
       '@typescript-eslint/parser': ^5.48.2
-      '@vitest/coverage-c8': ^0.27.2
+      '@vitest/coverage-c8': ^0.27.3
       es-module-shims: ^1.6.3
       eslint: ^8.32.0
       eslint-config-prettier: ^8.6.0
@@ -152,7 +152,7 @@ importers:
       rxjs: ^7.8.0
       typescript: ^4.9.4
       vite: ^4.0.4
-      vitest: ^0.27.2
+      vitest: ^0.27.3
     dependencies:
       '@orchy-mfe/page-builder': link:../page-builder
       es-module-shims: 1.6.3
@@ -164,7 +164,7 @@ importers:
       '@orchy-mfe/models': link:../models
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
-      '@vitest/coverage-c8': 0.27.2_happy-dom@8.1.5
+      '@vitest/coverage-c8': 0.27.3_happy-dom@8.1.5
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
       eslint-plugin-prettier: 4.2.1_cn4lalcyadplruoxa5mhp7j3dq
@@ -174,7 +174,7 @@ importers:
       rollup-plugin-visualizer: 5.9.0
       typescript: 4.9.4
       vite: 4.0.4
-      vitest: 0.27.2_happy-dom@8.1.5
+      vitest: 0.27.3_happy-dom@8.1.5
 
 packages:
 
@@ -1092,11 +1092,11 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitest/coverage-c8/0.27.2:
-    resolution: {integrity: sha512-1MFwlwfwIfPFLfu6aN+dZ5jo2aOah5nAwoq/SrqUkt9rXzUmohLOgI1GTT0PpXbJKqaZicIlWuBjiC+BjVgRwQ==}
+  /@vitest/coverage-c8/0.27.3:
+    resolution: {integrity: sha512-xIN4FXXwJqeP6z0gfQ06gbyBMRN2mYvZ4/mn4F96mKXzch0Y93fBeS81eo7D/2YtjbeJBUcU9/amPVb2T+h83Q==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.27.2
+      vitest: 0.27.3
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -1111,11 +1111,11 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.27.2_happy-dom@8.1.5:
-    resolution: {integrity: sha512-1MFwlwfwIfPFLfu6aN+dZ5jo2aOah5nAwoq/SrqUkt9rXzUmohLOgI1GTT0PpXbJKqaZicIlWuBjiC+BjVgRwQ==}
+  /@vitest/coverage-c8/0.27.3_happy-dom@8.1.5:
+    resolution: {integrity: sha512-xIN4FXXwJqeP6z0gfQ06gbyBMRN2mYvZ4/mn4F96mKXzch0Y93fBeS81eo7D/2YtjbeJBUcU9/amPVb2T+h83Q==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.27.2_happy-dom@8.1.5
+      vitest: 0.27.3_happy-dom@8.1.5
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3301,6 +3301,10 @@ packages:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
     dev: true
 
+  /std-env/3.3.1:
+    resolution: {integrity: sha512-3H20QlwQsSm2OvAxWIYhs+j01MzzqwMwGiiO1NQaJYZgJZFPuAbf95/DiKRBSTYIJ2FeGUc+B/6mPGcWP9dO3Q==}
+    dev: true
+
   /string-width/4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -3622,8 +3626,8 @@ packages:
       convert-source-map: 1.8.0
     dev: true
 
-  /vite-node/0.27.2_@types+node@18.11.18:
-    resolution: {integrity: sha512-IDwuVhslF10qCnWOGJui7/2KksAOBHi+UbVo6Pqt4f5lgn+kS2sVvYDsETRG5PSuslisGB5CFGvb9I6FQgymBQ==}
+  /vite-node/0.27.3_@types+node@18.11.18:
+    resolution: {integrity: sha512-eyJYOO64o5HIp8poc4bJX+ZNBwMZeI3f6/JdiUmJgW02Mt7LnoCtDMRVmLaY9S05SIsjGe339ZK4uo2wQ+bF9g==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     dependencies:
@@ -3712,8 +3716,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.27.2:
-    resolution: {integrity: sha512-y7tdsL2uaQy+KF18AlmNHZe29ukyFytlxrpSTwwmgLE2XHR/aPucJP9FLjWoqjgqFlXzRAjHlFJLU+HDyI/OsA==}
+  /vitest/0.27.3:
+    resolution: {integrity: sha512-Ld3UVgRVhJUtqvQ3dW89GxiApFAgBsWJZBCWzK+gA3w2yG68csXlGZZ4WDJURf+8ecNfgrScga6xY+8YSOpiMg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -3745,12 +3749,13 @@ packages:
       local-pkg: 0.4.2
       picocolors: 1.0.0
       source-map: 0.6.1
+      std-env: 3.3.1
       strip-literal: 1.0.0
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
       vite: 4.0.4_@types+node@18.11.18
-      vite-node: 0.27.2_@types+node@18.11.18
+      vite-node: 0.27.3_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -3761,8 +3766,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.27.2_happy-dom@8.1.5:
-    resolution: {integrity: sha512-y7tdsL2uaQy+KF18AlmNHZe29ukyFytlxrpSTwwmgLE2XHR/aPucJP9FLjWoqjgqFlXzRAjHlFJLU+HDyI/OsA==}
+  /vitest/0.27.3_happy-dom@8.1.5:
+    resolution: {integrity: sha512-Ld3UVgRVhJUtqvQ3dW89GxiApFAgBsWJZBCWzK+gA3w2yG68csXlGZZ4WDJURf+8ecNfgrScga6xY+8YSOpiMg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -3795,12 +3800,13 @@ packages:
       local-pkg: 0.4.2
       picocolors: 1.0.0
       source-map: 0.6.1
+      std-env: 3.3.1
       strip-literal: 1.0.0
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
       vite: 4.0.4_@types+node@18.11.18
-      vite-node: 0.27.2_@types+node@18.11.18
+      vite-node: 0.27.3_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
