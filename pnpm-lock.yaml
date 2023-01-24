@@ -26,7 +26,7 @@ importers:
       nodemon: ^2.0.20
       pino-pretty: ^9.1.1
       prettier: ^2.8.3
-      rimraf: ^4.1.1
+      rimraf: ^4.1.2
       tap: ^16.3.4
       typescript: ^4.9.4
     dependencies:
@@ -50,7 +50,7 @@ importers:
       nodemon: 2.0.20
       pino-pretty: 9.1.1
       prettier: 2.8.3
-      rimraf: 4.1.1
+      rimraf: 4.1.2
       tap: 16.3.4_typescript@4.9.4
       typescript: 4.9.4
 
@@ -3212,8 +3212,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rimraf/4.1.1:
-    resolution: {integrity: sha512-Z4Y81w8atcvaJuJuBB88VpADRH66okZAuEm+Jtaufa+s7rZmIz+Hik2G53kGaNytE7lsfXyWktTmfVz0H9xuDg==}
+  /rimraf/4.1.2:
+    resolution: {integrity: sha512-BlIbgFryTbw3Dz6hyoWFhKk+unCcHMSkZGrTFVAx2WmttdBSonsdtRlwiuTbDqTKr+UlXIUqJVS4QT5tUzGENQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
