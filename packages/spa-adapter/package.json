@@ -12,7 +12,8 @@
   "types": "types/spa-adapter.d.ts",
   "files": [
     "dist",
-    "types"
+    "types",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",

@@ -9,7 +9,8 @@
   "types": "types/orchy-wc.d.ts",
   "files": [
     "dist",
-    "types"
+    "types",
+    "README.md"
   ],
   "publishConfig": {
     "access": "public"
