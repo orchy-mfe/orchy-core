@@ -90,7 +90,7 @@ importers:
       prettier: ^2.8.3
       rxjs: ^7.8.0
       typescript: ^4.9.5
-      vite: ^4.0.4
+      vite: ^4.1.1
       vitest: ^0.28.3
     dependencies:
       rxjs: 7.8.0
@@ -105,7 +105,7 @@ importers:
       eslint-plugin-simple-import-sort: 10.0.0_eslint@8.33.0
       prettier: 2.8.3
       typescript: 4.9.5
-      vite: 4.0.4
+      vite: 4.1.1
       vitest: 0.28.3
 
   packages/spa-adapter:
@@ -118,7 +118,7 @@ importers:
       lit: ^2.6.1
       prettier: ^2.8.3
       typescript: ^4.9.5
-      vite: ^4.0.4
+      vite: ^4.1.1
     dependencies:
       lit: 2.6.1
     devDependencies:
@@ -129,7 +129,7 @@ importers:
       eslint-plugin-simple-import-sort: 10.0.0_eslint@8.33.0
       prettier: 2.8.3
       typescript: 4.9.5
-      vite: 4.0.4
+      vite: 4.1.1
 
   packages/web-component:
     specifiers:
@@ -151,7 +151,7 @@ importers:
       rollup-plugin-visualizer: ^5.9.0
       rxjs: ^7.8.0
       typescript: ^4.9.5
-      vite: ^4.0.4
+      vite: ^4.1.1
       vitest: ^0.28.3
     dependencies:
       '@orchy-mfe/page-builder': link:../page-builder
@@ -173,7 +173,7 @@ importers:
       prettier: 2.8.3
       rollup-plugin-visualizer: 5.9.0
       typescript: 4.9.5
-      vite: 4.0.4
+      vite: 4.1.1
       vitest: 0.28.3_happy-dom@8.2.3
 
 packages:
@@ -3033,8 +3033,8 @@ packages:
       pathe: 1.1.0
     dev: true
 
-  /postcss/8.4.20:
-    resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}
+  /postcss/8.4.21:
+    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
@@ -3229,8 +3229,8 @@ packages:
       yargs: 17.5.1
     dev: true
 
-  /rollup/3.7.0:
-    resolution: {integrity: sha512-FIJe0msW9P7L9BTfvaJyvn1U1BVCNTL3w8O+PKIrCyiMLg+rIUGb4MbcgVZ10Lnm1uWXOTOWRNARjfXC1+M12Q==}
+  /rollup/3.12.1:
+    resolution: {integrity: sha512-t9elERrz2i4UU9z7AwISj3CQcXP39cWxgRWLdf4Tm6aKm1eYrqHIgjzXBgb67GNY1sZckTFFi0oMozh3/S++Ig==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -3756,7 +3756,7 @@ packages:
       picocolors: 1.0.0
       source-map: 0.6.1
       source-map-support: 0.5.21
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3767,8 +3767,8 @@ packages:
       - terser
     dev: true
 
-  /vite/4.0.4:
-    resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
+  /vite/4.1.1:
+    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3793,15 +3793,15 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.16.17
-      postcss: 8.4.20
+      postcss: 8.4.21
       resolve: 1.22.1
-      rollup: 3.7.0
+      rollup: 3.12.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vite/4.0.4_@types+node@18.11.18:
-    resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
+  /vite/4.1.1_@types+node@18.11.18:
+    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3827,9 +3827,9 @@ packages:
     dependencies:
       '@types/node': 18.11.18
       esbuild: 0.16.17
-      postcss: 8.4.20
+      postcss: 8.4.21
       resolve: 1.22.1
-      rollup: 3.7.0
+      rollup: 3.12.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -3877,7 +3877,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.1
       tinyspy: 1.0.2
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
       vite-node: 0.28.3_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
@@ -3933,7 +3933,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.1
       tinyspy: 1.0.2
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
       vite-node: 0.28.3_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
