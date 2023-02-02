@@ -9,7 +9,7 @@ importers:
     specifiers:
       '@sinclair/typebox': ^0.25.21
       '@types/node': ^18.11.18
-      '@types/tap': ^15.0.7
+      '@types/tap': ^15.0.8
       '@typescript-eslint/eslint-plugin': ^5.50.0
       '@typescript-eslint/parser': ^5.50.0
       ajv: ^8.12.0
@@ -39,7 +39,7 @@ importers:
       fastify-plugin: 4.5.0
     devDependencies:
       '@types/node': 18.11.18
-      '@types/tap': 15.0.7
+      '@types/tap': 15.0.8
       '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
       '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
       esbuild: 0.17.5
@@ -953,8 +953,8 @@ packages:
     resolution: {integrity: sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==}
     dev: true
 
-  /@types/tap/15.0.7:
-    resolution: {integrity: sha512-TTMajw4gxQfFgYbhXhy/Tb2OiNcwS+4oP/9yp1/GdU0pFJo3wtnkYhRgmQy39ksh+rnoa0VrPHJ4Tuv2cLNQ5A==}
+  /@types/tap/15.0.8:
+    resolution: {integrity: sha512-ZfeoiZlLIaFi4t6wccwbTEicrHREkP0bOq8dZVi/nWvG5F8O7LlS2cSUZBiOW/D4cgWS/p2uhM3lJoyzFAl80w==}
     dependencies:
       '@types/node': 18.11.18
     dev: true
