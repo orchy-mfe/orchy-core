@@ -10,6 +10,14 @@ describe('pageContentManager', () => {
         const iframe = document.createElement('iframe')
         container.append(iframe)
 
+        Object.defineProperty(iframe, 'contentWindow', {
+            value: {
+                parent: window,
+                postMessage: vi.fn()
+            },
+            writable: true
+        })
+
         return {container, iframe}
     }
     const createWebComponentState = (eventBus = new EventBusSubject()) => {
@@ -22,13 +30,8 @@ describe('pageContentManager', () => {
 
     it('correctly send message through eventBus', () => {
         const {container, iframe} = createAppendableIframe()
-        // eslint-disable-next-line
-        // @ts-ignore
-        iframe.contentWindow = {
-            parent: window,
-            postMessage: vi.fn()
-        }
-        const eventBus = new EventBusSubject()        
+
+        const eventBus = new EventBusSubject()
         const messageToSend = 'hello from bus'
         eventBus.next(messageToSend)
 
@@ -39,14 +42,9 @@ describe('pageContentManager', () => {
     })
 
     it('correctly receive message through eventBus', () => new Promise((resolve) => {
-        const {container, iframe} = createAppendableIframe()
-        // eslint-disable-next-line
-        // @ts-ignore
-        iframe.contentWindow = {
-            parent: window,
-            postMessage: vi.fn()
-        }
-        const eventBus = new EventBusSubject()        
+        const {container} = createAppendableIframe()
+
+        const eventBus = new EventBusSubject()
         const messageToSend = 'hello from bus'
 
         const pageContentManager = pageContentManagerBuilder(createWebComponentState(eventBus))
