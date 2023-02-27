@@ -37,8 +37,8 @@
   "devDependencies": {
     "@types/node": "^18.14.2",
     "@types/tap": "^15.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "esbuild": "^0.17.10",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
