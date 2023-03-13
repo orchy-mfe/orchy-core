@@ -24,7 +24,7 @@ importers:
       fastify-now: ^3.0.4
       fastify-plugin: ^4.5.0
       nodemon: ^2.0.21
-      pino-pretty: ^9.4.0
+      pino-pretty: ^10.0.0
       prettier: ^2.8.4
       rimraf: ^4.4.0
       tap: ^16.3.4
@@ -48,7 +48,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_eqzx3hpkgx5nnvxls3azrcc7dm
       eslint-plugin-simple-import-sort: 10.0.0_eslint@8.36.0
       nodemon: 2.0.21
-      pino-pretty: 9.4.0
+      pino-pretty: 10.0.0
       prettier: 2.8.4
       rimraf: 4.4.0
       tap: 16.3.4_typescript@4.9.5
@@ -3003,8 +3003,8 @@ packages:
       readable-stream: 4.1.0
       split2: 4.1.0
 
-  /pino-pretty/9.4.0:
-    resolution: {integrity: sha512-NIudkNLxnl7MGj1XkvsqVyRgo6meFP82ECXF2PlOI+9ghmbGuBUUqKJ7IZPIxpJw4vhhSva0IuiDSAuGh6TV9g==}
+  /pino-pretty/10.0.0:
+    resolution: {integrity: sha512-zKFjYXBzLaLTEAN1ayKpHXtL5UeRQC7R3lvhKe7fWs7hIVEjKGG/qIXwQt9HmeUp71ogUd/YcW+LmMwRp4KT6Q==}
     hasBin: true
     dependencies:
       colorette: 2.0.19
