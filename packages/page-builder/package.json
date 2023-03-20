@@ -27,7 +27,7 @@
     "@orchy-mfe/models": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "@vitest/coverage-c8": "^0.29.3",
+    "@vitest/coverage-c8": "^0.29.7",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -35,7 +35,7 @@
     "prettier": "^2.8.5",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
-    "vitest": "^0.29.3"
+    "vitest": "^0.29.7"
   },
   "author": "Matteo Pietro Dazzi",
   "license": "MIT"
