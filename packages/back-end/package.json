@@ -44,7 +44,7 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "nodemon": "^2.0.21",
+    "nodemon": "^2.0.22",
     "pino-pretty": "^10.0.0",
     "prettier": "^2.8.6",
     "rimraf": "^4.4.0",
