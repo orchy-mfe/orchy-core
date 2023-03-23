@@ -23,7 +23,7 @@ importers:
       fastify: ^4.15.0
       fastify-now: ^3.0.4
       fastify-plugin: ^4.5.0
-      nodemon: ^2.0.21
+      nodemon: ^2.0.22
       pino-pretty: ^10.0.0
       prettier: ^2.8.6
       rimraf: ^4.4.0
@@ -47,7 +47,7 @@ importers:
       eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-plugin-prettier: 4.2.1_ose2zoovovx4ulolhifz3tfzx4
       eslint-plugin-simple-import-sort: 10.0.0_eslint@8.36.0
-      nodemon: 2.0.21
+      nodemon: 2.0.22
       pino-pretty: 10.0.0
       prettier: 2.8.6
       rimraf: 4.4.0
@@ -2535,8 +2535,8 @@ packages:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
     dev: true
 
-  /nodemon/2.0.21:
-    resolution: {integrity: sha512-djN/n2549DUtY33S7o1djRCd7dEm0kBnj9c7S9XVXqRUbuggN1MZH/Nqa+5RFQr63Fbefq37nFXAE9VU86yL1A==}
+  /nodemon/2.0.22:
+    resolution: {integrity: sha512-B8YqaKMmyuCO7BowF1Z1/mkPqLk6cs/l63Ojtd6otKjMx47Dq1utxfRxcavH1I7VSaL8n5BUaoutadnsX3AAVQ==}
     engines: {node: '>=8.10.0'}
     hasBin: true
     dependencies:
