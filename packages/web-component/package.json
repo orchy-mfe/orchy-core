@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@orchy-mfe/page-builder": "workspace:^",
-    "es-module-shims": "^1.7.0",
+    "es-module-shims": "^1.7.1",
     "light-join": "^1.3.0",
     "lit": "^2.7.0",
     "navigo": "^8.11.1",
