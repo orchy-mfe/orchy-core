@@ -146,7 +146,7 @@ importers:
         version: 4.2.1(@types/node@18.15.11)
       vitest:
         specifier: ^0.29.8
-        version: 0.29.8(happy-dom@8.9.0)
+        version: 0.29.8(happy-dom@9.1.0)
 
   packages/spa-adapter:
     dependencies:
@@ -225,8 +225,8 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0(eslint@8.37.0)
       happy-dom:
-        specifier: ^8.9.0
-        version: 8.9.0
+        specifier: ^9.1.0
+        version: 9.1.0
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -241,7 +241,7 @@ importers:
         version: 4.2.1(@types/node@18.15.11)
       vitest:
         specifier: ^0.29.8
-        version: 0.29.8(happy-dom@8.9.0)
+        version: 0.29.8(happy-dom@9.1.0)
 
 packages:
 
@@ -994,7 +994,7 @@ packages:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.29.8(happy-dom@8.9.0)
+      vitest: 0.29.8(happy-dom@9.1.0)
     dev: true
 
   /@vitest/expect@0.29.8:
@@ -2079,18 +2079,15 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /happy-dom@8.9.0:
-    resolution: {integrity: sha512-JZwJuGdR7ko8L61136YzmrLv7LgTh5b8XaEM3P709mLjyQuXJ3zHTDXvUtBBahRjGlcYW0zGjIiEWizoTUGKfA==}
+  /happy-dom@9.1.0:
+    resolution: {integrity: sha512-Z/oOcAJsZjHFOQ/VK8n0CnZBjWucZNeZwFdlDK234vIBW9IVYGWjSUR9ujK6nwsSzJ6vNdYuSZoiag72AzlD0A==}
     dependencies:
       css.escape: 1.5.1
       he: 1.2.0
       iconv-lite: 0.6.3
-      node-fetch: 2.6.7
       webidl-conversions: 7.0.0
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
-    transitivePeerDependencies:
-      - encoding
     dev: true
 
   /has-flag@3.0.0:
@@ -2583,18 +2580,6 @@ packages:
   /navigo@8.11.1:
     resolution: {integrity: sha512-e3sc1UzakF+bWquC8/dbPCgo7LgPEW1ekgwb4pmEcl8tOc/I7lML8r7HBql+b0VRk7tJWTZqtkeObwJAVR1pxg==}
     dev: false
-
-  /node-fetch@2.6.7:
-    resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
-    engines: {node: 4.x || >=6.0.0}
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-    dependencies:
-      whatwg-url: 5.0.0
-    dev: true
 
   /node-preload@0.2.1:
     resolution: {integrity: sha512-RM5oyBy45cLEoHqCeh+MNuFAxO0vTFBLskvQbOKnEE7YTTSN4tbN8QWDIPQ6L+WvKsB/qLEGpYe2ZZ9d4W9OIQ==}
@@ -3491,10 +3476,6 @@ packages:
       nopt: 1.0.10
     dev: true
 
-  /tr46@0.0.3:
-    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-    dev: true
-
   /trivial-deferred@1.0.1:
     resolution: {integrity: sha512-dagAKX7vaesNNAwOc9Np9C2mJ+7YopF4lk+jE2JML9ta4kZ91Y6UruJNH65bLRYoUROD8EY+Pmi44qQWwXR7sw==}
     dev: true
@@ -3655,7 +3636,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest@0.29.8(happy-dom@8.9.0):
+  /vitest@0.29.8(happy-dom@9.1.0):
     resolution: {integrity: sha512-JIAVi2GK5cvA6awGpH0HvH/gEG9PZ0a/WoxdiV3PmqK+3CjQMf8c+J/Vhv4mdZ2nRyXFw66sAg6qz7VNkaHfDQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -3698,7 +3679,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
-      happy-dom: 8.9.0
+      happy-dom: 9.1.0
       local-pkg: 0.4.2
       pathe: 1.1.0
       picocolors: 1.0.0
@@ -3720,10 +3701,6 @@ packages:
       - terser
     dev: true
 
-  /webidl-conversions@3.0.1:
-    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-    dev: true
-
   /webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
@@ -3739,13 +3716,6 @@ packages:
   /whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
     engines: {node: '>=12'}
-    dev: true
-
-  /whatwg-url@5.0.0:
-    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
-    dependencies:
-      tr46: 0.0.3
-      webidl-conversions: 3.0.1
     dev: true
 
   /which-module@2.0.0:
