@@ -15,14 +15,14 @@ const retrieveConfigPath = (request: FastifyRequest<FastifyTypedRequest>, config
 
 const fileExistsAsync = (configPath: string) => fs.promises.access(configPath).then(() => true).catch(() => false)
 
-export const GET: NowRequestHandler<FastifyTypedRequest> = async function (request, response) {
+export const GET: NowRequestHandler<FastifyTypedRequest> = async function (request, reply) {
     const configPath = retrieveConfigPath(request, this.config)
     const fileExists = await fileExistsAsync(configPath)
 
     if(!fileExists)
-        response.status(404).send()
+        reply.status(404).send()
     else
-        response.send(await fs.promises.readFile(configPath))
+        reply.send(await fs.promises.readFile(configPath))
 }
 
 GET.opts = {
