@@ -1,9 +1,9 @@
 import {join} from 'desm'
 import fastify from 'fastify'
 import now from 'fastify-now'
-import orchyRoutes from 'plugins/orchyRoutes.js'
 
 import config from './plugins/config.js'
+import orchyRoutes from './plugins/orchyRoutes.js'
 
 export const buildServer = async () => {
   const server = fastify({
@@ -20,10 +20,10 @@ export const buildServer = async () => {
   })
 
   await server.register(config)
+  await server.register(orchyRoutes)
   await server.register(now, {
     routesFolder: join(import.meta.url, 'routes'),
   })
-  await server.register(orchyRoutes)
   await server.ready()
 
   for (const signal of ['SIGINT', 'SIGTERM']) {

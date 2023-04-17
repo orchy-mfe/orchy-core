@@ -6,9 +6,9 @@ importers:
 
   packages/back-end:
     dependencies:
-      '@orchy-mfe/models':
+      '@orchy-mfe/page-builder':
         specifier: workspace:^
-        version: link:../models
+        version: link:../page-builder
       '@sinclair/typebox':
         specifier: ^0.27.8
         version: 0.27.8
@@ -31,6 +31,12 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
     devDependencies:
+      '@happy-dom/global-registrator':
+        specifier: ^9.8.0
+        version: 9.8.0
+      '@orchy-mfe/models':
+        specifier: workspace:^
+        version: link:../models
       '@types/node':
         specifier: ^18.15.11
         version: 18.15.11
@@ -709,6 +715,12 @@ packages:
     dependencies:
       fast-json-stringify: 5.1.0
     dev: false
+
+  /@happy-dom/global-registrator@9.8.0:
+    resolution: {integrity: sha512-IJqBIp7D0+W/1HhdTtKQhlEcSLBM1+c2XnzI6iIaU2KheqOAALXTrTiXdj8KNbw1fjy8KAxM5p7vx3A7mjVg3A==}
+    dependencies:
+      happy-dom: 9.8.0
+    dev: true
 
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
