@@ -4,11 +4,14 @@ import {ValidateFunction} from 'ajv/lib/types'
 import {FastifyPluginAsync} from 'fastify'
 import fp from 'fastify-plugin'
 
+const ENDS_WITH_JSON = '^.+\\.json$'
+
 const ConfigSchema = Type.Strict(
   Type.Object({
     LOG_LEVEL: Type.String({default: 'silent'}),
     SERVER_PORT: Type.Number({default: 3000}),
-    CONFIG_PATH: Type.String()
+    CONFIG_PATH: Type.String(),
+    SSR_CONFIG_NAME: Type.String({default: 'orchy-config.json', pattern: ENDS_WITH_JSON}),
   })
 )
 
@@ -33,7 +36,7 @@ const configPlugin: FastifyPluginAsync = async (server) => {
   const valid = validate(process.env)
 
   assertValidEnv(valid, validate)
-  
+
   server.decorate('config', process.env)
 }
 
