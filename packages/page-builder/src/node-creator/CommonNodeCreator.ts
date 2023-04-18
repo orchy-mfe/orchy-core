@@ -3,16 +3,16 @@ import {CommonPageConfiguration} from '@orchy-mfe/models'
 abstract class CommonNodeCreator {
     constructor(private configuration: CommonPageConfiguration) { }
 
-    public create(): HTMLElement {
+    public create(): Promise<HTMLElement> {
         this.applyAttributes()
         this.applyProperties()
-        return this.currentNode
+        return Promise.resolve(this.currentNode)
     }
 
     private applyAttributes() {
         Object.entries(this.configuration.attributes || {})
             .forEach(([key, value]) => {
-                const attributesToAppend = [this.currentNode.getAttribute(key), value].filter(Boolean).join(';') 
+                const attributesToAppend = [this.currentNode.getAttribute(key), value].filter(Boolean).join(';')
                 this.currentNode.setAttribute(key, attributesToAppend)
             })
     }

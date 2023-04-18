@@ -9,22 +9,24 @@ const stringConfigStrategy = (configuration: string, microFrontendProperties: Mi
     return createdNode
 }
 
-const jsonConfigStrategy = (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties) => {
-    const createdNode: HTMLElement = createNode(configuration, microFrontendProperties)
-    pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
+const jsonConfigStrategy = async (configuration: PageConfiguration, microFrontendProperties: MicroFrontendProperties) => {
+    const createdNode: HTMLElement = await createNode(configuration, microFrontendProperties)
+    await pageBuilder(configuration.content || [], createdNode, microFrontendProperties)
     return createdNode
 }
 
-export const pageBuilder = (
+export const pageBuilder = async (
     configurations: Array<PageConfiguration | string>,
     root: ParentNode = document.createElement('div'),
     microFrontendProperties: MicroFrontendProperties
-): ParentNode => {
-    const childrens = configurations.map(configuration => typeof configuration === 'string' ?
-        stringConfigStrategy(configuration, microFrontendProperties)
-        : jsonConfigStrategy(configuration, microFrontendProperties)
+): Promise<ParentNode> => {
+    const childrens = await Promise.all(
+        configurations.map(configuration => typeof configuration === 'string' ?
+            stringConfigStrategy(configuration, microFrontendProperties)
+            : jsonConfigStrategy(configuration, microFrontendProperties)
+        )
     )
-    if(childrens.length) {
+    if (childrens.length) {
         root.replaceChildren(...childrens)
     }
     return root

@@ -16,7 +16,7 @@ class ElementNodeCreator extends CommonNodeCreator {
         this.currentNode = document.createElement(elementConfiguration.tag)
     }
 
-    public create(): HTMLElement {
+    public create(): Promise<HTMLElement> {
         this.importScript()
         return super.create()
     }
