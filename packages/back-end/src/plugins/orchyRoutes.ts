@@ -35,7 +35,7 @@ const renderConfiguration = (configuration: Configuration, microPage: MicroPage,
     return (request: FastifyRequest, reply: FastifyReply) => {
         const orchyProps = {
             ...microPage.properties,
-            basePath: new URL(request.url, request.headers.host).pathname,
+            basePath: new URL(request.url, `${request.protocol}://${request.headers.host}`).pathname,
         }
 
         const pageElement = PageBuilder.pageBuilder(fullPageConfiguration, undefined, orchyProps)
