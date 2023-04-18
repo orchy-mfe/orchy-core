@@ -59,8 +59,10 @@ const orchyRoutes: FastifyPluginAsync = async server => {
         assertConfigurationExists(pageConfigurationPath)
 
         const microPageConfiguration = await retrieveConfiguration(pageConfigurationPath)
+        const configurationHandler = renderConfiguration(configurationContent, microPage, microPageConfiguration)
 
-        server.get(`${route}/*`, renderConfiguration(configurationContent, microPage, microPageConfiguration))
+        server.get(route, configurationHandler)
+        server.get(`${route}/*`, configurationHandler)
     })
 
     server.addHook('onClose', () => {
