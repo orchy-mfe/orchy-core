@@ -37,20 +37,20 @@ const registerRoutes = (configuration: ConfigurationDependency, webComponentStat
 
             lastManagedRoute = routeToManage
             configuration.client.abortRetrieve()
-    
+
             const pageConfiguration = await configuration.client.retrieveConfiguration<PageConfiguration>(microPage.pageConfiguration)
 
             const fullPageConfiguration = stylesConfiguration.concat(pageConfiguration)
-            const pageElement = pageBuilder(fullPageConfiguration, webComponentState.rootElement, orchyProps)
+            const pageElement = await pageBuilder(fullPageConfiguration, webComponentState.rootElement, orchyProps)
             pageContentManager(pageElement)
-            
+
             webComponentState.eventBus.clearBuffer()
         })
     }
 }
 
-const configurationRegister = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {     
-    installImportMaps(configuration.content)   
+const configurationRegister = (configuration: ConfigurationDependency, webComponentState: WebComponentState) => {
+    installImportMaps(configuration.content)
     const routesRegister = registerRoutes(configuration, webComponentState)
     Object.entries(configuration.content.microPages).forEach(routesRegister)
 

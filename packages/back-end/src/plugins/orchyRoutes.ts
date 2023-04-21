@@ -32,13 +32,13 @@ const renderConfiguration = (configuration: Configuration, microPage: MicroPage,
     const fullPageConfiguration = stylesConfiguration.concat(pageConfiguration)
 
 
-    return (request: FastifyRequest, reply: FastifyReply) => {
+    return async (request: FastifyRequest, reply: FastifyReply) => {
         const orchyProps = {
             ...microPage.properties,
             basePath: new URL(request.url, `${request.protocol}://${request.headers.host}`).pathname,
         }
 
-        const pageElement = PageBuilder.pageBuilder(fullPageConfiguration, undefined, orchyProps)
+        const pageElement = await PageBuilder.pageBuilder(fullPageConfiguration, undefined, orchyProps)
 
         reply.header('Content-Type', 'text/html')
         reply.send(pageElement.outerHTML)

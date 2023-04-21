@@ -4,18 +4,13 @@
         "style": "width: 100vw"
     },
     "content": [{
-        "type": "micro-frontend",
-        "tag": "react-mfe",
-        "url": "//localhost:3001/src/main.jsx",
+        "type": "ssr-micro-frontend",
+        "url": "http://localhost:3001",
         "properties": {
             "foo": "foo"
         },
         "attributes": {
             "style": "background: red"
         }
-    }, {
-        "type": "micro-frontend",
-        "tag": "svelte-mfe",
-        "url": "//localhost:5000/src/main.js"
     }]
 }
