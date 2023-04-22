@@ -7,8 +7,8 @@ importers:
   packages/back-end:
     dependencies:
       '@sinclair/typebox':
-        specifier: ^0.28.1
-        version: 0.28.1
+        specifier: ^0.28.4
+        version: 0.28.4
       ajv:
         specifier: ^8.12.0
         version: 8.12.0
@@ -812,8 +812,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@sinclair/typebox@0.28.1:
-    resolution: {integrity: sha512-Qmrojy+++InUpF782bGcDYP5VFXiZzEN5EduD33TuESjTSLTljCdeeGWlIh42E37LMlYJB3jCpbABZV7lnVX1w==}
+  /@sinclair/typebox@0.28.4:
+    resolution: {integrity: sha512-Yqxz+dK/AFu9p03Q7XmajxDsNDLEfaQFFdEE4krqi+1otLkEgOrQD5IrWiq26Mbie5R6bPR6BljarufOdlCqQA==}
     dev: false
 
   /@types/chai-subset@1.3.3:
