@@ -22,7 +22,7 @@
     "lint:fix": "pnpm lint --fix"
   },
   "dependencies": {
-    "lit": "^2.7.3"
+    "lit": "^2.7.4"
   },
   "devDependencies": {
     "@orchy-mfe/models": "workspace:^",
