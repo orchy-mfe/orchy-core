@@ -37,7 +37,7 @@
     "@orchy-mfe/models": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
-    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/coverage-c8": "^0.31.1",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -47,6 +47,6 @@
     "rollup-plugin-visualizer": "^5.9.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.7",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.1"
   }
 }
