@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 importers:
 
@@ -185,8 +189,8 @@ importers:
         specifier: workspace:^
         version: link:../page-builder
       es-module-shims:
-        specifier: ^1.7.2
-        version: 1.7.2
+        specifier: ^1.7.3
+        version: 1.7.3
       light-join:
         specifier: ^1.3.0
         version: 1.3.0
@@ -1582,8 +1586,8 @@ packages:
       dotenv-expand: 9.0.0
     dev: false
 
-  /es-module-shims@1.7.2:
-    resolution: {integrity: sha512-/qMCBBtHPR3fFyPvUIdeqkKqjRIUaXzPgZLOtYyFaRPLOTwsE6SKQStZZ4ksV/WwHSJRXv7sRjytsFsO5cYnsw==}
+  /es-module-shims@1.7.3:
+    resolution: {integrity: sha512-RntbjDrPCciiM3MEfnnr43u82/gRZ2ukS7zlUJOPMgorN1xqQ12uxCsvEPWTi/ozaOHBrpxJHd3qvhUQnN6XfQ==}
     dev: false
 
   /es6-error@4.1.1:
