@@ -26,8 +26,8 @@ importers:
         specifier: ^4.18.0
         version: 4.18.0
       fastify-now:
-        specifier: ^3.0.4
-        version: 3.0.4
+        specifier: ^3.0.5
+        version: 3.0.5
       fastify-plugin:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1867,8 +1867,8 @@ packages:
     resolution: {integrity: sha512-qKRta6N7BWEFVlyonVY/V+BMLgFqktCUV0QjT259ekAIlbVrMaFnFLxJ4s/JPl4tou56S1BzPufI60bLe29fHA==}
     dev: false
 
-  /fastify-now@3.0.4:
-    resolution: {integrity: sha512-fHKzQrmxmpBzyKFhLNnQggXvSpjfpa0jl71ncq7+tm/uoQhP1EQ2lYrDNfNwULk8edvp6ugNq2eZpfEe+u1qpA==}
+  /fastify-now@3.0.5:
+    resolution: {integrity: sha512-fPLRt5u/s+6G/6THTD1ultJOEOAxvJ4ZNAFxk/RRpkYTZ8KrJp40HkfqkQ/BZjbYxoRH7awCee5j0KIYB/EjoA==}
     engines: {node: '>=12.x.x'}
     dependencies:
       fastify-plugin: 4.5.0
