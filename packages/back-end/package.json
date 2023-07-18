@@ -58,6 +58,6 @@
     "env-schema": "^5.2.0",
     "fastify": "^4.20.0",
     "fastify-now": "^3.0.5",
-    "fastify-plugin": "^4.5.0"
+    "fastify-plugin": "^4.5.1"
   }
 }
