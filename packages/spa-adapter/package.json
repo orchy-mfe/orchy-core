@@ -27,7 +27,7 @@
   "devDependencies": {
     "@orchy-mfe/models": "workspace:^",
     "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
+    "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.0.1",
