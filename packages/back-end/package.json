@@ -21,7 +21,7 @@
     "url": "git+https://github.com/orchy-mfe/orchy-core.git"
   },
   "engines": {
-    "node": ">=v18.17.1"
+    "node": ">=v18.18.0"
   },
   "keywords": [
     "nodejs",
