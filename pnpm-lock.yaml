@@ -63,8 +63,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       pino-pretty:
-        specifier: ^10.2.0
-        version: 10.2.0
+        specifier: ^10.2.2
+        version: 10.2.2
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -3262,8 +3262,8 @@ packages:
       readable-stream: 4.1.0
       split2: 4.1.0
 
-  /pino-pretty@10.2.0:
-    resolution: {integrity: sha512-tRvpyEmGtc2D+Lr3FulIZ+R1baggQ4S3xD2Ar93KixFEDx6SEAUP3W5aYuEw1C73d6ROrNcB2IXLteW8itlwhA==}
+  /pino-pretty@10.2.2:
+    resolution: {integrity: sha512-RvAdCQAU51MdVsJdvXX4Bipb52wwldXtOzlva1NT8q2d7tmgYWFIMLhoSnfx2Sr+Hi7BLGpR/n8wgrcq5G/ykA==}
     hasBin: true
     dependencies:
       colorette: 2.0.19
