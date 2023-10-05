@@ -1,5 +1,5 @@
-import {Configuration} from '@orchy-mfe/models'
-import {describe, expect, it, vi} from 'vitest'
+import { Configuration } from '@orchy-mfe/models'
+import { describe, expect, it, vi } from 'vitest'
 
 import HttpConfigurationClient from './httpConfigurationClient'
 
