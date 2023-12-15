@@ -72,8 +72,8 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5
       tap:
-        specifier: ^16.3.9
-        version: 16.3.9(typescript@5.3.3)
+        specifier: ^16.3.10
+        version: 16.3.10(typescript@5.3.3)
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -3883,8 +3883,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap@16.3.9(typescript@5.3.3):
-    resolution: {integrity: sha512-KKmu12hRJhb/kGvVV/UKBOJ90sNoGbcXF0E+VmNqej1DqaCmZHyOXR8R7E66qg2Wor33XhSHGrku5MPYWSRNWw==}
+  /tap@16.3.10(typescript@5.3.3):
+    resolution: {integrity: sha512-q5Am+PpGHS6JSjk/Zn4bCRBihmZVM15v/MYXUy60wenw5HDe7pVrevLCEoMEz7tuw6jaPOJJqni1y8apN23IGw==}
     engines: {node: '>=12'}
     hasBin: true
     peerDependencies:
