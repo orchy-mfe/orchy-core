@@ -11,8 +11,8 @@ importers:
   packages/back-end:
     dependencies:
       '@sinclair/typebox':
-        specifier: ^0.32.0
-        version: 0.32.0
+        specifier: ^0.32.1
+        version: 0.32.1
       ajv:
         specifier: ^8.12.0
         version: 8.12.0
@@ -1147,8 +1147,8 @@ packages:
     dev: true
     optional: true
 
-  /@sinclair/typebox@0.32.0:
-    resolution: {integrity: sha512-FdBgO+ib0JCSPtq55cDva/5xd55vfAAyTXWVLCaTAFzNjVPaR5lNRKoEzMHTtArELEaHNs4E6WmdNJIY+gUoZw==}
+  /@sinclair/typebox@0.32.1:
+    resolution: {integrity: sha512-DJKtxrcKL5MqUc5Gr0w+m/744wXhinq3d3hrRokNz4I9v5JbQCJleYqaQGfFwgkeZKHh01abFevbWX44CmUy1w==}
     dev: false
 
   /@types/chai-subset@1.3.3:
