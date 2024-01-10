@@ -150,7 +150,7 @@ importers:
         version: 5.0.11
       vitest:
         specifier: ^0.31.4
-        version: 0.31.4(happy-dom@9.10.9)
+        version: 0.31.4(happy-dom@12.10.3)
 
   packages/spa-adapter:
     dependencies:
@@ -229,8 +229,8 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0(eslint@8.56.0)
       happy-dom:
-        specifier: ^9.10.9
-        version: 9.10.9
+        specifier: ^12.10.3
+        version: 12.10.3
       prettier:
         specifier: ^3.1.1
         version: 3.1.1
@@ -245,7 +245,7 @@ importers:
         version: 5.0.11
       vitest:
         specifier: ^0.31.4
-        version: 0.31.4(happy-dom@9.10.9)
+        version: 0.31.4(happy-dom@12.10.3)
 
 packages:
 
@@ -1335,7 +1335,7 @@ packages:
       magic-string: 0.30.0
       picocolors: 1.0.0
       std-env: 3.3.2
-      vitest: 0.31.4(happy-dom@9.10.9)
+      vitest: 0.31.4(happy-dom@12.10.3)
     dev: true
 
   /@vitest/expect@0.31.4:
@@ -1943,6 +1943,11 @@ packages:
       once: 1.4.0
     dev: true
 
+  /entities@4.5.0:
+    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
+    engines: {node: '>=0.12'}
+    dev: true
+
   /env-schema@5.2.1:
     resolution: {integrity: sha512-gWMNrQ3dVHAZcCx7epiFwgXcyfBh4heD/6+OK3bEbke3uL+KqwYA9nUOwzJyRZh1cJOFcwdPuY1n0GKSFlSWAg==}
     dependencies:
@@ -2524,11 +2529,11 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /happy-dom@9.10.9:
-    resolution: {integrity: sha512-3RnOyu6buPMpDAyOpp8yfR5Xi/k2p5MhrDwlG/dgpVHkptFN5IqubdbGOQU5luB7ANh6a08GOuiB+Bo9JCzCBw==}
+  /happy-dom@12.10.3:
+    resolution: {integrity: sha512-JzUXOh0wdNGY54oKng5hliuBkq/+aT1V3YpTM+lrN/GoLQTANZsMaIvmHiHe612rauHvPJnDZkZ+5GZR++1Abg==}
     dependencies:
       css.escape: 1.5.1
-      he: 1.2.0
+      entities: 4.5.0
       iconv-lite: 0.6.3
       webidl-conversions: 7.0.0
       whatwg-encoding: 2.0.0
@@ -2550,11 +2555,6 @@ packages:
     dependencies:
       is-stream: 2.0.1
       type-fest: 0.8.1
-    dev: true
-
-  /he@1.2.0:
-    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
-    hasBin: true
     dev: true
 
   /help-me@5.0.0:
@@ -4212,7 +4212,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@0.31.4(happy-dom@9.10.9):
+  /vitest@0.31.4(happy-dom@12.10.3):
     resolution: {integrity: sha512-GoV0VQPmWrUFOZSg3RpQAPN+LPmHg2/gxlMNJlyxJihkz6qReHDV6b0pPDcqFLNEPya4tWJ1pgwUNP9MLmUfvQ==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -4257,7 +4257,7 @@ packages:
       chai: 4.3.7
       concordance: 5.0.4
       debug: 4.3.4(supports-color@5.5.0)
-      happy-dom: 9.10.9
+      happy-dom: 12.10.3
       local-pkg: 0.4.3
       magic-string: 0.30.0
       pathe: 1.1.0
