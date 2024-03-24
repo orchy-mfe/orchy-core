@@ -146,8 +146,8 @@ importers:
         specifier: ^5.4.3
         version: 5.4.3
       vite:
-        specifier: ^5.2.4
-        version: 5.2.4
+        specifier: ^5.2.6
+        version: 5.2.6
       vitest:
         specifier: ^0.31.4
         version: 0.31.4(happy-dom@9.10.9)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.4.3
         version: 5.4.3
       vite:
-        specifier: ^5.2.4
-        version: 5.2.4
+        specifier: ^5.2.6
+        version: 5.2.6
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.4.3
         version: 5.4.3
       vite:
-        specifier: ^5.2.4
-        version: 5.2.4
+        specifier: ^5.2.6
+        version: 5.2.6
       vitest:
         specifier: ^0.31.4
         version: 0.31.4(happy-dom@9.10.9)
@@ -4193,8 +4193,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.2.4:
-    resolution: {integrity: sha512-vjFghvHWidBTinu5TCymJk/lRHlR5ljqB83yugr0HA1xspUPdOZHqbqDLnZ8f9/jINrtFHTCYYyIUi+o+Q5iyg==}
+  /vite@5.2.6:
+    resolution: {integrity: sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
