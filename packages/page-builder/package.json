@@ -34,7 +34,7 @@
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.3",
-    "vite": "^5.2.7",
+    "vite": "^5.2.8",
     "vitest": "^0.31.4"
   },
   "author": "Matteo Pietro Dazzi",
