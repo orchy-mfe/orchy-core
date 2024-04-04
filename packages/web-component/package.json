@@ -45,7 +45,7 @@
     "happy-dom": "^9.10.9",
     "prettier": "^3.2.5",
     "rollup-plugin-visualizer": "^5.12.0",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "vite": "^5.2.8",
     "vitest": "^0.31.4"
   }
