@@ -14,8 +14,8 @@ importers:
         specifier: ^0.32.34
         version: 0.32.34
       ajv:
-        specifier: ^8.12.0
-        version: 8.12.0
+        specifier: ^8.16.0
+        version: 8.16.0
       desm:
         specifier: ^1.3.1
         version: 1.3.1
@@ -909,8 +909,8 @@ packages:
   /@fastify/ajv-compiler@3.5.0:
     resolution: {integrity: sha512-ebbEtlI7dxXF5ziNdr05mOY8NnDiPB1XvAlLHctRt/Rc+C3LCOVW5imUVX+mhvUhnNzmPBHewUkOFgGlCxgdAA==}
     dependencies:
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
+      ajv: 8.16.0
+      ajv-formats: 2.1.1(ajv@8.16.0)
       fast-uri: 2.1.0
     dev: false
 
@@ -1441,7 +1441,7 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ajv-formats@2.1.1(ajv@8.12.0):
+  /ajv-formats@2.1.1(ajv@8.16.0):
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
     peerDependencies:
       ajv: ^8.0.0
@@ -1449,7 +1449,7 @@ packages:
       ajv:
         optional: true
     dependencies:
-      ajv: 8.12.0
+      ajv: 8.16.0
     dev: false
 
   /ajv@6.12.6:
@@ -1461,8 +1461,8 @@ packages:
       uri-js: 4.4.1
     dev: true
 
-  /ajv@8.12.0:
-    resolution: {integrity: sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==}
+  /ajv@8.16.0:
+    resolution: {integrity: sha512-F0twR8U1ZU67JIEtekUcLkXkoO5mMMmgGD8sK/xUFzJ805jxHQl92hImFAqqXMyMYjSPOyUPAwHYhB72g5sTXw==}
     dependencies:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
@@ -1964,7 +1964,7 @@ packages:
   /env-schema@5.2.1:
     resolution: {integrity: sha512-gWMNrQ3dVHAZcCx7epiFwgXcyfBh4heD/6+OK3bEbke3uL+KqwYA9nUOwzJyRZh1cJOFcwdPuY1n0GKSFlSWAg==}
     dependencies:
-      ajv: 8.12.0
+      ajv: 8.16.0
       dotenv: 16.0.1
       dotenv-expand: 10.0.0
     dev: false
@@ -2271,8 +2271,8 @@ packages:
     resolution: {integrity: sha512-VVwK8CFMSALIvt14U8AvrSzQAwN/0vaVRiFFUVlpnXSnDGrSkOAO5MtzyN8oQNjLd5AqTW5OZRgyjoNuAuR3jQ==}
     dependencies:
       '@fastify/deepmerge': 1.1.0
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
+      ajv: 8.16.0
+      ajv-formats: 2.1.1(ajv@8.16.0)
       fast-deep-equal: 3.1.3
       fast-uri: 2.1.0
       rfdc: 1.3.0
