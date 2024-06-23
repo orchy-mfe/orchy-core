@@ -189,8 +189,8 @@ importers:
         specifier: workspace:^
         version: link:../page-builder
       es-module-shims:
-        specifier: ^1.9.0
-        version: 1.9.0
+        specifier: ^1.10.0
+        version: 1.10.0
       light-join:
         specifier: ^1.3.0
         version: 1.3.0
@@ -1969,8 +1969,8 @@ packages:
       dotenv-expand: 10.0.0
     dev: false
 
-  /es-module-shims@1.9.0:
-    resolution: {integrity: sha512-R4lwSjeELpw1Bzu2a7k3nqpxyPMfiXRq7ewqFhydV/zcYgt4b4VZzNonZu/SotJyb4ibEjuqN/OIM4wQCAGmwA==}
+  /es-module-shims@1.10.0:
+    resolution: {integrity: sha512-3PmuShQBd9d8pulTFx6L7HKgncnZ1oeSSbrEfnUasb3Tv974BAvyFtW1HLPJSkh5fCaU9JNZbBzPdbxSwg2zqA==}
     dev: false
 
   /es6-error@4.1.1:
