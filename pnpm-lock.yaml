@@ -20,8 +20,8 @@ importers:
         specifier: ^1.3.1
         version: 1.3.1
       env-schema:
-        specifier: ^5.2.1
-        version: 5.2.1
+        specifier: ^6.0.0
+        version: 6.0.0
       fastify:
         specifier: ^4.28.0
         version: 4.28.0
@@ -1921,8 +1921,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /dotenv@16.0.1:
-    resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
     dev: false
 
@@ -1948,11 +1948,11 @@ packages:
       once: 1.4.0
     dev: true
 
-  /env-schema@5.2.1:
-    resolution: {integrity: sha512-gWMNrQ3dVHAZcCx7epiFwgXcyfBh4heD/6+OK3bEbke3uL+KqwYA9nUOwzJyRZh1cJOFcwdPuY1n0GKSFlSWAg==}
+  /env-schema@6.0.0:
+    resolution: {integrity: sha512-/IHp1EmrfubUOfF1wfe8koDWM5/dxUDylHANPNrPyrsYWJ7KRiB8gXbjtqQBujmOhpSpXXOhhnaL+meb+MaGtA==}
     dependencies:
       ajv: 8.16.0
-      dotenv: 16.0.1
+      dotenv: 16.4.5
       dotenv-expand: 10.0.0
     dev: false
 
