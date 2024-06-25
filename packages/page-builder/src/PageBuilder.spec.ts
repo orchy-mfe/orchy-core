@@ -43,7 +43,7 @@ describe('PageBuilder', () => {
             '<div style="display: flex; flex-direction: column" id="column"><foo-wc orchy-element id="wc"></foo-wc><mfe-wc orchy-micro-frontend id="wc"></mfe-wc></div>'
         ], undefined, {basePath: '/', eventBus: new ReplaySubject()})
 
-        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc id="wc" orchy-element=""></foo-wc><mfe-wc id="wc" orchy-micro-frontend=""></mfe-wc></div></div>')
+        expect(pageBuilt.toString()).toEqual('<div><div style="display: flex; flex-direction: column" id="column"><foo-wc orchy-element="" id="wc"></foo-wc><mfe-wc orchy-micro-frontend="" id="wc"></mfe-wc></div></div>')
         expect(pageBuilt.querySelector('foo-wc')?.eventBus).toBeDefined()
         expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties).toBeDefined()
         expect(pageBuilt.querySelector('mfe-wc')?.orchyProperties.eventBus).toBeDefined()
