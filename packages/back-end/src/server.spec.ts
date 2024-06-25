@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {buildServer} from './server.js'
+import {buildServer} from './server'
 
 describe('Server', () => {
   it('Rejects for missing CONFIG_PATH env variable', async () => {
