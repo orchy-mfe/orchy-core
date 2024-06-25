@@ -56,7 +56,6 @@
     "desm": "^1.3.1",
     "env-schema": "^6.0.0",
     "fastify": "^4.28.0",
-    "fastify-now": "^3.1.0",
     "fastify-plugin": "^4.5.1"
   }
 }

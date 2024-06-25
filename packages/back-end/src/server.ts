@@ -1,8 +1,7 @@
-import {join} from 'desm'
 import fastify from 'fastify'
-import now from 'fastify-now'
 
 import config from './plugins/config.js'
+import configurationFile from './routes/api/v1/configuration/_configurationFile.js'
 
 export const buildServer = async () => {
   const server = fastify({
@@ -19,9 +18,7 @@ export const buildServer = async () => {
   })
 
   await server.register(config)
-  await server.register(now, {
-    routesFolder: join(import.meta.url, 'routes'),
-  })
+  await server.register(configurationFile, {prefix: '/api/v1/configuration'})
   await server.ready()
 
   for (const signal of ['SIGINT', 'SIGTERM']) {
