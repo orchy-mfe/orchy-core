@@ -1,20 +1,17 @@
-import tap from 'tap'
+import {describe, expect, it} from 'vitest'
 
 import {buildServer} from './server.js'
 
-tap.test('Server', (t) => {
-  t.plan(2)
-  t.test('Reject for missing CONFIG_PATH env variable', async (t) => {
-    t.plan(1)
-    t.rejects(buildServer)
+describe('Server', () => {
+  it('Rejects for missing CONFIG_PATH env variable', async () => {
+    await expect(buildServer()).rejects.toBeDefined()
   })
 
-  t.test('Resolve server creation', async (t) => {
+  it('Resolves server creation', async () => {
     process.env.CONFIG_PATH = './'
     const server = await buildServer()
 
-    t.teardown(async () => {
-      await server.close()
-    })
+    await server.close()
   })
 })
+
