@@ -12,9 +12,8 @@
     "postbuild": "cp -r src/testConfig build",
     "start": "node build",
     "dev": "CONFIG_PATH=${PWD}/src/testConfig nodemon | pino-pretty --colorize",
-    "pretest": "npm run build",
-    "test": "NODE_ENV=test tap",
-    "test:watch": "NODE_ENV=test tap -w"
+    "test": "vitest",
+    "test:watch": "vitest --watch"
   },
   "repository": {
     "type": "git",
@@ -39,6 +38,7 @@
     "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
+    "@vitest/coverage-v8": "^1.6.0",
     "esbuild": "^0.21.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -48,8 +48,8 @@
     "pino-pretty": "^11.2.1",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "tap": "^16.3.10",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
     "@sinclair/typebox": "^0.32.34",
@@ -57,7 +57,6 @@
     "desm": "^1.3.1",
     "env-schema": "^6.0.0",
     "fastify": "^4.28.0",
-    "fastify-now": "^3.1.0",
     "fastify-plugin": "^4.5.1"
   }
 }
