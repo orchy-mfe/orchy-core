@@ -1,4 +1,4 @@
-import {describe, expect,it} from 'vitest'
+import {describe, expect, it} from 'vitest'
 
 import LayoutNodeCreator from './LayoutNodeCreator'
 
@@ -36,7 +36,7 @@ describe('LayoutNodeCreator', () => {
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
-        expect(createdNode.toString()).toEqual('<div style="display: flex; flex-direction: column;color:red" id="root"></div>')
+        expect(createdNode.toString()).toEqual('<div id="root" style="display: flex; flex-direction: column;color:red"></div>')
         expect(createdNode.style.toString()).toEqual({
             0: 'color',
         }.toString())
@@ -72,7 +72,7 @@ describe('LayoutNodeCreator', () => {
 
         const createdNode = pageCreator.create() as HTMLElementWithBus
 
-        expect(createdNode.toString()).toEqual('<div style="display: flex; flex-direction: row;color:red" id="root"></div>')
+        expect(createdNode.toString()).toEqual('<div id="root" style="display: flex; flex-direction: row;color:red"></div>')
         expect(createdNode.style.toString()).toEqual({
             0: 'color',
         }.toString())
