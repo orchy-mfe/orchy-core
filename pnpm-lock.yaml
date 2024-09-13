@@ -146,8 +146,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.4
-        version: 5.4.4(@types/node@20.16.5)
+        specifier: ^5.4.5
+        version: 5.4.5(@types/node@20.16.5)
       vitest:
         specifier: ^2.1.0
         version: 2.1.0(@types/node@20.16.5)(happy-dom@14.12.3)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.4
-        version: 5.4.4(@types/node@20.16.5)
+        specifier: ^5.4.5
+        version: 5.4.5(@types/node@20.16.5)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.4
-        version: 5.4.4(@types/node@20.16.5)
+        specifier: ^5.4.5
+        version: 5.4.5(@types/node@20.16.5)
       vitest:
         specifier: ^2.1.0
         version: 2.1.0(@types/node@20.16.5)(happy-dom@14.12.3)
@@ -1923,6 +1923,37 @@ packages:
       terser:
         optional: true
 
+  vite@5.4.5:
+    resolution: {integrity: sha512-pXqR0qtb2bTwLkev4SE3r4abCNioP3GkjvIDLlzziPpXtHgiJIjuKl+1GN6ESOT3wMjG3JTeARopj2SwYaHTOA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+
   vitest@2.1.0:
     resolution: {integrity: sha512-XuuEeyNkqbfr0FtAvd9vFbInSSNY1ykCQTYQ0sj9wPy4hx+1gR7gqVNdW0AX2wrrM1wWlN5fnJDjF9xG6mYRSQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -3538,7 +3569,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
-      vite: 5.4.4(@types/node@20.16.5)
+      vite: 5.4.5(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3551,6 +3582,15 @@ snapshots:
       - terser
 
   vite@5.4.4(@types/node@20.16.5):
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.4.44
+      rollup: 4.21.0
+    optionalDependencies:
+      '@types/node': 20.16.5
+      fsevents: 2.3.3
+
+  vite@5.4.5(@types/node@20.16.5):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.44
