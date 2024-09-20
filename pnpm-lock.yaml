@@ -146,8 +146,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.6
-        version: 5.4.6(@types/node@20.16.5)
+        specifier: ^5.4.7
+        version: 5.4.7(@types/node@20.16.5)
       vitest:
         specifier: ^2.1.1
         version: 2.1.1(@types/node@20.16.5)(happy-dom@14.12.3)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.6
-        version: 5.4.6(@types/node@20.16.5)
+        specifier: ^5.4.7
+        version: 5.4.7(@types/node@20.16.5)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
-        specifier: ^5.4.6
-        version: 5.4.6(@types/node@20.16.5)
+        specifier: ^5.4.7
+        version: 5.4.7(@types/node@20.16.5)
       vitest:
         specifier: ^2.1.1
         version: 2.1.1(@types/node@20.16.5)(happy-dom@14.12.3)
@@ -1900,8 +1900,8 @@ packages:
       terser:
         optional: true
 
-  vite@5.4.6:
-    resolution: {integrity: sha512-IeL5f8OO5nylsgzd9tq4qD2QqI0k2CQLGrWD0rCN0EQJZpBK5vJAx0I+GDkMOXxQX/OfFHMuLIx6ddAxGX/k+Q==}
+  vite@5.4.7:
+    resolution: {integrity: sha512-5l2zxqMEPVENgvzTuBpHer2awaetimj2BGkhBPdnwKbPNOlHsODU+oiazEZzLK7KhAnOrO+XGYJYn4ZlUhDtDQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -3532,7 +3532,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.7(supports-color@5.5.0)
       pathe: 1.1.2
-      vite: 5.4.6(@types/node@20.16.5)
+      vite: 5.4.7(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3553,7 +3553,7 @@ snapshots:
       '@types/node': 20.16.5
       fsevents: 2.3.3
 
-  vite@5.4.6(@types/node@20.16.5):
+  vite@5.4.7(@types/node@20.16.5):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.44
