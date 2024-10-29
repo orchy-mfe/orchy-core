@@ -20,7 +20,7 @@
     "url": "git+https://github.com/orchy-mfe/orchy-core.git"
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=22.11.0"
   },
   "keywords": [
     "nodejs",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/orchy-mfe/orchy-core#readme",
   "devDependencies": {
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.4",
     "@types/tap": "^15.0.12",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
