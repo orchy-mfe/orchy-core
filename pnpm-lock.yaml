@@ -11,8 +11,8 @@ importers:
   packages/back-end:
     dependencies:
       '@sinclair/typebox':
-        specifier: ^0.33.18
-        version: 0.33.18
+        specifier: ^0.33.19
+        version: 0.33.19
       ajv:
         specifier: ^8.17.1
         version: 8.17.1
@@ -734,8 +734,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sinclair/typebox@0.33.18':
-    resolution: {integrity: sha512-DcxnW2yy08Gfkd7Igm9ccGpLwxrSpV/+svYjy8XAxc4nvj0YJVuVEXpUu+qmqV9Hb/UrJRrdMCPeYb9M+Ria4g==}
+  '@sinclair/typebox@0.33.19':
+    resolution: {integrity: sha512-vcnWVOoa+HROcI+3FTyibfo+Sw0KytEpJf1Cm78l4Fn3w0pqHG6tx6+HCBs7eYOUhSUtwVTMzh0tzU7gom9Zpg==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -2294,7 +2294,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.21.0':
     optional: true
 
-  '@sinclair/typebox@0.33.18': {}
+  '@sinclair/typebox@0.33.19': {}
 
   '@types/estree@1.0.5': {}
 
