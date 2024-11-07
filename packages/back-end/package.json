@@ -52,7 +52,7 @@
     "vitest": "^2.1.4"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.33.19",
+    "@sinclair/typebox": "^0.33.20",
     "ajv": "^8.17.1",
     "desm": "^1.3.1",
     "env-schema": "^6.0.0",
