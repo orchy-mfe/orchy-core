@@ -146,8 +146,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.7
-        version: 6.0.7(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.9
+        version: 6.0.9(@types/node@22.10.7)(yaml@2.6.1)
       vitest:
         specifier: ^3.0.2
         version: 3.0.2(@types/node@22.10.7)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.7
-        version: 6.0.7(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.9
+        version: 6.0.9(@types/node@22.10.7)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.7
-        version: 6.0.7(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.9
+        version: 6.0.9(@types/node@22.10.7)(yaml@2.6.1)
       vitest:
         specifier: ^3.0.2
         version: 3.0.2(@types/node@22.10.7)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -2595,6 +2595,46 @@ packages:
 
   vite@6.0.7:
     resolution: {integrity: sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
+        optional: true
+
+  vite@6.0.9:
+    resolution: {integrity: sha512-MSgUxHcaXLtnBPktkbUSoQUANApKYuxZ6DrbVENlIorbhL2dZydTLaZ01tjUoE3szeFzlFk9ANOKk0xurh4MKA==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5292,7 +5332,7 @@ snapshots:
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 2.0.1
-      vite: 6.0.7(@types/node@22.10.7)(yaml@2.6.1)
+      vite: 6.0.9(@types/node@22.10.7)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5308,6 +5348,16 @@ snapshots:
       - yaml
 
   vite@6.0.7(@types/node@22.10.7)(yaml@2.6.1):
+    dependencies:
+      esbuild: 0.24.2
+      postcss: 8.4.49
+      rollup: 4.27.4
+    optionalDependencies:
+      '@types/node': 22.10.7
+      fsevents: 2.3.3
+      yaml: 2.6.1
+
+  vite@6.0.9(@types/node@22.10.7)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
