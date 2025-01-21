@@ -146,8 +146,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.10
-        version: 6.0.10(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.11
+        version: 6.0.11(@types/node@22.10.7)(yaml@2.6.1)
       vitest:
         specifier: ^3.0.2
         version: 3.0.2(@types/node@22.10.7)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.10
-        version: 6.0.10(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.11
+        version: 6.0.11(@types/node@22.10.7)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       vite:
-        specifier: ^6.0.10
-        version: 6.0.10(@types/node@22.10.7)(yaml@2.6.1)
+        specifier: ^6.0.11
+        version: 6.0.11(@types/node@22.10.7)(yaml@2.6.1)
       vitest:
         specifier: ^3.0.2
         version: 3.0.2(@types/node@22.10.7)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -2593,8 +2593,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite@6.0.10:
-    resolution: {integrity: sha512-MEszunEcMo6pFsfXN1GhCFQqnE25tWRH0MA4f0Q7uanACi4y1Us+ZGpTMnITwCTnYzB2b9cpmnelTlxgTBmaBA==}
+  vite@6.0.11:
+    resolution: {integrity: sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5332,7 +5332,7 @@ snapshots:
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 2.0.1
-      vite: 6.0.10(@types/node@22.10.7)(yaml@2.6.1)
+      vite: 6.0.11(@types/node@22.10.7)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5347,7 +5347,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@6.0.10(@types/node@22.10.7)(yaml@2.6.1):
+  vite@6.0.11(@types/node@22.10.7)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
