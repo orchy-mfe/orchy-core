@@ -20,7 +20,7 @@
     "url": "git+https://github.com/orchy-mfe/orchy-core.git"
   },
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.13.1"
   },
   "keywords": [
     "nodejs",
