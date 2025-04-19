@@ -43,7 +43,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.1
-        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1))
       esbuild:
         specifier: ^0.25.2
         version: 0.25.2
@@ -76,7 +76,7 @@ importers:
         version: 5.8.3
       vitest:
         specifier: ^3.1.1
-        version: 3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1)
 
   packages/models:
     dependencies:
@@ -126,7 +126,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.1
-        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1))
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -150,7 +150,7 @@ importers:
         version: 6.3.2(@types/node@22.14.1)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.1
-        version: 3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1)
 
   packages/spa-adapter:
     dependencies:
@@ -215,7 +215,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.1
-        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1))
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -229,8 +229,8 @@ importers:
         specifier: ^12.1.1
         version: 12.1.1(eslint@8.57.1)
       happy-dom:
-        specifier: ^14.12.3
-        version: 14.12.3
+        specifier: ^17.4.4
+        version: 17.4.4
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -245,7 +245,7 @@ importers:
         version: 6.3.2(@types/node@22.14.1)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.1
-        version: 3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1)
 
 packages:
 
@@ -1405,10 +1405,6 @@ packages:
   end-of-stream@1.4.4:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
 
-  entities@4.5.0:
-    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
-    engines: {node: '>=0.12'}
-
   env-paths@2.2.1:
     resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
     engines: {node: '>=6'}
@@ -1677,9 +1673,9 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
-  happy-dom@14.12.3:
-    resolution: {integrity: sha512-vsYlEs3E9gLwA1Hp+w3qzu+RUDFf4VTT8cyKqVICoZ2k7WM++Qyd2LwzyTi5bqMJFiIC/vNpTDYuxdreENRK/g==}
-    engines: {node: '>=16.0.0'}
+  happy-dom@17.4.4:
+    resolution: {integrity: sha512-/Pb0ctk3HTZ5xEL3BZ0hK1AqDSAUuRQitOmROPHhfUYEWpmTImwfD8vFDGADmMAX0JYgbcgxWoLFKtsWhcpuVA==}
+    engines: {node: '>=18.0.0'}
 
   has-flag@3.0.0:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
@@ -3780,7 +3776,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitest/coverage-v8@3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1))':
+  '@vitest/coverage-v8@3.1.1(vitest@3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
@@ -3794,7 +3790,7 @@ snapshots:
       std-env: 3.8.1
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1)
+      vitest: 3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -4109,8 +4105,6 @@ snapshots:
   end-of-stream@1.4.4:
     dependencies:
       once: 1.4.0
-
-  entities@4.5.0: {}
 
   env-paths@2.2.1: {}
 
@@ -4435,9 +4429,8 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  happy-dom@14.12.3:
+  happy-dom@17.4.4:
     dependencies:
-      entities: 4.5.0
       webidl-conversions: 7.0.0
       whatwg-mimetype: 3.0.0
 
@@ -5604,7 +5597,7 @@ snapshots:
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vitest@3.1.1(@types/node@22.14.1)(happy-dom@14.12.3)(yaml@2.6.1):
+  vitest@3.1.1(@types/node@22.14.1)(happy-dom@17.4.4)(yaml@2.6.1):
     dependencies:
       '@vitest/expect': 3.1.1
       '@vitest/mocker': 3.1.1(vite@6.2.4(@types/node@22.14.1)(yaml@2.6.1))
@@ -5628,7 +5621,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.14.1
-      happy-dom: 14.12.3
+      happy-dom: 17.4.4
     transitivePeerDependencies:
       - jiti
       - less
