@@ -30,11 +30,11 @@ importers:
         version: 5.0.1
     devDependencies:
       '@types/node':
-        specifier: ^22.15.0
-        version: 22.15.0
+        specifier: ^22.15.2
+        version: 22.15.2
       '@types/tap':
         specifier: ^18.0.0
-        version: 18.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+        version: 18.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.18.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
@@ -43,7 +43,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.2
-        version: 3.1.2(vitest@3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.2(vitest@3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1))
       esbuild:
         specifier: ^0.25.3
         version: 0.25.3
@@ -76,7 +76,7 @@ importers:
         version: 5.8.3
       vitest:
         specifier: ^3.1.2
-        version: 3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1)
 
   packages/models:
     dependencies:
@@ -126,7 +126,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.2
-        version: 3.1.2(vitest@3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.2(vitest@3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1))
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -147,10 +147,10 @@ importers:
         version: 5.8.3
       vite:
         specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.0)(yaml@2.6.1)
+        version: 6.3.3(@types/node@22.15.2)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.2
-        version: 3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1)
 
   packages/spa-adapter:
     dependencies:
@@ -181,7 +181,7 @@ importers:
         version: 5.8.3
       vite:
         specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.0)(yaml@2.6.1)
+        version: 6.3.3(@types/node@22.15.2)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -215,7 +215,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: ^3.1.2
-        version: 3.1.2(vitest@3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1))
+        version: 3.1.2(vitest@3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1))
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -242,10 +242,10 @@ importers:
         version: 5.8.3
       vite:
         specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.0)(yaml@2.6.1)
+        version: 6.3.3(@types/node@22.15.2)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.2
-        version: 3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1)
+        version: 3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1)
 
 packages:
 
@@ -889,8 +889,8 @@ packages:
   '@types/istanbul-lib-coverage@2.0.6':
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
 
-  '@types/node@22.15.0':
-    resolution: {integrity: sha512-99S8dWD2DkeE6PBaEDw+In3aar7hdoBvjyJMR6vaKBTzpvR0P00ClzJMOoVrj9D2+Sy/YCwACYHnBTpMhg1UCA==}
+  '@types/node@22.15.2':
+    resolution: {integrity: sha512-uKXqKN9beGoMdBfcaTY1ecwz6ctxuJAcUlwE55938g0ZJ8lRxwAZqRz2AJ4pzpt5dHdTPMB863UZ0ESiFUcP7A==}
 
   '@types/tap@18.0.0':
     resolution: {integrity: sha512-caqy4dfOj/mdGpMdjRIsJc0HDCMUeCLCxbf1mlfAbpDGzOOqd5yQ4hRMxiER+sR7Wx1y3gNEPqFw0ySp4uI/jQ==}
@@ -3008,14 +3008,14 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@isaacs/ts-node-temp-fork-for-pr-2009@10.9.7(@types/node@22.15.0)(typescript@5.5.4)':
+  '@isaacs/ts-node-temp-fork-for-pr-2009@10.9.7(@types/node@22.15.2)(typescript@5.5.4)':
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node14': 14.1.2
       '@tsconfig/node16': 16.1.3
       '@tsconfig/node18': 18.2.4
       '@tsconfig/node20': 20.1.4
-      '@types/node': 22.15.0
+      '@types/node': 22.15.2
       acorn: 8.9.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -3024,14 +3024,14 @@ snapshots:
       typescript: 5.5.4
       v8-compile-cache-lib: 3.0.1
 
-  '@isaacs/ts-node-temp-fork-for-pr-2009@10.9.7(@types/node@22.15.0)(typescript@5.8.3)':
+  '@isaacs/ts-node-temp-fork-for-pr-2009@10.9.7(@types/node@22.15.2)(typescript@5.8.3)':
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node14': 14.1.2
       '@tsconfig/node16': 16.1.3
       '@tsconfig/node18': 18.2.4
       '@tsconfig/node20': 20.1.4
-      '@types/node': 22.15.0
+      '@types/node': 22.15.2
       acorn: 8.9.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -3246,19 +3246,19 @@ snapshots:
 
   '@sinclair/typebox@0.33.22': {}
 
-  '@tapjs/after-each@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/after-each@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       function-loop: 4.0.0
 
-  '@tapjs/after@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/after@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       is-actual-promise: 1.0.2
 
-  '@tapjs/asserts@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tapjs/asserts@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/stack': 4.0.0
       is-actual-promise: 1.0.2
       tcompare: 9.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3267,35 +3267,35 @@ snapshots:
       - react
       - react-dom
 
-  '@tapjs/before-each@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/before-each@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       function-loop: 4.0.0
 
-  '@tapjs/before@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/before@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       is-actual-promise: 1.0.2
 
-  '@tapjs/chdir@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/chdir@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@tapjs/config@5.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/config@5.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       chalk: 5.3.0
       jackspeak: 4.0.1
       polite-json: 5.0.0
       tap-yaml: 4.0.0
       walk-up-path: 4.0.0
 
-  '@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tapjs/processinfo': 3.1.8
       '@tapjs/stack': 4.0.0
-      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       async-hook-domain: 4.0.1
       diff: 5.2.0
       is-actual-promise: 1.0.2
@@ -3316,33 +3316,33 @@ snapshots:
     dependencies:
       minipass: 7.1.2
 
-  '@tapjs/filter@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/filter@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@tapjs/fixture@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/fixture@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       mkdirp: 3.0.1
       rimraf: 6.0.1
 
-  '@tapjs/intercept@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/intercept@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/stack': 4.0.0
 
-  '@tapjs/mock@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/mock@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/stack': 4.0.0
       resolve-import: 2.0.0
       walk-up-path: 4.0.0
 
-  '@tapjs/node-serialize@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/node-serialize@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/error-serdes': 4.0.0
       '@tapjs/stack': 4.0.0
       tap-parser: 18.0.0
@@ -3354,10 +3354,10 @@ snapshots:
       signal-exit: 4.1.0
       uuid: 8.3.2
 
-  '@tapjs/reporter@4.0.1(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))':
+  '@tapjs/reporter@4.0.1(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))':
     dependencies:
-      '@tapjs/config': 5.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/config': 5.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/stack': 4.0.0
       chalk: 5.3.0
       ink: 5.1.0(react@18.3.1)
@@ -3378,17 +3378,17 @@ snapshots:
       - react-dom
       - utf-8-validate
 
-  '@tapjs/run@4.0.1(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tapjs/run@4.0.1(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/config': 5.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/config': 5.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tapjs/processinfo': 3.1.8
-      '@tapjs/reporter': 4.0.1(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))
-      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/reporter': 4.0.1(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))
+      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       c8: 10.1.2
       chalk: 5.3.0
       chokidar: 3.6.0
@@ -3422,9 +3422,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@tapjs/snapshot@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tapjs/snapshot@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       is-actual-promise: 1.0.2
       tcompare: 9.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       trivial-deferred: 2.0.0
@@ -3432,36 +3432,36 @@ snapshots:
       - react
       - react-dom
 
-  '@tapjs/spawn@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/spawn@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@tapjs/stack@4.0.0': {}
 
-  '@tapjs/stdin@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/stdin@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tapjs/test@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.0)(typescript@5.5.4)
-      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/after-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/asserts': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/before-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/chdir': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/filter': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/fixture': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/intercept': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/mock': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/node-serialize': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/snapshot': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/typescript': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(typescript@5.5.4)
-      '@tapjs/worker': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.2)(typescript@5.5.4)
+      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/after-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/asserts': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/before-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/chdir': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/filter': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/fixture': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/intercept': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/mock': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/node-serialize': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/snapshot': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/typescript': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(typescript@5.5.4)
+      '@tapjs/worker': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       glob: 11.0.0
       jackspeak: 4.0.1
       mkdirp: 3.0.1
@@ -3480,29 +3480,29 @@ snapshots:
       - react
       - react-dom
 
-  '@tapjs/typescript@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(typescript@5.5.4)':
+  '@tapjs/typescript@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(typescript@5.5.4)':
     dependencies:
-      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.0)(typescript@5.5.4)
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.2)(typescript@5.5.4)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
       - '@types/node'
       - typescript
 
-  '@tapjs/typescript@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(typescript@5.8.3)':
+  '@tapjs/typescript@3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(typescript@5.8.3)':
     dependencies:
-      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.0)(typescript@5.8.3)
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@22.15.2)(typescript@5.8.3)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
       - '@types/node'
       - typescript
 
-  '@tapjs/worker@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@tapjs/worker@4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@tsconfig/node14@14.1.2': {}
 
@@ -3523,13 +3523,13 @@ snapshots:
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
-  '@types/node@22.15.0':
+  '@types/node@22.15.2':
     dependencies:
       undici-types: 6.21.0
 
-  '@types/tap@18.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
+  '@types/tap@18.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
     dependencies:
-      tap: 21.0.1(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+      tap: 21.0.1(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3630,7 +3630,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitest/coverage-v8@3.1.2(vitest@3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1))':
+  '@vitest/coverage-v8@3.1.2(vitest@3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
@@ -3644,7 +3644,7 @@ snapshots:
       std-env: 3.9.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1)
+      vitest: 3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -3655,13 +3655,13 @@ snapshots:
       chai: 5.2.0
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.1.2(vite@6.3.2(@types/node@22.15.0)(yaml@2.6.1))':
+  '@vitest/mocker@3.1.2(vite@6.3.2(@types/node@22.15.2)(yaml@2.6.1))':
     dependencies:
       '@vitest/spy': 3.1.2
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 6.3.2(@types/node@22.15.0)(yaml@2.6.1)
+      vite: 6.3.2(@types/node@22.15.2)(yaml@2.6.1)
 
   '@vitest/pretty-format@3.1.2':
     dependencies:
@@ -5221,27 +5221,27 @@ snapshots:
       yaml: 2.6.1
       yaml-types: 0.4.0(yaml@2.6.1)
 
-  tap@21.0.1(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3):
+  tap@21.0.1(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3):
     dependencies:
-      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/after-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/asserts': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/before-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/chdir': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/core': 4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/filter': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/fixture': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/intercept': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/mock': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/node-serialize': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/run': 4.0.1(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/snapshot': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tapjs/typescript': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.0)(typescript@5.8.3)
-      '@tapjs/worker': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/after': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/after-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/asserts': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/before': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/before-each': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/chdir': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/core': 4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/filter': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/fixture': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/intercept': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/mock': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/node-serialize': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/run': 4.0.1(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/snapshot': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/spawn': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/stdin': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@tapjs/test': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tapjs/typescript': 3.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/node@22.15.2)(typescript@5.8.3)
+      '@tapjs/worker': 4.0.0(@tapjs/core@4.0.0(@types/node@22.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       resolve-import: 2.0.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -5394,13 +5394,13 @@ snapshots:
 
   validate-npm-package-name@5.0.1: {}
 
-  vite-node@3.1.2(@types/node@22.15.0)(yaml@2.6.1):
+  vite-node@3.1.2(@types/node@22.15.2)(yaml@2.6.1):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0(supports-color@5.5.0)
       es-module-lexer: 1.6.0
       pathe: 2.0.3
-      vite: 6.3.3(@types/node@22.15.0)(yaml@2.6.1)
+      vite: 6.3.3(@types/node@22.15.2)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5415,7 +5415,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@6.3.2(@types/node@22.15.0)(yaml@2.6.1):
+  vite@6.3.2(@types/node@22.15.2)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.3(picomatch@4.0.2)
@@ -5424,11 +5424,11 @@ snapshots:
       rollup: 4.40.0
       tinyglobby: 0.2.12
     optionalDependencies:
-      '@types/node': 22.15.0
+      '@types/node': 22.15.2
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vite@6.3.3(@types/node@22.15.0)(yaml@2.6.1):
+  vite@6.3.3(@types/node@22.15.2)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
@@ -5437,14 +5437,14 @@ snapshots:
       rollup: 4.40.0
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 22.15.0
+      '@types/node': 22.15.2
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vitest@3.1.2(@types/node@22.15.0)(happy-dom@14.12.3)(yaml@2.6.1):
+  vitest@3.1.2(@types/node@22.15.2)(happy-dom@14.12.3)(yaml@2.6.1):
     dependencies:
       '@vitest/expect': 3.1.2
-      '@vitest/mocker': 3.1.2(vite@6.3.2(@types/node@22.15.0)(yaml@2.6.1))
+      '@vitest/mocker': 3.1.2(vite@6.3.2(@types/node@22.15.2)(yaml@2.6.1))
       '@vitest/pretty-format': 3.1.2
       '@vitest/runner': 3.1.2
       '@vitest/snapshot': 3.1.2
@@ -5461,11 +5461,11 @@ snapshots:
       tinyglobby: 0.2.13
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
-      vite: 6.3.2(@types/node@22.15.0)(yaml@2.6.1)
-      vite-node: 3.1.2(@types/node@22.15.0)(yaml@2.6.1)
+      vite: 6.3.2(@types/node@22.15.2)(yaml@2.6.1)
+      vite-node: 3.1.2(@types/node@22.15.2)(yaml@2.6.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.15.0
+      '@types/node': 22.15.2
       happy-dom: 14.12.3
     transitivePeerDependencies:
       - jiti
