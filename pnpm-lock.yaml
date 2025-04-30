@@ -146,8 +146,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.3)(yaml@2.6.1)
+        specifier: ^6.3.4
+        version: 6.3.4(@types/node@22.15.3)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.2
         version: 3.1.2(@types/node@22.15.3)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.3)(yaml@2.6.1)
+        specifier: ^6.3.4
+        version: 6.3.4(@types/node@22.15.3)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@22.15.3)(yaml@2.6.1)
+        specifier: ^6.3.4
+        version: 6.3.4(@types/node@22.15.3)(yaml@2.6.1)
       vitest:
         specifier: ^3.1.2
         version: 3.1.2(@types/node@22.15.3)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -2670,8 +2670,8 @@ packages:
       yaml:
         optional: true
 
-  vite@6.3.3:
-    resolution: {integrity: sha512-5nXH+QsELbFKhsEfWLkHrvgRpTdGJzqOZ+utSdmPTvwHmvU6ITTm3xx+mRusihkcI8GeC7lCDyn3kDtiki9scw==}
+  vite@6.3.4:
+    resolution: {integrity: sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5400,7 +5400,7 @@ snapshots:
       debug: 4.4.0(supports-color@5.5.0)
       es-module-lexer: 1.6.0
       pathe: 2.0.3
-      vite: 6.3.3(@types/node@22.15.3)(yaml@2.6.1)
+      vite: 6.3.4(@types/node@22.15.3)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5428,7 +5428,7 @@ snapshots:
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vite@6.3.3(@types/node@22.15.3)(yaml@2.6.1):
+  vite@6.3.4(@types/node@22.15.3)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
