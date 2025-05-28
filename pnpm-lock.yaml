@@ -235,8 +235,8 @@ importers:
         specifier: ^3.5.3
         version: 3.5.3
       rollup-plugin-visualizer:
-        specifier: ^5.13.1
-        version: 5.13.1(rollup@4.40.0)
+        specifier: ^6.0.1
+        version: 6.0.1(rollup@4.40.0)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -2274,10 +2274,9 @@ packages:
     engines: {node: 20 || >=22}
     hasBin: true
 
-  rollup-plugin-visualizer@5.13.1:
-    resolution: {integrity: sha512-vMg8i6BprL8aFm9DKvL2c8AwS8324EgymYQo9o6E26wgVvwMhsJxS37aNL6ZsU7X9iAcMYwdME7gItLfG5fwJg==}
+  rollup-plugin-visualizer@6.0.1:
+    resolution: {integrity: sha512-NjlGElvLXCSZSAi3gNRZbfX3qlQbQcJ9TW97c5JpqfVwMhttj9YwEdPwcvbKj91RnMX2PWAjonvSEv6UEYtnRQ==}
     engines: {node: '>=18'}
-    deprecated: Contains unintended breaking changes
     hasBin: true
     peerDependencies:
       rolldown: 1.x
@@ -4944,7 +4943,7 @@ snapshots:
       glob: 11.0.0
       package-json-from-dist: 1.0.0
 
-  rollup-plugin-visualizer@5.13.1(rollup@4.40.0):
+  rollup-plugin-visualizer@6.0.1(rollup@4.40.0):
     dependencies:
       open: 8.4.0
       picomatch: 4.0.2
