@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/orchy-mfe/orchy-core#readme",
   "devDependencies": {
-    "@types/node": "^22.15.30",
+    "@types/node": "^22.15.31",
     "@types/tap": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
