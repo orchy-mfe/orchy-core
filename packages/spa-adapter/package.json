@@ -28,7 +28,7 @@
     "@orchy-mfe/models": "workspace:^",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-prettier": "^5.5.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
