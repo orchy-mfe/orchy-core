@@ -189,8 +189,8 @@ importers:
         specifier: workspace:^
         version: link:../page-builder
       es-module-shims:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^2.6.1
+        version: 2.6.1
       light-join:
         specifier: ^1.3.0
         version: 1.3.0
@@ -1346,8 +1346,8 @@ packages:
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
 
-  es-module-shims@2.6.0:
-    resolution: {integrity: sha512-R5TdSd1rN4ok3gUEpG4H8JmrfexQf06yJ1c3VY3xqxt+S4rsaN0wzMHo4XnDtrX/zxOO0B9VhG/pFbsJ8WRvpg==}
+  es-module-shims@2.6.1:
+    resolution: {integrity: sha512-ZdU6uF4Xka2i0ZnBT+gMt0KIaQb7yCIU0aTPk9gwgLzv3uhtHhCdcgfoQkFQzOZKSh5YJYgSBqAO0yDgRy9oig==}
 
   es-toolkit@1.29.0:
     resolution: {integrity: sha512-GjTll+E6APcfAQA09D89HdT8Qn2Yb+TeDSDBTMcxAo+V+w1amAtCI15LJu4YPH/UCPoSo/F47Gr1LIM0TE0lZA==}
@@ -3970,7 +3970,7 @@ snapshots:
 
   es-module-lexer@1.7.0: {}
 
-  es-module-shims@2.6.0: {}
+  es-module-shims@2.6.1: {}
 
   es-toolkit@1.29.0: {}
 
