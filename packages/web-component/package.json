@@ -44,7 +44,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "happy-dom": "^14.12.3",
     "prettier": "^3.6.2",
-    "rollup-plugin-visualizer": "^6.0.3",
+    "rollup-plugin-visualizer": "^6.0.4",
     "typescript": "^5.9.3",
     "vite": "^6.3.6",
     "vitest": "^3.2.4"
