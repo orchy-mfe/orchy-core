@@ -146,8 +146,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.3.7
-        version: 6.3.7(@types/node@22.18.10)(yaml@2.6.1)
+        specifier: ^6.4.0
+        version: 6.4.0(@types/node@22.18.10)(yaml@2.6.1)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@22.18.10)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.3.7
-        version: 6.3.7(@types/node@22.18.10)(yaml@2.6.1)
+        specifier: ^6.4.0
+        version: 6.4.0(@types/node@22.18.10)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.3.7
-        version: 6.3.7(@types/node@22.18.10)(yaml@2.6.1)
+        specifier: ^6.4.0
+        version: 6.4.0(@types/node@22.18.10)(yaml@2.6.1)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@22.18.10)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -2692,8 +2692,8 @@ packages:
       yaml:
         optional: true
 
-  vite@6.3.7:
-    resolution: {integrity: sha512-mQYaKepA0NGMBsz8Xktt3tJUG5ELE2iT7IJ+ssXI6nxVdE2sFc/d/6w/JByqMLvWg8hNKHpPgzjgOkrhpKFnrA==}
+  vite@6.4.0:
+    resolution: {integrity: sha512-oLnWs9Hak/LOlKjeSpOwD6JMks8BeICEdYMJBf6P4Lac/pO9tKiv/XhXnAM7nNfSkZahjlCZu9sS50zL8fSnsw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5446,7 +5446,7 @@ snapshots:
       debug: 4.4.1
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 6.3.7(@types/node@22.18.10)(yaml@2.6.1)
+      vite: 6.4.0(@types/node@22.18.10)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5474,7 +5474,7 @@ snapshots:
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vite@6.3.7(@types/node@22.18.10)(yaml@2.6.1):
+  vite@6.4.0(@types/node@22.18.10)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.11
       fdir: 6.4.4(picomatch@4.0.2)
