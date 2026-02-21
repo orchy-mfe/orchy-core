@@ -42,7 +42,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "happy-dom": "^14.12.3",
+    "happy-dom": "^20.7.0",
     "prettier": "^3.8.1",
     "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "^5.9.3",
