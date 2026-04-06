@@ -146,8 +146,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.4.1
-        version: 6.4.1(@types/node@24.9.1)(yaml@2.6.1)
+        specifier: ^6.4.2
+        version: 6.4.2(@types/node@24.9.1)(yaml@2.6.1)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@24.9.1)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -180,8 +180,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.4.1
-        version: 6.4.1(@types/node@24.9.1)(yaml@2.6.1)
+        specifier: ^6.4.2
+        version: 6.4.2(@types/node@24.9.1)(yaml@2.6.1)
 
   packages/web-component:
     dependencies:
@@ -241,8 +241,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^6.4.1
-        version: 6.4.1(@types/node@24.9.1)(yaml@2.6.1)
+        specifier: ^6.4.2
+        version: 6.4.2(@types/node@24.9.1)(yaml@2.6.1)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@24.9.1)(happy-dom@14.12.3)(yaml@2.6.1)
@@ -2706,10 +2706,6 @@ packages:
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
-  tinyglobby@0.2.13:
-    resolution: {integrity: sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==}
-    engines: {node: '>=12.0.0'}
-
   tinyglobby@0.2.14:
     resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
     engines: {node: '>=12.0.0'}
@@ -2862,8 +2858,8 @@ packages:
       yaml:
         optional: true
 
-  vite@6.4.1:
-    resolution: {integrity: sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==}
+  vite@6.4.2:
+    resolution: {integrity: sha512-2N/55r4JDJ4gdrCvGgINMy+HH3iRpNIz8K6SFwVsA+JbQScLiC+clmAxBgwiSPgcG9U15QmvqCGWzMbqda5zGQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -5624,11 +5620,6 @@ snapshots:
 
   tinyexec@0.3.2: {}
 
-  tinyglobby@0.2.13:
-    dependencies:
-      fdir: 6.4.4(picomatch@4.0.2)
-      picomatch: 4.0.2
-
   tinyglobby@0.2.14:
     dependencies:
       fdir: 6.4.4(picomatch@4.0.2)
@@ -5731,7 +5722,7 @@ snapshots:
       debug: 4.4.1(supports-color@5.5.0)
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 6.4.1(@types/node@24.9.1)(yaml@2.6.1)
+      vite: 6.4.2(@types/node@24.9.1)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -5753,13 +5744,13 @@ snapshots:
       picomatch: 4.0.2
       postcss: 8.5.3
       rollup: 4.40.0
-      tinyglobby: 0.2.13
+      tinyglobby: 0.2.14
     optionalDependencies:
       '@types/node': 24.9.1
       fsevents: 2.3.3
       yaml: 2.6.1
 
-  vite@6.4.1(@types/node@24.9.1)(yaml@2.6.1):
+  vite@6.4.2(@types/node@24.9.1)(yaml@2.6.1):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.4.4(picomatch@4.0.2)
